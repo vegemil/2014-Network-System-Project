@@ -20,6 +20,7 @@ public class MainActivity extends ActionBarActivity {
 
     Button a = new Button;
     Button b = new Button;
+    Button c = new Button;
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
