@@ -25,6 +25,7 @@ public class MainActivity extends ActionBarActivity {
         }
         
         int a;
+        int c;
     }
 
 
