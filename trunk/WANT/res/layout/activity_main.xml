@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id = "@+id/container" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/main_background" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignRight="@+id/imageButton1"
+        android:layout_below="@+id/imageButton1"
+        android:layout_marginTop="26dp"
+        android:src="@drawable/attendance_button" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignTop="@+id/imageButton3"
+        android:layout_toRightOf="@+id/imageButton3"
+        android:src="@drawable/login" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignLeft="@+id/imageButton4"
+        android:layout_alignTop="@+id/imageButton1"
+        android:src="@drawable/community_button" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="84dp"
+        android:src="@drawable/majorinformation_button" />
+
+</RelativeLayout>
