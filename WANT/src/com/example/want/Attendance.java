@@ -34,7 +34,7 @@ public class Attendance extends ActionBarActivity  implements OnItemSelectedList
 		spin.setOnItemSelectedListener(this);
 
 		Spinner spins = (Spinner) findViewById(R.id.spinner1);
-		spins.setOnItemSelectedListener((OnItemSelectedListener) this);
+		spins.setOnItemSelectedListener(this);
 
 		ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, items);
