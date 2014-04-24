@@ -22,6 +22,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="Community"></activity>
+        <activity android:name="Firstgrader_Notice"></activity>
+        <activity android:name="Fourthgrader_Notice"></activity>
+        <activity android:name="Join"></activity>
+        <activity android:name="Login"></activity>
+        <activity android:name="Major"></activity>
+        <activity android:name="Major_Information"></activity>
+        <activity android:name="Major_Introduction"></activity>
+        <activity android:name="Major_Notice"></activity>
+        <activity android:name="Professor_Introduction"></activity>
+        <activity android:name="Secondgrader_Notice"></activity>
+        <activity android:name="Thirdgrader_Notice"></activity>
+        <activity android:name="Timetable"></activity>
     </application>
 
 </manifest>
