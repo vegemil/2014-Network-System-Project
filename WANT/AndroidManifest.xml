@@ -35,6 +35,7 @@
         <activity android:name="Secondgrader_Notice"></activity>
         <activity android:name="Thirdgrader_Notice"></activity>
         <activity android:name="Timetable"></activity>
+        <activity android:name="Attendance" android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
