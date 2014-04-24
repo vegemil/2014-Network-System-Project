@@ -11,7 +11,7 @@ public class Login extends ActionBarActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.join);
+		setContentView(R.layout.login);
 		
 		// ¾×¼Ç¹Ù ¼û±è
 		ActionBar actionBar = getSupportActionBar();
