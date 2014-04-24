@@ -4,7 +4,7 @@
     android:layout_height="fill_parent" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/joinbackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -12,16 +12,16 @@
         android:src="@drawable/join_background" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/mark"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_alignBottom="@+id/imageButton1"
+        android:layout_alignBottom="@+id/attendanceButton"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="18dp"
         android:src="@drawable/computerengineering1_mark" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/homeButton"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_alignParentRight="true"
@@ -30,80 +30,81 @@
         android:src="@drawable/home1_button" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/joinname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/imageView2"
+        android:layout_below="@+id/mark"
         android:layout_marginTop="44dp"
         android:src="@drawable/name_button" />
 
+    <ImageButton
+        android:id="@+id/joinokButton"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignRight="@+id/homeButton"
+        android:layout_below="@+id/password"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ok_button" />
+
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/joingrade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/imageView3"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/name"
         android:src="@drawable/grade_button" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/joinid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/imageView4"
-        android:layout_marginTop="20dp"
+        android:layout_centerVertical="true"
         android:src="@drawable/id_button" />
 
+    <EditText
+        android:id="@+id/joinpasswordedit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/password"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/joinidedit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/joingradeedit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/grade"
+        android:layout_alignParentRight="true"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/joinnameedit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/name"
+        android:ems="10" />
+
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/joinpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/imageView5"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/id"
         android:src="@drawable/password_button" />
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/imageView3"
-        android:ems="10" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/imageView4"
-        android:ems="10" />
-
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignTop="@+id/imageView5"
-        android:ems="10" />
-
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/imageView6"
-        android:ems="10" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_alignRight="@+id/imageButton1"
-        android:layout_below="@+id/editText4"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/ok_button" />
 
 </RelativeLayout>

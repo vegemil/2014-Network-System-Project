@@ -4,7 +4,7 @@
     android:layout_height="fill_parent" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/loginbackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -12,7 +12,7 @@
         android:src="@drawable/login_background" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/homeButton"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_alignParentRight="true"
@@ -21,65 +21,64 @@
         android:src="@drawable/home1_button" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/mark"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_alignBottom="@+id/imageButton1"
+        android:layout_alignBottom="@+id/attendanceButton"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="18dp"
         android:src="@drawable/computerengineering1_mark" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/loginidedit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView3"
-        android:layout_toRightOf="@+id/imageView3"
+        android:layout_above="@+id/loginpassword"
+        android:layout_alignParentRight="true"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/loginpasswordedit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:ems="10" >
 
         <requestFocus />
     </EditText>
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView4"
-        android:layout_toRightOf="@+id/imageView4"
-        android:ems="10" />
-
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/loginpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/imageButton2"
-        android:layout_alignLeft="@+id/imageView3"
-        android:layout_marginBottom="18dp"
+        android:layout_alignBottom="@+id/loginpasswordedit"
+        android:layout_alignLeft="@+id/mark"
         android:src="@drawable/password_button" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/imageButton3"
-        android:src="@drawable/ok_button" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_alignTop="@+id/imageButton2"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/join_button" />
-
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/loginid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/imageView4"
-        android:layout_alignLeft="@+id/imageView2"
-        android:layout_marginBottom="28dp"
+        android:layout_above="@+id/loginpassword"
+        android:layout_alignParentLeft="true"
         android:src="@drawable/id_button" />
+
+    <ImageButton
+        android:id="@+id/joinButton"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/loginpasswordedit"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/mark"
+        android:src="@drawable/join_button" />
+
+    <ImageButton
+        android:id="@+id/loginokButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/joinButton"
+        android:src="@drawable/ok_button" />
 
 </RelativeLayout>
