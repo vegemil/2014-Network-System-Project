@@ -49,11 +49,13 @@
 
     <ImageButton
         android:id="@+id/homeButton"
-        android:layout_width="60dp"
-        android:layout_height="55dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/communityButton"
-        android:src="@drawable/home_button" />
+        android:background="@drawable/home1_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/home1_button" />
 
     <ImageView
         android:id="@+id/mark"
