@@ -300,7 +300,7 @@ int id expand_activities_button 0x7f050026
 int id expanded_menu 0x7f05002c
 int id firstgraderButton 0x7f0500ba
 int id firstgradernotice 0x7f0500be
-int id fourthgraderButton 0x7f0500bc
+int id fourthgraderButton 0x7f0500bd
 int id fourthgradernotice 0x7f0500bf
 int id grade 0x7f0500ca
 int id home 0x7f050014
@@ -357,7 +357,7 @@ int id search_mag_icon 0x7f050035
 int id search_plate 0x7f050036
 int id search_src_text 0x7f050037
 int id search_voice_btn 0x7f05003b
-int id secondgraderButton 0x7f0500bd
+int id secondgraderButton 0x7f0500bb
 int id secondgradernotice 0x7f0500da
 int id shortcut 0x7f05002e
 int id showCustom 0x7f050007
@@ -481,7 +481,7 @@ int id textView96 0x7f0500b0
 int id textView97 0x7f0500b1
 int id textView98 0x7f0500b2
 int id textView99 0x7f0500b3
-int id thirdgraderButton 0x7f0500bb
+int id thirdgraderButton 0x7f0500bc
 int id thirdgradernotice 0x7f0500db
 int id timetable 0x7f0500dc
 int id title 0x7f05002b
