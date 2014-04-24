@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 public class MainActivity extends ActionBarActivity {
@@ -47,8 +46,8 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				//Intent intent = new Intent(getApplicationContext(), Timetable.class);
-				//startActivity(intent);
+				Intent intent = new Intent(getApplicationContext(), Attendance.class);
+				startActivity(intent);
 			}
 		});
 		
