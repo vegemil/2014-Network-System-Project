@@ -16,8 +16,10 @@ public class Community extends ActionBarActivity {
 		//¾×¼Ç¹Ù ¼û±è
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
-		
+	
 		int a;
+		
+		a = 10;
 	}
 
 }
