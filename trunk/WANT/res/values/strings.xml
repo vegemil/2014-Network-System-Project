@@ -4,5 +4,8 @@
     <string name="app_name">WANT</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="sub_prompt">과목명</string>
+    <string name="mon_prompt">월선택</string>
+    
 
 </resources>
