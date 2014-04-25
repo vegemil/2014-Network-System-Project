@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <resources>
+        <string-array name="sub">
+            <item>네트워크프로젝트 </item>>
+            <item>게임프로젝트</item>
+        </string-array>
+        <string-array name="mon">
+            <item>3월</item>
+            <item>4월</item>
+            <item>5월</item>
+            <item>6월</item>
+            <item>9월</item>
+            <item>10월</item>
+            <item>11월</item>
+            <item>12월</item>
+        </string-array>
+        
+    </resources>
