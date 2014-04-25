@@ -9,16 +9,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
         android:src="@drawable/join_background" />
-
-    <ImageView
-        android:id="@+id/mark"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_alignBottom="@+id/attendanceButton"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="18dp"
-        android:src="@drawable/computerengineering1_mark" />
 
     <ImageButton
         android:id="@+id/homeButton"
@@ -30,87 +22,93 @@
         android:scaleType="fitXY"
         android:src="@drawable/home1_button" />
 
+    <TextView
+        android:id="@+id/nametext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/joingradeedit"
+        android:layout_alignLeft="@+id/gradetext"
+        android:text="이름"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#2e8b57"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/joinidedit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/joinokButton"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="22dp"
+        android:layout_alignTop="@+id/joinidtext"
         android:ems="10" />
-
-    <ImageButton
-        android:id="@+id/joinokButton"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="39dp"
-        android:background="@drawable/ok_button"
-        android:scaleType="fitXY"
-        android:src="@drawable/ok_button" />
-
-    <EditText
-        android:id="@+id/joinpasswordedit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/homeButton"
-        android:layout_marginTop="35dp"
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
 
     <EditText
         android:id="@+id/joingradeedit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/joinpasswordedit"
-        android:layout_marginTop="42dp"
+        android:layout_below="@+id/joinnameedit"
+        android:layout_marginTop="44dp"
         android:ems="10" />
 
     <EditText
         android:id="@+id/joinnameedit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/joinidedit"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="35dp"
-        android:ems="10" />
+        android:layout_below="@+id/homeButton"
+        android:layout_marginTop="46dp"
+        android:ems="10" >
 
-    <TextView
-        android:id="@+id/joinpasswordtext"
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/joinpasswordedit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/joinidedit"
-        android:layout_toLeftOf="@+id/joinidedit"
-        android:text="Password"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#2e8b57"
-        android:textStyle="bold" />
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/joinpasswordtext"
+        android:ems="10" />
+
+    <ImageView
+        android:id="@+id/mark"
+        android:layout_width="60dp"
+        android:layout_height="65dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/computerengineering1_mark" />
+
+    <ImageButton
+        android:id="@+id/joinokButton"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/joinpasswordedit"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="47dp"
+        android:background="@drawable/ok_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/ok_button" />
 
     <TextView
         android:id="@+id/gradetext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/joingradeedit"
         android:layout_alignBottom="@+id/joingradeedit"
-        android:layout_alignRight="@+id/mark"
+        android:layout_alignLeft="@+id/joinidtext"
         android:text="학년"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#2e8b57"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/nametext"
+        android:id="@+id/joinpasswordtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/joinpasswordedit"
-        android:layout_alignBottom="@+id/joinpasswordedit"
-        android:layout_alignRight="@+id/mark"
-        android:text="이름"
+        android:layout_alignLeft="@+id/joinidtext"
+        android:layout_below="@+id/joinidedit"
+        android:layout_marginTop="46dp"
+        android:text="Password"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#2e8b57"
         android:textStyle="bold" />
@@ -119,8 +117,10 @@
         android:id="@+id/joinidtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/joinnameedit"
-        android:layout_alignLeft="@+id/mark"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/gradetext"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="47dp"
         android:text="ID(학번)"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#2e8b57"
