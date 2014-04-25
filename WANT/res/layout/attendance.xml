@@ -6,50 +6,49 @@
     android:imeOptions="flagNoExtractUi"
     android:orientation="vertical" >
 
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="50dp"
-        android:layout_height="25dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="32dp" />
-
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="50dp"
-        android:layout_height="25dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="14dp"
-        android:layout_toLeftOf="@+id/textView3" />
-
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="79dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/spinner2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/spinner2"
-        android:layout_weight="0.00"
-        android:gravity="right"
-        android:text="과목명" />
-
-    <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/monthText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/spinner1"
+        android:layout_marginTop="23dp"
+        android:layout_toLeftOf="@+id/monthSpinner"
         android:gravity="right"
         android:text="월선택" />
+
+    <Spinner
+        android:id="@+id/subjectSpinner"
+        android:layout_width="50dp"
+        android:layout_height="25dp"
+        android:layout_alignTop="@+id/monthText"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/monthText" />
+
+    <Spinner
+        android:id="@+id/monthSpinner"
+        android:layout_width="50dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/monthText"
+        android:layout_marginRight="29dp" />
+
+    <TextView
+        android:id="@+id/subjectText"
+        android:layout_width="79dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/subjectSpinner"
+        android:layout_toLeftOf="@+id/subjectSpinner"
+        android:layout_weight="0.00"
+        android:gravity="right"
+        android:text="과목명" />
 
     <TableLayout
         android:id="@+id/tableLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/spinner1"
-        android:layout_marginTop="54dp"
+        android:layout_below="@+id/monthText"
         android:stretchColumns="*" >
 
         <View

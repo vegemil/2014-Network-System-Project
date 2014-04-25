@@ -1189,6 +1189,8 @@ containing a value of this type.
         public static final int majornoticebackground=0x7f0500d9;
         public static final int mark=0x7f0500ba;
         public static final int middle=0x7f050012;
+        public static final int monthSpinner=0x7f050045;
+        public static final int monthText=0x7f050044;
         public static final int name=0x7f0500c6;
         public static final int never=0x7f050009;
         public static final int none=0x7f050010;
@@ -1214,9 +1216,9 @@ containing a value of this type.
         public static final int showCustom=0x7f050007;
         public static final int showHome=0x7f050004;
         public static final int showTitle=0x7f050006;
-        public static final int spinner1=0x7f050044;
-        public static final int spinner2=0x7f050045;
         public static final int split_action_bar=0x7f05001e;
+        public static final int subjectSpinner=0x7f050046;
+        public static final int subjectText=0x7f050047;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
         public static final int tableLayout1=0x7f050048;
@@ -1244,7 +1246,6 @@ containing a value of this type.
         public static final int textView17=0x7f050059;
         public static final int textView18=0x7f05005a;
         public static final int textView19=0x7f05005b;
-        public static final int textView2=0x7f050047;
         public static final int textView20=0x7f05005c;
         public static final int textView21=0x7f05005d;
         public static final int textView22=0x7f05005f;
@@ -1255,7 +1256,6 @@ containing a value of this type.
         public static final int textView27=0x7f050064;
         public static final int textView28=0x7f050065;
         public static final int textView29=0x7f050066;
-        public static final int textView3=0x7f050046;
         public static final int textView30=0x7f050067;
         public static final int textView31=0x7f050069;
         public static final int textView32=0x7f05006a;
@@ -1457,8 +1457,6 @@ containing a value of this type.
         public static final int action_settings=0x7f0a000f;
         public static final int app_name=0x7f0a000d;
         public static final int hello_world=0x7f0a000e;
-        public static final int mon_prompt=0x7f0a0011;
-        public static final int sub_prompt=0x7f0a0010;
     }
     public static final class style {
         /** 
