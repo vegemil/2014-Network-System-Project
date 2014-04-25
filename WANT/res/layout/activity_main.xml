@@ -36,7 +36,7 @@
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="60dp"
-        android:layout_height="55dp"
+        android:layout_height="65dp"
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/homeButton"
         android:src="@drawable/computerengineering1_mark" />
@@ -52,18 +52,6 @@
         android:src="@drawable/majorinformation_button" />
 
     <ImageButton
-        android:id="@+id/homeButton"
-        android:layout_width="60dp"
-        android:layout_height="55dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="14dp"
-        android:background="@drawable/home1_button"
-        android:focusable="false"
-        android:scaleType="fitXY"
-        android:src="@drawable/home1_button" />
-
-    <ImageButton
         android:id="@+id/communityButton"
         android:layout_width="205dp"
         android:layout_height="265dp"
@@ -73,5 +61,15 @@
         android:background="@drawable/community_button"
         android:scaleType="fitXY"
         android:src="@drawable/community_button" />
+
+    <ImageButton
+        android:id="@+id/homeButton"
+        android:layout_width="60dp"
+        android:layout_height="65dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/home1_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/home1_button" />
 
 </RelativeLayout>
