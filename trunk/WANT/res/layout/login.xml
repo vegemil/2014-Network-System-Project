@@ -43,6 +43,35 @@
         <requestFocus />
     </EditText>
 
+    <EditText
+        android:id="@+id/loginpasswordedit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/loginpasswordtext"
+        android:layout_alignParentRight="true"
+        android:ems="10" />
+
+    <ImageButton
+        android:id="@+id/loginokButton"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/loginpasswordedit"
+        android:layout_marginTop="62dp"
+        android:background="@drawable/ok_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/ok_button" />
+
+    <ImageButton
+        android:id="@+id/joinButton"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/loginokButton"
+        android:layout_toLeftOf="@+id/loginokButton"
+        android:background="@drawable/join_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/join_button" />
+
     <TextView
         android:id="@+id/loginidtext"
         android:layout_width="wrap_content"
@@ -58,41 +87,12 @@
         android:id="@+id/loginpasswordtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/loginidtext"
         android:layout_below="@+id/mark"
-        android:layout_marginTop="126dp"
-        android:layout_toLeftOf="@+id/loginpasswordedit"
+        android:layout_marginTop="151dp"
         android:text="Password"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#2e8b57"
         android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/loginpasswordedit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/loginpasswordtext"
-        android:layout_alignParentRight="true"
-        android:ems="10" />
-
-    <ImageButton
-        android:id="@+id/loginokButton"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/loginpasswordedit"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/ok_button"
-        android:scaleType="fitXY"
-        android:src="@drawable/ok_button" />
-
-    <ImageButton
-        android:id="@+id/joinButton"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_alignTop="@+id/loginokButton"
-        android:layout_toRightOf="@+id/loginidtext"
-        android:background="@drawable/join_button"
-        android:scaleType="fitXY"
-        android:src="@drawable/join_button" />
 
 </RelativeLayout>
