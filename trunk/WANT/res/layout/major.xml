@@ -9,21 +9,23 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
         android:src="@drawable/major_background" />
 
     <ImageButton
         android:id="@+id/homeButton"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="60dp"
+        android:layout_height="65dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="18dp"
+        android:background="@drawable/home1_button"
+        android:scaleType="fitXY"
         android:src="@drawable/home1_button" />
 
     <ImageView
         android:id="@+id/mark"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="60dp"
+        android:layout_height="65dp"
         android:layout_alignBottom="@+id/attendanceButton"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="18dp"
