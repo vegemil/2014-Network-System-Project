@@ -1129,7 +1129,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f0500da;
+        public static final int action_settings=0x7f0500db;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int attendanceButton=0x7f05003f;
@@ -1163,13 +1163,14 @@ containing a value of this type.
         public static final int joinButton=0x7f0500d0;
         public static final int joinbackground=0x7f0500c1;
         public static final int joingradeedit=0x7f0500c3;
-        public static final int joinidedit=0x7f0500c6;
-        public static final int joinidtext=0x7f0500c5;
+        public static final int joinidedit=0x7f0500c5;
+        public static final int joinidtext=0x7f0500c6;
         public static final int joinnameedit=0x7f0500c7;
         public static final int joinokButton=0x7f0500ca;
         public static final int joinpasswordedit=0x7f0500c8;
         public static final int joinpasswordtext=0x7f0500c9;
         public static final int listMode=0x7f050001;
+        public static final int listView1=0x7f0500d4;
         public static final int list_item=0x7f050029;
         public static final int loginbackground=0x7f0500cb;
         public static final int loginidedit=0x7f0500cc;
@@ -1182,8 +1183,8 @@ containing a value of this type.
         public static final int majorbackground=0x7f0500d2;
         public static final int majorinformationButton=0x7f050042;
         public static final int majorinformationbackground=0x7f0500d3;
-        public static final int majorintroductionbackground=0x7f0500d4;
-        public static final int majornoticebackground=0x7f0500d5;
+        public static final int majorintroductionbackground=0x7f0500d5;
+        public static final int majornoticebackground=0x7f0500d6;
         public static final int mark=0x7f0500ba;
         public static final int middle=0x7f050012;
         public static final int monthSpinner=0x7f050045;
@@ -1192,7 +1193,7 @@ containing a value of this type.
         public static final int never=0x7f050009;
         public static final int none=0x7f050010;
         public static final int normal=0x7f050000;
-        public static final int professorbackground=0x7f0500d6;
+        public static final int professorbackground=0x7f0500d7;
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
         public static final int radio=0x7f05002f;
@@ -1207,7 +1208,7 @@ containing a value of this type.
         public static final int search_src_text=0x7f050037;
         public static final int search_voice_btn=0x7f05003b;
         public static final int secondgraderButton=0x7f0500bc;
-        public static final int secondgradernotice=0x7f0500d7;
+        public static final int secondgradernotice=0x7f0500d8;
         public static final int shortcut=0x7f05002e;
         public static final int showCustom=0x7f050007;
         public static final int showHome=0x7f050004;
@@ -1329,8 +1330,8 @@ containing a value of this type.
         public static final int textView98=0x7f0500b3;
         public static final int textView99=0x7f0500b4;
         public static final int thirdgraderButton=0x7f0500bd;
-        public static final int thirdgradernotice=0x7f0500d8;
-        public static final int timetable=0x7f0500d9;
+        public static final int thirdgradernotice=0x7f0500d9;
+        public static final int timetable=0x7f0500da;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
         public static final int up=0x7f050021;

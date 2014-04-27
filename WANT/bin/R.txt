@@ -282,7 +282,7 @@ int id action_context_bar 0x7f05001d
 int id action_menu_divider 0x7f050016
 int id action_menu_presenter 0x7f050017
 int id action_mode_close_button 0x7f050024
-int id action_settings 0x7f0500da
+int id action_settings 0x7f0500db
 int id activity_chooser_view_content 0x7f050025
 int id always 0x7f05000b
 int id attendanceButton 0x7f05003f
@@ -316,13 +316,14 @@ int id imageView1 0x7f050040
 int id joinButton 0x7f0500d0
 int id joinbackground 0x7f0500c1
 int id joingradeedit 0x7f0500c3
-int id joinidedit 0x7f0500c6
-int id joinidtext 0x7f0500c5
+int id joinidedit 0x7f0500c5
+int id joinidtext 0x7f0500c6
 int id joinnameedit 0x7f0500c7
 int id joinokButton 0x7f0500ca
 int id joinpasswordedit 0x7f0500c8
 int id joinpasswordtext 0x7f0500c9
 int id listMode 0x7f050001
+int id listView1 0x7f0500d4
 int id list_item 0x7f050029
 int id loginbackground 0x7f0500cb
 int id loginidedit 0x7f0500cc
@@ -335,8 +336,8 @@ int id mainbackground 0x7f05003d
 int id majorbackground 0x7f0500d2
 int id majorinformationButton 0x7f050042
 int id majorinformationbackground 0x7f0500d3
-int id majorintroductionbackground 0x7f0500d4
-int id majornoticebackground 0x7f0500d5
+int id majorintroductionbackground 0x7f0500d5
+int id majornoticebackground 0x7f0500d6
 int id mark 0x7f0500ba
 int id middle 0x7f050012
 int id monthSpinner 0x7f050045
@@ -345,7 +346,7 @@ int id nametext 0x7f0500c2
 int id never 0x7f050009
 int id none 0x7f050010
 int id normal 0x7f050000
-int id professorbackground 0x7f0500d6
+int id professorbackground 0x7f0500d7
 int id progress_circular 0x7f050018
 int id progress_horizontal 0x7f050019
 int id radio 0x7f05002f
@@ -360,7 +361,7 @@ int id search_plate 0x7f050036
 int id search_src_text 0x7f050037
 int id search_voice_btn 0x7f05003b
 int id secondgraderButton 0x7f0500bc
-int id secondgradernotice 0x7f0500d7
+int id secondgradernotice 0x7f0500d8
 int id shortcut 0x7f05002e
 int id showCustom 0x7f050007
 int id showHome 0x7f050004
@@ -482,8 +483,8 @@ int id textView97 0x7f0500b2
 int id textView98 0x7f0500b3
 int id textView99 0x7f0500b4
 int id thirdgraderButton 0x7f0500bd
-int id thirdgradernotice 0x7f0500d8
-int id timetable 0x7f0500d9
+int id thirdgradernotice 0x7f0500d9
+int id timetable 0x7f0500da
 int id title 0x7f05002b
 int id top_action_bar 0x7f050020
 int id up 0x7f050021
