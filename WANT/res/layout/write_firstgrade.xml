@@ -74,7 +74,9 @@
         android:background="@drawable/edittext_shape"
         android:ems="10"
         android:inputType="textMultiLine"
-        android:minHeight="400dp" />
+        android:maxHeight="400dp" 
+        android:minHeight="400dp"
+        android:scrollbars="vertical"/>
 
     <ImageButton
         android:id="@+id/okButton"
