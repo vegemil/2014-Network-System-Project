@@ -13,8 +13,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 
 public class Major_Information extends ActionBarActivity {
-	static final String[] inforlist = { "학과소개", "교수님소개", "전공", "학과공지사항",
-			"과실시간표" };
+	static final String[] inforlist = { "학과소개", "교수님소개", "전공과목소개", "학과공지사항",
+			"과실시간표", "학점계산기" };
 	private ArrayAdapter<String> arrayAdapter;
 	private ListView listView;
 
