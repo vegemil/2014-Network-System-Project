@@ -20,6 +20,17 @@ public class Firstgrader_Notice extends ActionBarActivity {
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
 		
+		ImageButton writeButton = (ImageButton)findViewById(R.id.writeButton);
+		writeButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(getApplicationContext(), Write_Firstgrade.class);
+				startActivity(intent);
+			}
+		});
+		
 		ImageButton homeButton = (ImageButton)findViewById(R.id.homeButton);
 		homeButton.setOnClickListener(new OnClickListener() {
 			
