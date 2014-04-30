@@ -1,6 +1,7 @@
 package com.example.want;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -82,7 +83,19 @@ public class Major_Information extends ActionBarActivity {
 						Timetable.class);
 				startActivity(intent);
 			}
+			
+			if (position == 5) {
+				Uri uri = Uri.parse("http://m.search.naver.com/search.naver?query=%ED%95%99%EC%A0%90%EA%B3%84%EC%82%B0%EA%B8%B0&where=m&sm=mtp_sug.top&qdt=0&acq=%ED%95%99%EC%A0%90%EA%B3%84%EC%82%B0%EA%B8%B0&acr=1");
+				Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 
+				intent.addCategory(Intent.CATEGORY_BROWSABLE);
+
+				startActivity(intent);
+
+
+
+			}
+			
 		}
 
 	};
