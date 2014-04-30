@@ -4,6 +4,11 @@
     <string name="app_name">WANT</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="class_prompt">강의실 선택</string>
+    <string-array name="class_array">
+        <item >6109</item>
+        <item >6201</item>
+    </string-array>
 
     
 
