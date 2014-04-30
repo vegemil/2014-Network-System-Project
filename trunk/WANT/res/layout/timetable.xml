@@ -1,36 +1,560 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
-    
-		
-    <ImageView
-        android:id="@+id/timetable"
-        android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/timetable_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/timetable_background" />
+        android:orientation="horizontal" >
 
-    <ImageButton
-        android:id="@+id/homeButton"
-        android:layout_width="60dp"
-        android:layout_height="65dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/home1_button"
-        android:scaleType="fitXY"
-        android:src="@drawable/home1_button" />
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/computerengineering1_mark" />
 
-    <ImageView
-        android:id="@+id/mark"
-        android:layout_width="60dp"
-        android:layout_height="65dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/computerengineering1_mark" />
+        <View
+            android:layout_width="260dp"
+            android:layout_height="70dp" />
 
+        <ImageButton
+            android:id="@+id/homeButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="right"
+            android:background="@drawable/home1_button" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/classTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/class_prompt"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Spinner
+            android:id="@+id/classSpinner"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="2dp"
+        android:background="#ffa500"
+        android:stretchColumns="*" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" >
+
+            <TextView
+                android:id="@+id/blank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:gravity="center"
+                android:padding="3dp" />
+
+            <TextView
+                android:id="@+id/monday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="월요일" />
+
+            <TextView
+                android:id="@+id/tuesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="화요일" />
+
+            <TextView
+                android:id="@+id/wednesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="수요일" />
+
+            <TextView
+                android:id="@+id/thursday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="목요일" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/first_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="1교시" />
+
+            <TextView
+                android:id="@+id/monday1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tuesday1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/wednesday1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/thursday1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/second_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="2교시" />
+
+            <TextView
+                android:id="@+id/monday2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tuesday2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/wednesday2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/thursday2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/third_period "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="3교시" />
+
+            <TextView
+                android:id="@+id/monday3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tuesday3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/wednesday3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/thursday3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/fourth_period "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="4교시" />
+
+            <TextView
+                android:id="@+id/monday4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tuesday4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/wednesday4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/thursday4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/fifth_period "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="5교시" />
+
+            <TextView
+                android:id="@+id/monday5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tuesday5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/wednesday5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/thursday5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/sixth_period "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="6교시" />
+
+            <TextView
+                android:id="@+id/monday6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tuesday6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/wednesday6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/thursday6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/seventh_period "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="7교시" />
+
+            <TextView
+                android:id="@+id/monday7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tuesday7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/wednesday7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/thursday7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/eighth_period "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="8교시" />
+
+            <TextView
+                android:id="@+id/monday8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tuesday8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/wednesday8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/thursday8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="TextView" />
+        </TableRow>
+    </TableLayout>
+    
+</LinearLayout>
