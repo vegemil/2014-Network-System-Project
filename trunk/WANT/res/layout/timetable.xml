@@ -1,11 +1,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" 
-    android:background="@drawable/timetable_background">
+    android:background="@drawable/timetable_background"
+    android:orientation="vertical" >
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
@@ -113,21 +113,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
-            <TextView
-                android:id="@+id/first_period"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="1교시" />
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/first_period"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="1교시" />
+
+                <TextView
+                    android:id="@+id/second_period"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="2교시" />
+
+                <TextView
+                    android:id="@+id/third_period "
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="3교시" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/monday1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+               android:layout_margin="1dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:padding="3dp"
@@ -135,8 +162,8 @@
 
             <TextView
                 android:id="@+id/tuesday1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="1dp"
                 android:background="#ffffff"
                 android:gravity="center"
@@ -145,8 +172,8 @@
 
             <TextView
                 android:id="@+id/wednesday1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="1dp"
                 android:background="#ffffff"
                 android:gravity="center"
@@ -155,125 +182,14 @@
 
             <TextView
                 android:id="@+id/thursday1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/second_period"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="2교시" />
-
-            <TextView
-                android:id="@+id/monday2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="1dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:padding="3dp"
                 android:text="TextView" />
 
-            <TextView
-                android:id="@+id/tuesday2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/wednesday2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/thursday2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/third_period "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="3교시" />
-
-            <TextView
-                android:id="@+id/monday3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/tuesday3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/wednesday3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/thursday3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
         </TableRow>
 
         <TableRow
@@ -281,167 +197,74 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
-            <TextView
-                android:id="@+id/fourth_period "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="4교시" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" 
+               android:gravity="center">
+
+                <TextView
+                    android:id="@+id/fourth_period "
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="4교시" />
+
+                <TextView
+                    android:id="@+id/fifth_period "
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="5교시" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/monday4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="1dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:padding="3dp"
-                android:text="TextView" />
+                android:text=" " />
 
             <TextView
                 android:id="@+id/tuesday4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="1dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:padding="3dp"
-                android:text="TextView" />
+                android:text=" " />
 
             <TextView
                 android:id="@+id/wednesday4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="1dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:padding="3dp"
-                android:text="TextView" />
+                android:text=" " />
 
             <TextView
                 android:id="@+id/thursday4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="1dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:padding="3dp"
-                android:text="TextView" />
-        </TableRow>
+                android:text=" " />
 
-        <TableRow
-            android:id="@+id/tableRow6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/fifth_period "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="5교시" />
-
-            <TextView
-                android:id="@+id/monday5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/tuesday5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/wednesday5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/thursday5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/sixth_period "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="6교시" />
-
-            <TextView
-                android:id="@+id/monday6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/tuesday6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/wednesday6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/thursday6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
         </TableRow>
 
         <TableRow
@@ -449,20 +272,47 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
-            <TextView
-                android:id="@+id/seventh_period "
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="7교시" />
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/sixth_period "
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="6교시" />
+
+                <TextView
+                    android:id="@+id/seventh_period "
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="7교시" />
+
+                <TextView
+                    android:id="@+id/eighth_period "
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="8교시" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/monday7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="1dp"
                 android:background="#ffffff"
                 android:gravity="center"
@@ -471,8 +321,8 @@
 
             <TextView
                 android:id="@+id/tuesday7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="1dp"
                 android:background="#ffffff"
                 android:gravity="center"
@@ -481,8 +331,8 @@
 
             <TextView
                 android:id="@+id/wednesday7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="1dp"
                 android:background="#ffffff"
                 android:gravity="center"
@@ -491,70 +341,15 @@
 
             <TextView
                 android:id="@+id/thursday7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/eighth_period "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="8교시" />
-
-            <TextView
-                android:id="@+id/monday8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="1dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:padding="3dp"
                 android:text="TextView" />
 
-            <TextView
-                android:id="@+id/tuesday8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/wednesday8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/thursday8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="TextView" />
         </TableRow>
     </TableLayout>
-    
+
 </LinearLayout>
