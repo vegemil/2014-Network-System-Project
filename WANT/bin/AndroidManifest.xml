@@ -42,6 +42,14 @@
         <activity android:name="Attendance" android:screenOrientation="landscape"></activity>
         <activity android:name="Write_Firstgrade"></activity>
         <activity android:name="Write_Secondgrade"></activity><activity android:name="Write_Thirdgrade"></activity><activity android:name="Write_Fourthgrade"></activity>
+        <activity android:name="Firstgrader_comment"></activity>
+        <activity android:name="Secondgrader_comment"></activity>
+        <activity android:name="Thirdgrader_comment"></activity>
+        <activity android:name="Fourthgrader_comment"></activity>
+        <activity android:name="Firstgrader_NoticeBody"></activity>
+        <activity android:name="Secondgrader_NoticeBody"></activity>
+        <activity android:name="Thirdgrader_NoticeBody"></activity>
+        <activity android:name="Fourthgrader_NoticeBody"></activity>
         
         
     </application>
