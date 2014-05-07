@@ -39,7 +39,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/joinidtext"
-        android:ems="10" />
+        android:ems="10"
+        android:inputType="number" ><requestFocus /></EditText>
 
     <EditText
         android:id="@+id/joingradeedit"
@@ -48,7 +49,8 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/joinnameedit"
         android:layout_marginTop="44dp"
-        android:ems="10" />
+        android:ems="10" 
+        android:inputType="number"/>
 
     <EditText
         android:id="@+id/joinnameedit"
@@ -57,9 +59,10 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/homeButton"
         android:layout_marginTop="46dp"
-        android:ems="10" >
+        android:ems="10" 
+        android:inputType="text">
 
-        <requestFocus />
+        
     </EditText>
 
     <EditText
@@ -68,7 +71,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/joinpasswordtext"
-        android:ems="10" />
+        android:ems="10"
+        android:inputType="numberPassword" />
 
     <ImageView
         android:id="@+id/mark"
