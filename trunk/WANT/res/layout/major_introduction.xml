@@ -31,4 +31,23 @@
         android:scaleType="fitXY"
         android:src="@drawable/home1_button" />
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/homeButton"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/image" />
+
+    <TextView
+        android:id="@+id/majorintro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/mark"
+        android:layout_alignTop="@+id/imageView1"
+        android:layout_marginTop="24dp"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </RelativeLayout>
