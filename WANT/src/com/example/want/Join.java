@@ -1,13 +1,15 @@
 package com.example.want;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.PrintWriter;
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.app.AlertDialog.Builder;
-import android.content.DialogInterface;
+import java.net.InetAddress;
+import java.net.Socket;
+
+
+
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -15,22 +17,24 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
 public class Join extends ActionBarActivity {
 
-	static String inputname;
-	static String inputgrade;
-	static String inputid;
-	static String inputpassword;
+	String name;
+	String grade;
+	String id;
+	String password;
 
-	private static final int JOIN = 1;
 
-	private String serverMessage;
-	public static final String SERVERIP = " ";
-	public static final int SERVERPORT = 4444;
+
+	static String SERVERIP = "172.30.4.76";
+	static int PORT = 44444;
+	
+	byte[] result;
+
+
 
 	PrintWriter out;
 	BufferedReader in;
@@ -57,6 +61,12 @@ public class Join extends ActionBarActivity {
 			}
 		});
 
+
+		final EditText nameEdit = (EditText) findViewById(R.id.joinnameedit);
+		final EditText gradeEdit = (EditText) findViewById(R.id.joingradeedit);
+		final EditText idEdit = (EditText) findViewById(R.id.joinidedit);
+		final EditText passwordEdit = (EditText) findViewById(R.id.joinpasswordedit);
+
 		ImageButton okButton = (ImageButton) findViewById(R.id.joinokButton);
 
 		okButton.setOnClickListener(new OnClickListener() {
@@ -64,45 +74,65 @@ public class Join extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				DialogFragment newFragment = new FireMissilesDialogFragment();
-			    newFragment.show(this.getSupportFragmentManager(), "missiles");
+
+				name = nameEdit.getText().toString();
+				grade = gradeEdit.getText().toString();
+				id = idEdit.getText().toString();
+				password = passwordEdit.getText().toString();
+
+				Log.i("tag", "name : " + name);
+				Log.i("tag", "grade : " + grade);
+				Log.i("tag", "id : " + id);
+				Log.i("tag", "password : " + password);
+
+				
+				tcp_client tc = new tcp_client();
+				tc.execute("name", "grade", "id", "password");
 			}
 		});
 
 	}
 
-	 public class FireMissilesDialogFragment extends DialogFragment {
+
+	public class tcp_client extends android.os.AsyncTask<String, String, String> {
+
 		@Override
-		public Dialog onCreateDialog(Bundle savedInstanceState) {
-			// Use the Builder class for convenient dialog construction
-			AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-			builder.setMessage("회원가입하시겠습니까?")
-					.setPositiveButton("취소",
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog,
-										int id) {
+		protected String doInBackground(String... params) {
+			// TODO Auto-generated method stub
+			try {
+				InetAddress serverAddr = InetAddress.getByName(SERVERIP);
+				Socket sock = new Socket(serverAddr, PORT);
+				
 
-									dialog.cancel();
-								}
-							})
-					.setNegativeButton("확인",
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog,
-										int id) {
-									EditText nameEdit = (EditText)findViewById(R.id.joinnameedit);
-									EditText gradeEdit = (EditText)findViewById(R.id.joingradeedit);
-									EditText idEdit = (EditText)findViewById(R.id.joinidedit);
-									EditText passwordEdit = (EditText)findViewById(R.id.joinpasswordedit);
+				DataInputStream input = new DataInputStream(
+						sock.getInputStream());
+				DataOutputStream output = new DataOutputStream(
+						sock.getOutputStream());
 
-									inputname = nameEdit.getText().toString();
-									inputgrade = gradeEdit.getText().toString();
-									inputid = idEdit.getText().toString();
-									inputpassword = passwordEdit.getText().toString();
-								}
-							});
-			// Create the AlertDialog object and return it
-			return builder.create();
+				try {
+					for (String data : params)
+					{
+						Log.i("tag", data);
+						output.writeChars(data);
+						output.flush();
+					}
+					
+					result = null;
+					
+					input.read(result);
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+					Log.i("tag", "message isn't work");
+					e.printStackTrace();
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+
+			return null;
 		}
-	}
 
+	}
 }
