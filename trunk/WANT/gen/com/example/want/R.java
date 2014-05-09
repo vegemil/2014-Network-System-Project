@@ -1108,20 +1108,21 @@ containing a value of this type.
         public static final int login_background=0x7f02006e;
         public static final int main_background=0x7f02006f;
         public static final int major_background=0x7f020070;
-        public static final int majorinformation_background=0x7f020071;
-        public static final int majorinformation_button=0x7f020072;
-        public static final int majorintroduction_background=0x7f020073;
-        public static final int majornotice_background=0x7f020074;
-        public static final int name_button=0x7f020075;
-        public static final int ok_button=0x7f020076;
-        public static final int password_button=0x7f020077;
-        public static final int professorintroduction_background=0x7f020078;
-        public static final int secondgrader_button=0x7f020079;
-        public static final int secondgrader_notice=0x7f02007a;
-        public static final int thirdgrader_button=0x7f02007b;
-        public static final int thirdgrader_notice=0x7f02007c;
-        public static final int timetable_background=0x7f02007d;
-        public static final int writing_button=0x7f02007e;
+        public static final int major_relation=0x7f020071;
+        public static final int majorinformation_background=0x7f020072;
+        public static final int majorinformation_button=0x7f020073;
+        public static final int majorintroduction_background=0x7f020074;
+        public static final int majornotice_background=0x7f020075;
+        public static final int name_button=0x7f020076;
+        public static final int ok_button=0x7f020077;
+        public static final int password_button=0x7f020078;
+        public static final int professorintroduction_background=0x7f020079;
+        public static final int secondgrader_button=0x7f02007a;
+        public static final int secondgrader_notice=0x7f02007b;
+        public static final int thirdgrader_button=0x7f02007c;
+        public static final int thirdgrader_notice=0x7f02007d;
+        public static final int timetable_background=0x7f02007e;
+        public static final int writing_button=0x7f02007f;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
