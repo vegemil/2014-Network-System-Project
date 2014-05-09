@@ -1,16 +1,9 @@
 package com.example.want;
 
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.PrintWriter;
-import java.net.InetAddress;
-import java.net.Socket;
-
-
-
+import com.example.want.TCPClient;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -19,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class Join extends ActionBarActivity {
 
@@ -27,17 +21,9 @@ public class Join extends ActionBarActivity {
 	String id;
 	String password;
 
+	String result;
 
-
-	static String SERVERIP = "172.30.4.76";
-	static int PORT = 44444;
-	
-	byte[] result;
-
-
-
-	PrintWriter out;
-	BufferedReader in;
+	private TCPClient myTcpClient;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +47,15 @@ public class Join extends ActionBarActivity {
 			}
 		});
 
-
 		final EditText nameEdit = (EditText) findViewById(R.id.joinnameedit);
 		final EditText gradeEdit = (EditText) findViewById(R.id.joingradeedit);
 		final EditText idEdit = (EditText) findViewById(R.id.joinidedit);
 		final EditText passwordEdit = (EditText) findViewById(R.id.joinpasswordedit);
 
 		ImageButton okButton = (ImageButton) findViewById(R.id.joinokButton);
+
+		// connect to the server
+		new connectTask().execute("");
 
 		okButton.setOnClickListener(new OnClickListener() {
 
@@ -85,54 +73,46 @@ public class Join extends ActionBarActivity {
 				Log.i("tag", "id : " + id);
 				Log.i("tag", "password : " + password);
 
-				
-				tcp_client tc = new tcp_client();
-				tc.execute("name", "grade", "id", "password");
+				// sends the message to the server
+				if (myTcpClient != null) {
+					myTcpClient.sendMessage(name);
+					myTcpClient.sendMessage(grade);
+					myTcpClient.sendMessage(id);
+					myTcpClient.sendMessage(password);
+				}
+
 			}
 		});
-
+				
 	}
 
-
-	public class tcp_client extends android.os.AsyncTask<String, String, String> {
+	public class connectTask extends AsyncTask<String, String, TCPClient> {
 
 		@Override
-		protected String doInBackground(String... params) {
-			// TODO Auto-generated method stub
-			try {
-				InetAddress serverAddr = InetAddress.getByName(SERVERIP);
-				Socket sock = new Socket(serverAddr, PORT);
-				
+		protected TCPClient doInBackground(String... message) {
 
-				DataInputStream input = new DataInputStream(
-						sock.getInputStream());
-				DataOutputStream output = new DataOutputStream(
-						sock.getOutputStream());
+			// we create a TCPClient object and
+			myTcpClient = new TCPClient(new TCPClient.OnMessageReceived() {
 
-				try {
-					for (String data : params)
-					{
-						Log.i("tag", data);
-						output.writeChars(data);
-						output.flush();
-					}
-					
-					result = null;
-					
-					input.read(result);
-					
-				} catch (Exception e) {
-					// TODO: handle exception
-					Log.i("tag", "message isn't work");
-					e.printStackTrace();
+				@Override
+				// here the messageReceived method is implemented
+				public void messageReceived(String message) {
+					// this method calls the onProgressUpdate
+					publishProgress(message);
 				}
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
+			});
+			myTcpClient.run();
 
 			return null;
 		}
 
+		@Override
+		protected void onProgressUpdate(String... values) {
+			super.onProgressUpdate(values);
+			result = values[0];
+			Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT)
+					.show();
+		}
 	}
+
 }
