@@ -20,52 +20,67 @@ public class JoinServer {
 		PrintWriter out = null;
 		BufferedReader in = null;
 
+		String result = null;
+
 		serverSocket = new ServerSocket(5555);
 
 		try {
-			clientSocket = serverSocket.accept();
-			System.out.println("클라이언트 연결");
 
-			out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-					clientSocket.getOutputStream(), "UTF-8")), true);
-			in = new BufferedReader(new InputStreamReader(
-					clientSocket.getInputStream(), "UTF-8"));
+				clientSocket = serverSocket.accept();
+				System.out.println("클라이언트 연결");
 
-			String name;
-			String grade;
-			String id;
-			String password;
+				try {
+					out = new PrintWriter(new BufferedWriter(
+							new OutputStreamWriter(
+									clientSocket.getOutputStream(), "UTF-8")),
+							true);
+					in = new BufferedReader(new InputStreamReader(
+							clientSocket.getInputStream(), "UTF-8"));
 
-			name = in.readLine();
-			grade = in.readLine();
-			id = in.readLine();
-			password = in.readLine();
+					String name;
+					String grade;
+					String id;
+					String password;
 
-			System.out.println(name);
-			System.out.println(grade);
-			System.out.println(id);
-			System.out.println(password);
+					name = in.readLine();
+					grade = in.readLine();
+					id = in.readLine();
+					password = in.readLine();
 
-			out.println("회원가입 성공");
-			out.flush();
+					System.out.println(name);
+					System.out.println(grade);
+					System.out.println(id);
+					System.out.println(password);
 
-			out.close();
-			in.close();
-			clientSocket.close();
-			serverSocket.close();
+					result = findID(id, password, grade, name);
+					System.out.println("result : " + result);
+					out.println(result);
+					out.flush();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				} 
+				out.close();
+				in.close();
+				clientSocket.close();
+				serverSocket.close();
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
 
-	public void getStudentInfoFromDB(String id) {
+	public static String findID(String id, String password, String grade, String name) {
+
+		String result = null;
+
 		try {
 			Connection con = null;
 
 			con = DriverManager
 					.getConnection(
-							"jdbc:mysql://network.cgdc8rvnyyii.ap-northeast-1.rds.amazonaws.com:3306",
+							"jdbc:mysql://network.cgdc8rvnyyii.ap-northeast-1.rds.amazonaws.com:3306?useUnicode=true&characterEncoding=euckr",
 							"want", "32102637");
 
 			Statement st = null;
@@ -74,18 +89,19 @@ public class JoinServer {
 			rs = st.executeQuery("USE network");
 
 			// 테이블리스트 출력 쿼리 전송
-			if (st.execute("SHOW TABLES")) {
-
+			if (st.execute("SELECT * FROM studentdb WHERE id= " + id)) {
 				rs = st.getResultSet();
 			}
-
-			while (rs.next()) {
-
-				String str = rs.getNString(1);
-
-				// rs에서 해당 필드의 값을 가져와 출력
-				System.out.println(str);
-
+			
+			if(rs.next())
+			{
+				result = "아이디 중복입니다. 다시 가입하세요";
+			}
+			else
+			{
+				System.out.println("INSERT INTO studentdb VALUES ('" + id +"', " + password + ", '" + name + "', " + grade +")");
+				st.execute("INSERT INTO studentdb VALUES ('" + id +"', " + password + ", '" + name + "', " + grade +")");
+				result = "회원가입 완료";
 			}
 
 		} catch (SQLException sqex) {
@@ -94,5 +110,6 @@ public class JoinServer {
 			System.out.println("SQLState: " + sqex.getSQLState());
 
 		}
+		return result;
 	}
 }
