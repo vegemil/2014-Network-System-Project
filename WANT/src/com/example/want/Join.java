@@ -1,5 +1,7 @@
 package com.example.want;
 
+import java.util.concurrent.ExecutionException;
+
 import com.example.want.TCPClient;
 
 import android.content.Intent;
@@ -14,16 +16,47 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class Join extends ActionBarActivity {
+public class Join extends ActionBarActivity implements AsyncResponse {
 
 	String name;
 	String grade;
 	String id;
 	String password;
 
-	String result;
+	static String serverMessage;
 
 	private TCPClient myTcpClient;
+
+	public class connectTask extends AsyncTask<String, String, String> {
+		public AsyncResponse delegate = null;
+
+		@Override
+		protected String doInBackground(String... message) {
+
+			// we create a TCPClient object and
+			myTcpClient = new TCPClient(new TCPClient.OnMessageReceived() {
+
+				@Override
+				// here the messageReceived method is implemented
+				public void messageReceived(String message) {
+					// this method calls the onProgressUpdate
+					publishProgress(message);
+
+					serverMessage = message;
+				}
+			});
+			myTcpClient.run();
+
+			return serverMessage;
+		}
+
+		@Override
+		protected void onProgressUpdate(String... values) {
+			super.onProgressUpdate(values);
+			serverMessage = values[0];
+		}
+
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +88,9 @@ public class Join extends ActionBarActivity {
 		ImageButton okButton = (ImageButton) findViewById(R.id.joinokButton);
 
 		// connect to the server
-		new connectTask().execute("");
+		final connectTask connect = new connectTask();
+		connect.execute("");
+		connect.delegate = this;
 
 		okButton.setOnClickListener(new OnClickListener() {
 
@@ -81,38 +116,44 @@ public class Join extends ActionBarActivity {
 					myTcpClient.sendMessage(password);
 				}
 
+				//데이터 값이 넘어올때까지 기다림
+				while (serverMessage == null || serverMessage.isEmpty()) {
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+
+				Log.i("tag", "result : " + serverMessage);
+				Toast.makeText(getApplicationContext(), serverMessage,
+						Toast.LENGTH_SHORT).show();
+
+				if (serverMessage.equals("회원가입 완료")) {
+					finish();
+				} else if(serverMessage.equals("아이디 중복입니다. 다시 가입하세요")){
+					nameEdit.setText("");
+					gradeEdit.setText("");
+					idEdit.setText("");
+					passwordEdit.setText("");
+				}
+				else
+				{
+					Log.i("tag", "회원가입 에러");
+				}
+
 			}
 		});
-				
+		serverMessage = null;
+
 	}
 
-	public class connectTask extends AsyncTask<String, String, TCPClient> {
-
-		@Override
-		protected TCPClient doInBackground(String... message) {
-
-			// we create a TCPClient object and
-			myTcpClient = new TCPClient(new TCPClient.OnMessageReceived() {
-
-				@Override
-				// here the messageReceived method is implemented
-				public void messageReceived(String message) {
-					// this method calls the onProgressUpdate
-					publishProgress(message);
-				}
-			});
-			myTcpClient.run();
-
-			return null;
-		}
-
-		@Override
-		protected void onProgressUpdate(String... values) {
-			super.onProgressUpdate(values);
-			result = values[0];
-			Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT)
-					.show();
-		}
+	@Override
+	public void processFinish(String output) {
+		// TODO Auto-generated method stub
+		serverMessage = output;
+		Log.i("tag", "processFinish result : " + serverMessage);
 	}
 
 }
