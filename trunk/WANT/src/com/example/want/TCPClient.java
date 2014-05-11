@@ -10,7 +10,7 @@ public class TCPClient {
 	private String serverMessage;
 	public static final String SERVERIP = "192.168.123.102"; // your computer IP
 																// address
-	public static final int SERVERPORT = 5555;
+	public static int SERVERPORT = 5555;
 	private OnMessageReceived mMessageListener = null;
 	private boolean mRun = false;
 
@@ -21,8 +21,9 @@ public class TCPClient {
 	 * constructor of the class. OnMessageReceived listens for the messages
 	 * received from server
 	 */
-	public TCPClient(OnMessageReceived listener) {
+	public TCPClient(OnMessageReceived listener, int serverPort) {
 		mMessageListener = listener;
+		SERVERPORT = serverPort;
 	}
 
 	/**

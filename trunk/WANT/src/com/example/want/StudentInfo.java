@@ -1,37 +1,43 @@
 package com.example.want;
 
+import android.util.Log;
+
 public class StudentInfo {
-	private int id;
-	private int password;
-	private int grade;
+	private String id;
+	private String password;
+	private String grade;
 	private String name;
 
-	public void setID(int inputID) {
+	public void setID(String inputID) {
 		id = inputID;
+		Log.i("studentInfo", id);
 	}
 
-	public int getID() {
+	public String getID() {
 		return id;
 	}
 
-	public void setPassword(int inputPassword) {
+	public void setPassword(String inputPassword) {
 		password = inputPassword;
+		Log.i("studentInfo", password);
 	}
 
-	public int getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setGrade(int inputgrade) {
+	public void setGrade(String inputgrade) {
 		grade = inputgrade;
+		Log.i("studentInfo", grade);
 	}
 
-	public int getGrade() {
+	public String getGrade() {
 		return grade;
 	}
 
 	public void setName(String inputName) {
 		name = inputName;
+		Log.i("studentInfo", name);
 	}
 
 	public String getName() {

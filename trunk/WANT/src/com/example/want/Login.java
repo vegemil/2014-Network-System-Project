@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class Login extends ActionBarActivity implements AsyncResponse{
 
@@ -20,9 +21,11 @@ public class Login extends ActionBarActivity implements AsyncResponse{
 		String id;
 		String password;
 
-		static String serverMessage;
+		static String[] serverMessage = new String[3];
 		static String serverName;
 		static String serverGrade;
+		
+		static int count = 0;
 
 		private TCPClient myTcpClient;
 		private StudentInfo myStudent;
@@ -41,21 +44,24 @@ public class Login extends ActionBarActivity implements AsyncResponse{
 					public void messageReceived(String message) {
 						// this method calls the onProgressUpdate
 						publishProgress(message);
-
-						//serverMessage = message;
+						//serverMessage[0] = message;
+						serverMessage[count] = message;
+						count++;
+						Log.i("tag", "서버에서 받은 값 : " + message);
 					}
-				});
+				}, 6666);
 				myTcpClient.run();
 
-				return serverMessage;
+				return null;
 			}
 
 			@Override
 			protected void onProgressUpdate(String... values) {
 				super.onProgressUpdate(values);
-				serverMessage = values[0];
-				serverName = values[1];
-				serverGrade = values[2];
+				
+				Log.i("tag","스레드 value : " + values[0]);
+				
+				Toast.makeText(getApplicationContext(), serverMessage[1]+" 로그인 하였습니다.", Toast.LENGTH_SHORT).show();
 			}
 
 		}
@@ -117,7 +123,7 @@ public class Login extends ActionBarActivity implements AsyncResponse{
 					myTcpClient.sendMessage(password);
 				}
 				
-				while (serverMessage == null || serverMessage.isEmpty()) {
+				while (serverMessage[2] == null || serverMessage[2].isEmpty()) {
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
@@ -126,8 +132,18 @@ public class Login extends ActionBarActivity implements AsyncResponse{
 					}
 				}
 				
-				Log.i("tag", "name : " + name);
-				Log.i("tag", "grade : " + grade );
+				Log.i("tag", "result : " + serverMessage[0]);
+				
+				if(serverMessage[0].equals("비밀번호 확인하러 고고")  )
+				{
+					name =serverMessage[1];
+					grade = serverMessage[2];
+
+					Log.i("tag", "name : " + name);
+					Log.i("tag", "grade : " + grade );
+					finish();
+				}
+								
 			}
 		});
 	}
@@ -135,7 +151,7 @@ public class Login extends ActionBarActivity implements AsyncResponse{
 	@Override
 	public void processFinish(String output) {
 		// TODO Auto-generated method stub
-		serverMessage = output;
-		Log.i("tag", "processFinish result : " + serverMessage);
+		serverMessage[0] = output;
+		Log.i("tag", "processFinish result : " + serverMessage[0]);
 	}
 }
