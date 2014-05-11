@@ -10,7 +10,7 @@ public class TCPClient {
 	private String serverMessage;
 	public static final String SERVERIP = "192.168.123.102"; // your computer IP
 																// address
-	public static int SERVERPORT = 5555;
+	public static int SERVERPORT ;
 	private OnMessageReceived mMessageListener = null;
 	private boolean mRun = false;
 
@@ -46,7 +46,7 @@ public class TCPClient {
 	public void run() {
 		mRun = true;
 
-		try {
+		try { 
 			// here you must put your computer's IP address.
 			InetAddress serverAddr = InetAddress.getByName(SERVERIP);
 

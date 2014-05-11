@@ -48,11 +48,13 @@ public class LoginServer {
 				System.out.println(id);
 				System.out.println(password);
 
-				result = findID(id);
+				result = checkLogin(id, password);
+				
 				System.out.println("result : " + result);
 				out.println(result);
 
-				if (result.equals("비밀번호 확인하러 고고")) {
+				if (result.equals("로그인 성공")) {
+
 					name = getName(id);
 					grade = getGrade(id);
 					out.println(name);
@@ -75,7 +77,7 @@ public class LoginServer {
 		}
 	}
 
-	public static String findID(String id) {
+	public static String checkLogin(String id, String password) {
 
 		String result = null;
 
@@ -93,16 +95,31 @@ public class LoginServer {
 			rs = st.executeQuery("USE network");
 
 			// 테이블리스트 출력 쿼리 전송
-			if (st.execute("SELECT * FROM studentdb WHERE id= " + id)) {
+			if (st.execute("SELECT * FROM studentdb WHERE id= " + id )) {
 				rs = st.getResultSet();
 			}
-
-			if (rs.next()) {
-				result = "비밀번호 확인하러 고고";
-			} else {
-				result = "없는 아이디 입니다.";
+			
+			if(!rs.next())
+			{
+				result =  "없는 아이디입니다.";
 			}
-
+			else
+			{
+				// 아이디가 있으면, 패스워드를 체크한다.
+				st.execute("SELECT * FROM studentdb WHERE id= '" + id + "' AND password= '" + password +"'");
+				rs = st.getResultSet();
+				if(rs.next())
+				{
+					// 로그인 성공!
+					result = "로그인 성공";
+				}
+				else
+				{
+					// 패스워드 틀림!
+					result = "잘못된 패스워드 입니다.";
+				}
+				
+			}
 		} catch (SQLException sqex) {
 
 			System.out.println("SQLException: " + sqex.getMessage());

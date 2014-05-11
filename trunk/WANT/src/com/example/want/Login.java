@@ -1,7 +1,5 @@
 package com.example.want;
 
-import com.example.want.Join.connectTask;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -28,7 +26,6 @@ public class Login extends ActionBarActivity implements AsyncResponse{
 		static int count = 0;
 
 		private TCPClient myTcpClient;
-		private StudentInfo myStudent;
 
 		public class connectTask extends AsyncTask<String, String, String> {
 			public AsyncResponse delegate = null;
@@ -61,7 +58,11 @@ public class Login extends ActionBarActivity implements AsyncResponse{
 				
 				Log.i("tag","스레드 value : " + values[0]);
 				
-				Toast.makeText(getApplicationContext(), serverMessage[1]+" 로그인 하였습니다.", Toast.LENGTH_SHORT).show();
+				if(serverMessage[0].equals("로그인 성공"))
+					Toast.makeText(getApplicationContext(), serverMessage[1] + " 로그인 하였습니다.", Toast.LENGTH_SHORT).show();
+				else
+					Toast.makeText(getApplicationContext(), serverMessage[0], Toast.LENGTH_SHORT).show();
+				
 			}
 
 		}
@@ -112,6 +113,8 @@ public class Login extends ActionBarActivity implements AsyncResponse{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				
+						
 				id = idEdit.getText().toString();
 				password = passwordEdit.getText().toString();
 				
@@ -123,7 +126,7 @@ public class Login extends ActionBarActivity implements AsyncResponse{
 					myTcpClient.sendMessage(password);
 				}
 				
-				while (serverMessage[2] == null || serverMessage[2].isEmpty()) {
+				while (serverMessage[0] == null || serverMessage[0].isEmpty()) {
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
@@ -134,18 +137,37 @@ public class Login extends ActionBarActivity implements AsyncResponse{
 				
 				Log.i("tag", "result : " + serverMessage[0]);
 				
-				if(serverMessage[0].equals("비밀번호 확인하러 고고")  )
+				if(serverMessage[0].equals("로그인 성공")  )
 				{
+					while (serverMessage[2] == null || serverMessage[2].isEmpty()) {
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
 					name =serverMessage[1];
 					grade = serverMessage[2];
 
 					Log.i("tag", "name : " + name);
 					Log.i("tag", "grade : " + grade );
+					
 					finish();
+					
 				}
+				
+				else if(serverMessage[0].equals("잘못된 패스워드 입니다."))
+				{
+					idEdit.setText("");
+					passwordEdit.setText("");
+					
+				}
+				//나중에 영어로 다바꿀것 공백없이 
 								
 			}
 		});
+
 	}
 
 	@Override
