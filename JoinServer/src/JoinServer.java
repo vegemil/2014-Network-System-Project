@@ -22,10 +22,10 @@ public class JoinServer {
 
 		String result = null;
 
-		serverSocket = new ServerSocket(5555);
+		serverSocket = new ServerSocket(4321);
+		System.out.println("--------Join Server Start!! -----");
 
 		try {
-
 				clientSocket = serverSocket.accept();
 				System.out.println("클라이언트 연결");
 
@@ -47,10 +47,10 @@ public class JoinServer {
 					id = in.readLine();
 					password = in.readLine();
 
-					System.out.println(name);
-					System.out.println(grade);
-					System.out.println(id);
-					System.out.println(password);
+					System.out.println("NAME : " + name);
+					System.out.println("GRADE : " + grade);
+					System.out.println( "ID : " +id);
+					System.out.println("PASSWORD : " + password);
 
 					result = findID(id, password, grade, name);
 					System.out.println("result : " + result);

@@ -1,7 +1,5 @@
 package com.example.want;
 
-import java.util.concurrent.ExecutionException;
-
 import com.example.want.TCPClient;
 
 import android.content.Intent;
@@ -44,16 +42,10 @@ public class Join extends ActionBarActivity implements AsyncResponse {
 
 					serverMessage = message;
 				}
-			}, 5555);
+			}, 4321);
 			myTcpClient.run();
 
 			return serverMessage;
-		}
-
-		@Override
-		protected void onProgressUpdate(String... values) {
-			super.onProgressUpdate(values);
-			serverMessage = values[0];
 		}
 
 	}
@@ -63,6 +55,22 @@ public class Join extends ActionBarActivity implements AsyncResponse {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.join);
+		
+		// connect to the server
+		final connectTask connect = new connectTask();
+		connect.execute("");
+		connect.delegate = this;
+		
+//		// we create a TCPClient object and
+//		myTcpClient = new TCPClient(new TCPClient.OnMessageReceived() {
+//			@Override
+//			// here the messageReceived method is implemented
+//			public void messageReceived(String message) {
+//				serverMessage = message;
+//			}
+//		}, 4321);
+//		myTcpClient.run();
+		
 
 		// ¾×¼Ç¹Ù ¼û±è
 		ActionBar actionBar = getSupportActionBar();
@@ -87,17 +95,13 @@ public class Join extends ActionBarActivity implements AsyncResponse {
 
 		ImageButton okButton = (ImageButton) findViewById(R.id.joinokButton);
 
-		// connect to the server
-		final connectTask connect = new connectTask();
-		connect.execute("");
-		connect.delegate = this;
 
 		okButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-
+				
 				name = nameEdit.getText().toString();
 				grade = gradeEdit.getText().toString();
 				id = idEdit.getText().toString();
