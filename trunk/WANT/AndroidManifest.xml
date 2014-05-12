@@ -52,6 +52,8 @@
         <activity android:name="Secondgrader_NoticeBody"></activity>
         <activity android:name="Thirdgrader_NoticeBody"></activity>
         <activity android:name="Fourthgrader_NoticeBody"></activity>
+        <activity android:name="Major_Notice2"></activity>
+        <activity android:name="majortext"></activity>
         
         
     </application>
