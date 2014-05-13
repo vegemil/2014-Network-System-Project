@@ -26,6 +26,7 @@ public class Login extends ActionBarActivity implements AsyncResponse{
 		static int count = 0;
 
 		private TCPClient myTcpClient;
+		//StudentInfo myStudentInfo;
 
 		public class connectTask extends AsyncTask<String, String, String> {
 			public AsyncResponse delegate = null;
@@ -107,9 +108,7 @@ public class Login extends ActionBarActivity implements AsyncResponse{
 		
 		final EditText idEdit = (EditText)findViewById(R.id.loginidedit);
 		final EditText passwordEdit = (EditText)findViewById(R.id.loginpasswordedit);
-		
-		
-		
+	
 		ImageButton okButton = (ImageButton) findViewById(R.id.loginokButton);
 		okButton.setOnClickListener(new OnClickListener() {
 			
@@ -152,7 +151,12 @@ public class Login extends ActionBarActivity implements AsyncResponse{
 					}
 					name =serverMessage[1];
 					grade = serverMessage[2];
-
+					
+					StudentInfo.setID(id);
+					StudentInfo.setName(name);
+					StudentInfo.setPassword(password);
+					StudentInfo.setGrade(grade);
+					
 					Log.i("tag", "name : " + name);
 					Log.i("tag", "grade : " + grade );
 					
