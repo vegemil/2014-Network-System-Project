@@ -3,39 +3,39 @@ package com.example.want;
 import android.util.Log;
 
 public class StudentInfo {
-	private String id;
-	private String password;
-	private String grade;
-	private String name;
+	private static String id;
+	private static String password;
+	private static String grade;
+	private static String name;
 
-	public void setID(String inputID) {
+	public static void setID(String inputID) {
 		id = inputID;
 		Log.i("studentInfo", id);
 	}
 
-	public String getID() {
+	public static String getID() {
 		return id;
 	}
 
-	public void setPassword(String inputPassword) {
+	public static void setPassword(String inputPassword) {
 		password = inputPassword;
 		Log.i("studentInfo", password);
 	}
 
-	public String getPassword() {
+	public static String getPassword() {
 		return password;
 	}
 
-	public void setGrade(String inputgrade) {
+	public static void setGrade(String inputgrade) {
 		grade = inputgrade;
 		Log.i("studentInfo", grade);
 	}
 
-	public String getGrade() {
+	public static String getGrade() {
 		return grade;
 	}
 
-	public void setName(String inputName) {
+	public static void setName(String inputName) {
 		name = inputName;
 		Log.i("studentInfo", name);
 	}
