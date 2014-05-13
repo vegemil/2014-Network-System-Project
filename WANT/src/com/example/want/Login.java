@@ -74,6 +74,11 @@ public class Login extends ActionBarActivity implements AsyncResponse{
 		
 		setContentView(R.layout.login);
 		
+		//辑滚立加 夸没
+		final connectTask connect = new connectTask();
+		connect.execute("");
+		connect.delegate = this;
+		
 		// 咀记官 见辫
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
@@ -103,9 +108,7 @@ public class Login extends ActionBarActivity implements AsyncResponse{
 		final EditText idEdit = (EditText)findViewById(R.id.loginidedit);
 		final EditText passwordEdit = (EditText)findViewById(R.id.loginpasswordedit);
 		
-		final connectTask connect = new connectTask();
-		connect.execute("");
-		connect.delegate = this;
+		
 		
 		ImageButton okButton = (ImageButton) findViewById(R.id.loginokButton);
 		okButton.setOnClickListener(new OnClickListener() {
