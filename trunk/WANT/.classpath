@@ -5,6 +5,6 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="lib" path="C:/Users/E/workspace/WANT/libs/jericho-html-3.3.jar"/>
+	<classpathentry kind="lib" path="D:/network/WANT/libs/jericho-html-3.3.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
