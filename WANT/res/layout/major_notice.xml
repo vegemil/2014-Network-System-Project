@@ -46,6 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/homeButton"
+        android:layout_marginTop="15dp"
         android:text="가져오기" />
 
 </RelativeLayout>
