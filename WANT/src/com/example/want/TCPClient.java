@@ -8,7 +8,7 @@ import java.net.Socket;
 public class TCPClient {
 
 	private String serverMessage;
-	public static final String SERVERIP = "192.168.63.148"; // your computer IP
+	public static final String SERVERIP = "192.168.123.102"; // your computer IP
 																// address
 	public static int SERVERPORT ;
 	private OnMessageReceived mMessageListener = null;
@@ -50,7 +50,7 @@ public class TCPClient {
 			// here you must put your computer's IP address.
 			InetAddress serverAddr = InetAddress.getByName(SERVERIP);
 
-			Log.e("TCP Client", "C: Connecting...");
+			Log.i("TCP Client", "C: Connecting...");
 
 			// create a socket to make the connection with the server
 			Socket socket = new Socket(serverAddr, SERVERPORT);
@@ -61,8 +61,8 @@ public class TCPClient {
 						new OutputStreamWriter(socket.getOutputStream(),
 								"UTF-8")), true);
 
-				Log.e("TCP Client", "C: Sent.");
-				Log.e("TCP Client", "C:Done.");
+				Log.i("TCP Client", "C: Sent.");
+				Log.i("TCP Client", "C:Done.");
 
 				// receive the message which the server sends back
 				in = new BufferedReader(new InputStreamReader(
@@ -80,7 +80,7 @@ public class TCPClient {
 					serverMessage = null;
 				}
 
-				Log.e("RESPONSE FROM SERVER", "S: Received Message: '"
+				Log.i("RESPONSE FROM SERVER", "S: Received Message: '"
 						+ serverMessage + "'");
 
 			} catch (Exception e) {

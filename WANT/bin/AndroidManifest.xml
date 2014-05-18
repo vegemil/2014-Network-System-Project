@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.want"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="19" />
+    
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:largeHeap="true"
+
+
+         >
+        <activity
+            android:name="com.example.want.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="Community"></activity>
+        <activity android:name="Firstgrader_Notice"></activity>
+        <activity android:name="Fourthgrader_Notice"></activity>
+        <activity android:name="Join"></activity>
+        <activity android:name="Login"></activity>
+        <activity android:name="Major"></activity>
+        <activity android:name="Major_Information"></activity>
+        <activity android:name="Major_Introduction"></activity>
+        <activity android:name="Major_Notice"></activity>
+        <activity android:name="Professor_Introduction"></activity>
+        <activity android:name="Secondgrader_Notice"></activity>
+        <activity android:name="Thirdgrader_Notice"></activity>
+        <activity android:name="Timetable"></activity>
+        <activity android:name="Attendance" android:screenOrientation="landscape"></activity>
+        <activity android:name="Write_Firstgrade"></activity>
+        <activity android:name="Write_Secondgrade"></activity><activity android:name="Write_Thirdgrade"></activity><activity android:name="Write_Fourthgrade"></activity>
+        <activity android:name="Firstgrader_comment"></activity>
+        <activity android:name="Secondgrader_comment"></activity>
+        <activity android:name="Thirdgrader_comment"></activity>
+        <activity android:name="Fourthgrader_comment"></activity>
+        <activity android:name="Firstgrader_NoticeBody"></activity>
+        <activity android:name="Secondgrader_NoticeBody"></activity>
+        <activity android:name="Thirdgrader_NoticeBody"></activity>
+        <activity android:name="Fourthgrader_NoticeBody"></activity>
+        <activity android:name="Major_Notice2"></activity>
+        <activity android:name="majortext"></activity>
+        
+        
+    </application>
+
+</manifest>
