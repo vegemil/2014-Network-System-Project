@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -27,7 +26,9 @@ public class Major_Notice extends ActionBarActivity {
 	private ArrayList<HashMap<String, String>> data;
 	private Button bt_open;
 	private ListView list;
+	private ListView list2;
 	private SimpleAdapter sa;
+	private SimpleAdapter sa2;
 	private Major_Notice2 hp;
 	private TextView tv;
 	//private ArrayAdapter<String> arrayAdapter;
@@ -51,15 +52,21 @@ public class Major_Notice extends ActionBarActivity {
 	        
 	        bt_open = (Button)findViewById(R.id.bt_open);
 	        list = (ListView)findViewById(R.id.listView1);
+	        list2 = (ListView)findViewById(R.id.listView2);
 	        
 	        hp = new Major_Notice2(Major_Notice.this, handler, data);
 	        
 	        sa = new SimpleAdapter(Major_Notice.this, data, R.layout.major_notice2,
 	        		new String[]{"title","writer","day","test","text"}, new int[]{R.id.tv_title, R.id.tv_writer, R.id.tv_day,R.id.tv_test,R.id.tv_major});
 	        
+	      
+	        
 	        bt_open.setOnClickListener(listener);
 	        list.setAdapter(sa);
 	        
+	        list2.setAdapter(sa2);
+	        
+
 	        list.setOnItemClickListener(new OnItemClickListener() {
 				
 	        	
