@@ -107,10 +107,8 @@ public class Major_Notice2 {
 					System.out.println("테이블 개수!!!!" + source.getAllElements(HTMLElementName.TABLE).size());
 					System.out.println("TR개수 " + table.getAllElements(HTMLElementName.TR).size());
 					System.out.println("A개수 " + table.getAllElements(HTMLElementName.A).size());
-					
-					
 					//테이블 안의 TR 개수
-					
+					int tr_count = table.getAllElements(HTMLElementName.TR).size();
 					
 					
                     Element tr = null;                  
@@ -131,7 +129,7 @@ public class Major_Notice2 {
                     Element aa4=null;
                     
                     
-                    int tr_count = table.getAllElements(HTMLElementName.TR).size();
+					
 					HashMap<String, String> hm = null;
 					
 					
@@ -141,12 +139,16 @@ public class Major_Notice2 {
 						td= (Element) tr.getAllElements(HTMLElementName.TD).get(1);
 						aa= (Element) td.getAllElements(HTMLElementName.A).get(0);
 						
-						hm = new HashMap<String, String>();						   
+						hm = new HashMap<String, String>();
+						   
 						hm.put("test", ((Element) tr.getAllElements(HTMLElementName.TD).get(0)).getContent().toString());
 						hm.put("title", ((Element) td.getAllElements(HTMLElementName.SPAN).get(0)).getContent().toString());
 						hm.put("writer", ((Element) tr.getAllElements(HTMLElementName.TD).get(2)).getContent().toString());
-						hm.put("day", ((Element) tr.getAllElements(HTMLElementName.TD).get(3)).getContent().toString());					
-						hm.put("text", (aa.getAttributeValue("href").toString()));												
+						hm.put("day", ((Element) tr.getAllElements(HTMLElementName.TD).get(3)).getContent().toString());
+						//hm.put("text", ((Element) tr.getAllElements(HTMLElementName.TD).get(1)).getContent().toString());
+						hm.put("text", (aa.getAttributeValue("href").toString()));
+						//hm.put("text", (aa.getAttributes().toString()));
+						Log.i("text",((Element) tr.getAllElements(HTMLElementName.TD).get(1)).getContent().toString()) ;
 						data.add(hm);																										
 					}
 					
@@ -156,12 +158,16 @@ public class Major_Notice2 {
 						td2= (Element) tr2.getAllElements(HTMLElementName.TD).get(1);
 						aa2= (Element) td2.getAllElements(HTMLElementName.A).get(0);
 						
-						hm = new HashMap<String, String>();  
+						hm = new HashMap<String, String>();
+						   
 						hm.put("test", ((Element) tr2.getAllElements(HTMLElementName.TD).get(0)).getContent().toString());
 						hm.put("title", ((Element) td2.getAllElements(HTMLElementName.SPAN).get(0)).getContent().toString());
 						hm.put("writer", ((Element) tr2.getAllElements(HTMLElementName.TD).get(2)).getContent().toString());
-						hm.put("day", ((Element) tr2.getAllElements(HTMLElementName.TD).get(3)).getContent().toString());					
-						hm.put("text", (aa2.getAttributeValue("href").toString()));											
+						hm.put("day", ((Element) tr2.getAllElements(HTMLElementName.TD).get(3)).getContent().toString());
+						//hm.put("text", ((Element) tr.getAllElements(HTMLElementName.TD).get(1)).getContent().toString());
+						hm.put("text", (aa2.getAttributeValue("href").toString()));
+						//hm.put("text", (aa.getAttributes().toString()));
+						Log.i("text",((Element) tr2.getAllElements(HTMLElementName.TD).get(1)).getContent().toString()) ;
 						data.add(hm);																										
 					}
 					
@@ -171,12 +177,16 @@ public class Major_Notice2 {
 						td3= (Element) tr3.getAllElements(HTMLElementName.TD).get(1);
 						aa3= (Element) td3.getAllElements(HTMLElementName.A).get(0);
 						
-						hm = new HashMap<String, String>(); 
+						hm = new HashMap<String, String>();
+						   
 						hm.put("test", ((Element) tr3.getAllElements(HTMLElementName.TD).get(0)).getContent().toString());
 						hm.put("title", ((Element) td3.getAllElements(HTMLElementName.SPAN).get(0)).getContent().toString());
 						hm.put("writer", ((Element) tr3.getAllElements(HTMLElementName.TD).get(2)).getContent().toString());
 						hm.put("day", ((Element) tr3.getAllElements(HTMLElementName.TD).get(3)).getContent().toString());
+						//hm.put("text", ((Element) tr.getAllElements(HTMLElementName.TD).get(1)).getContent().toString());
 						hm.put("text", (aa3.getAttributeValue("href").toString()));
+						//hm.put("text", (aa.getAttributes().toString()));
+						Log.i("text",((Element) tr3.getAllElements(HTMLElementName.TD).get(1)).getContent().toString()) ;
 						data.add(hm);																										
 					}
 					
@@ -192,8 +202,10 @@ public class Major_Notice2 {
 						hm.put("title", ((Element) td4.getAllElements(HTMLElementName.SPAN).get(0)).getContent().toString());
 						hm.put("writer", ((Element) tr4.getAllElements(HTMLElementName.TD).get(2)).getContent().toString());
 						hm.put("day", ((Element) tr4.getAllElements(HTMLElementName.TD).get(3)).getContent().toString());
+						//hm.put("text", ((Element) tr.getAllElements(HTMLElementName.TD).get(1)).getContent().toString());
 						hm.put("text", (aa4.getAttributeValue("href").toString()));
-
+						//hm.put("text", (aa.getAttributes().toString()));
+						Log.i("text",((Element) tr4.getAllElements(HTMLElementName.TD).get(1)).getContent().toString()) ;
 						data.add(hm);																										
 					}
 					
