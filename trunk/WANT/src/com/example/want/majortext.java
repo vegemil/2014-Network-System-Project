@@ -58,7 +58,10 @@ public class majortext extends Activity {
 	    	Element table = (Element)source.getAllElements(HTMLElementName.TABLE).get(5);
 	    	Element tr = (Element)table.getAllElements(HTMLElementName.TABLE).get(0);
 	    	
-	    
+	    	
+	    	System.out.println("테이블의 개수: "+source.getAllElements(HTMLElementName.TABLE).size());
+	    	System.out.println("TR의 개수: "+table.getAllElements(HTMLElementName.TR).size());
+	    	System.out.println("TD의 개수: "+tr.getAllElements(HTMLElementName.TD).size());
 	    	
 	    	tgg = ((Element) tr.getAllElements(HTMLElementName.TD).get(0)).getContent().toString();
 	    	String tgg2 = tgg.replace("<br>", "");
