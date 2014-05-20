@@ -30,14 +30,6 @@
         android:layout_alignParentTop="true"
         android:src="@drawable/computerengineering1_mark" />
 
-    <ImageButton
-        android:id="@+id/writeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/homeButton"
-        android:background="@drawable/writing_button" />
-
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
@@ -46,5 +38,14 @@
         android:layout_below="@+id/writeButton" >
 
     </ListView>
+
+    <ImageButton
+        android:id="@+id/writeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/homeButton"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/writing_button" />
 
 </RelativeLayout>
