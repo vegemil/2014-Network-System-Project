@@ -8,6 +8,10 @@
         android:minSdkVersion="11"
         android:targetSdkVersion="19" />
     
+    <uses-feature android:name="android.hardware.nfc" android:required="false" />
+    <uses-permission android:name="android.permission.NFC" />   
+    
+    
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
