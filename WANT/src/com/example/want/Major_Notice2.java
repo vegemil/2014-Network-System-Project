@@ -145,9 +145,7 @@ public class Major_Notice2 {
 						hm.put("title", ((Element) td.getAllElements(HTMLElementName.SPAN).get(0)).getContent().toString());
 						hm.put("writer", ((Element) tr.getAllElements(HTMLElementName.TD).get(2)).getContent().toString());
 						hm.put("day", ((Element) tr.getAllElements(HTMLElementName.TD).get(3)).getContent().toString());
-						//hm.put("text", ((Element) tr.getAllElements(HTMLElementName.TD).get(1)).getContent().toString());
 						hm.put("text", (aa.getAttributeValue("href").toString()));
-						//hm.put("text", (aa.getAttributes().toString()));
 						Log.i("text",((Element) tr.getAllElements(HTMLElementName.TD).get(1)).getContent().toString()) ;
 						data.add(hm);																										
 					}
@@ -163,12 +161,10 @@ public class Major_Notice2 {
 						hm.put("test", ((Element) tr2.getAllElements(HTMLElementName.TD).get(0)).getContent().toString());
 						hm.put("title", ((Element) td2.getAllElements(HTMLElementName.SPAN).get(0)).getContent().toString());
 						hm.put("writer", ((Element) tr2.getAllElements(HTMLElementName.TD).get(2)).getContent().toString());
-						hm.put("day", ((Element) tr2.getAllElements(HTMLElementName.TD).get(3)).getContent().toString());
-						//hm.put("text", ((Element) tr.getAllElements(HTMLElementName.TD).get(1)).getContent().toString());
-						hm.put("text", (aa2.getAttributeValue("href").toString()));
-						//hm.put("text", (aa.getAttributes().toString()));
+						hm.put("day", ((Element) tr2.getAllElements(HTMLElementName.TD).get(3)).getContent().toString());					
+						hm.put("text", (aa2.getAttributeValue("href").toString()));						
 						Log.i("text",((Element) tr2.getAllElements(HTMLElementName.TD).get(1)).getContent().toString()) ;
-						data.add(hm);																										
+						data.add(hm);												 														
 					}
 					
 					for(int i=0; i<tr_count; i=i+2)
@@ -182,10 +178,8 @@ public class Major_Notice2 {
 						hm.put("test", ((Element) tr3.getAllElements(HTMLElementName.TD).get(0)).getContent().toString());
 						hm.put("title", ((Element) td3.getAllElements(HTMLElementName.SPAN).get(0)).getContent().toString());
 						hm.put("writer", ((Element) tr3.getAllElements(HTMLElementName.TD).get(2)).getContent().toString());
-						hm.put("day", ((Element) tr3.getAllElements(HTMLElementName.TD).get(3)).getContent().toString());
-						//hm.put("text", ((Element) tr.getAllElements(HTMLElementName.TD).get(1)).getContent().toString());
+						hm.put("day", ((Element) tr3.getAllElements(HTMLElementName.TD).get(3)).getContent().toString());						
 						hm.put("text", (aa3.getAttributeValue("href").toString()));
-						//hm.put("text", (aa.getAttributes().toString()));
 						Log.i("text",((Element) tr3.getAllElements(HTMLElementName.TD).get(1)).getContent().toString()) ;
 						data.add(hm);																										
 					}
@@ -202,10 +196,8 @@ public class Major_Notice2 {
 						hm.put("title", ((Element) td4.getAllElements(HTMLElementName.SPAN).get(0)).getContent().toString());
 						hm.put("writer", ((Element) tr4.getAllElements(HTMLElementName.TD).get(2)).getContent().toString());
 						hm.put("day", ((Element) tr4.getAllElements(HTMLElementName.TD).get(3)).getContent().toString());
-						//hm.put("text", ((Element) tr.getAllElements(HTMLElementName.TD).get(1)).getContent().toString());
 						hm.put("text", (aa4.getAttributeValue("href").toString()));
 						//hm.put("text", (aa.getAttributes().toString()));
-						Log.i("text",((Element) tr4.getAllElements(HTMLElementName.TD).get(1)).getContent().toString()) ;
 						data.add(hm);																										
 					}
 					
