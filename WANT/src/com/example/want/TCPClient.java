@@ -8,8 +8,7 @@ import java.net.Socket;
 public class TCPClient {
 
 	private String serverMessage;
-	public static final String SERVERIP = "192.168.123.102"; // your computer IP
-																// address
+	public static final String SERVERIP = "192.168.63.65"; // your computer IP address
 	public static int SERVERPORT ;
 	private OnMessageReceived mMessageListener = null;
 	private boolean mRun = false;
@@ -50,7 +49,7 @@ public class TCPClient {
 			// here you must put your computer's IP address.
 			InetAddress serverAddr = InetAddress.getByName(SERVERIP);
 
-			Log.i("TCP Client", "C: Connecting...");
+			Log.e("TCP Client", "C: Connecting...");
 
 			// create a socket to make the connection with the server
 			Socket socket = new Socket(serverAddr, SERVERPORT);
@@ -61,27 +60,28 @@ public class TCPClient {
 						new OutputStreamWriter(socket.getOutputStream(),
 								"UTF-8")), true);
 
-				Log.i("TCP Client", "C: Sent.");
-				Log.i("TCP Client", "C:Done.");
+				Log.e("TCP Client", "C: Sent.");
+				Log.e("TCP Client", "C: Done.");
 
 				// receive the message which the server sends back
 				in = new BufferedReader(new InputStreamReader(
 						socket.getInputStream(), "UTF-8"));
-
+       
 				// in this while the client listens for the messages send by the
 				// server
 				while (mRun) {
 					serverMessage = in.readLine();
-
+					System.out.println(serverMessage);
 					if (serverMessage != null && mMessageListener != null) {
 						// call the method messageReceived from MyActivity class
+						Log.e("RESPONSE FROM SERVER", "S: Received Message: '"
+								+ serverMessage + "'");
 						mMessageListener.messageReceived(serverMessage);
+						
 					}
 					serverMessage = null;
 				}
 
-				Log.i("RESPONSE FROM SERVER", "S: Received Message: '"
-						+ serverMessage + "'");
 
 			} catch (Exception e) {
 
@@ -106,4 +106,6 @@ public class TCPClient {
 	public interface OnMessageReceived {
 		public void messageReceived(String message);
 	}
+
+
 }
