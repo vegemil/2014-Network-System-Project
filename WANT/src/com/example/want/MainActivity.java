@@ -63,9 +63,7 @@ public class MainActivity extends ActionBarActivity {
 		 nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 	     Intent intent = new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 	     pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-	     Log.e("화면 : " , "화면이 켜졌습니다.");
-	     
-	     Log.i("서버에 접속중 ㅎㅎㅎ","");
+
 			final connectTask connect = new connectTask();
 			connect.execute("");
 			
