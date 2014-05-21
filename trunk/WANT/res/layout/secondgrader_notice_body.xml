@@ -46,7 +46,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="댓글" 
-            android:layout_gravity="right"/>
+            android:layout_gravity="right"
+            android:background="@drawable/edittext_shape"
+            android:textColor="#2e8b57"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/titleText"
@@ -63,11 +66,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="1dp"
-            android:padding="3dp"
-            android:text="Medium Text"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:background="@drawable/edittext_shape"
-            android:scrollbars="vertical" />
+            android:padding="3dp"
+            android:scrollbars="vertical"
+            android:text="Context"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </LinearLayout>
 

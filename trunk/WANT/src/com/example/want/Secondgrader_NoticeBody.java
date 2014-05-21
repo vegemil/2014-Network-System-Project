@@ -1,5 +1,7 @@
 package com.example.want;
 
+import org.w3c.dom.Text;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class Secondgrader_NoticeBody extends ActionBarActivity {
 
@@ -44,5 +47,11 @@ public class Secondgrader_NoticeBody extends ActionBarActivity {
 				startActivity(intent);
 			}
 		});
+		
+		TextView title = (TextView)findViewById(R.id.titleText);
+		TextView context = (TextView)findViewById(R.id.bodyText);
+		
+		title.setText(Community_Text_Data.getTitle());
+		context.setText(Community_Text_Data.getContext());
 	}
 }

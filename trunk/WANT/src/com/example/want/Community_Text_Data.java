@@ -3,10 +3,10 @@ package com.example.want;
 public class Community_Text_Data {
 	
 	private static String writer;
-	private static String id; 
+	private static String title; 
 	private static String context;
 	private static String date;
-	private static int textnum;
+	private static String textnum;
 	
 	public static String getWriter()
 	{
@@ -18,14 +18,14 @@ public class Community_Text_Data {
 		writer = InputWriter;
 	}
 	
-	public static String getID()
+	public static String getTitle()
 	{
-		return id;
+		return title;
 	}
 	
-	public static void setID(String InputID)
+	public static void setTitle(String InputTitle)
 	{
-		id = InputID;
+		title = InputTitle;
 	}
 
 	public static String getContext()
@@ -48,12 +48,12 @@ public class Community_Text_Data {
 		date = InputDate;
 	}
 	
-	public static int getTextNum()
+	public static String getTextNum()
 	{
 		return textnum;
 	}
 	
-	public static void setTextNum(int InputTextNum)
+	public static void setTextNum(String InputTextNum)
 	{
 		textnum = InputTextNum;
 	}
