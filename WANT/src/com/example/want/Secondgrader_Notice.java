@@ -26,7 +26,7 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 	
 	ListView list;
 	Community_Adapter adapter;
-	ArrayList<Community_Data> arrData;
+	ArrayList<Community_List_Data> arrData;
 	
 
 	private TCPClient myTcpClient;
@@ -53,6 +53,8 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 			}, 7123);
 
 			myTcpClient.run();
+			
+			
 
 			return null;
 		}
@@ -106,8 +108,9 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 				startActivity(intent);
 			}
 		});
-
-		while (myTcpClient == null) {
+		
+		while(myTcpClient == null)
+		{
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -115,11 +118,12 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 				e.printStackTrace();
 			}
 		}
-
-		// 메세지 던짐
+		
+		
 		myTcpClient.sendMessage("2");
-		Log.i("onCreate", "메세지 던짐");
-
+		
+		
+		
 		while (serverMessage[0] == null || serverMessage[0].isEmpty()) {
 			try {
 				Thread.sleep(1000);
@@ -133,7 +137,7 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 		Log.i("onCreate", "listCount : " + listCount);
 		
 		 
-		 arrData = new ArrayList<Community_Data>();
+		 arrData = new ArrayList<Community_List_Data>();
 		 
 		 for (int i = 0; i < listCount; i++) {
 		 writer[i] = serverMessage[3 * i + 1];
@@ -141,7 +145,7 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 		 date[i] = serverMessage[3 * (i + 1)];
 		
 		 Log.i("onCreate 결과", i +" : " + writer[i] + ", " + title[i] + ", " + date[i]);
-		 arrData.add(new Community_Data(title[i], writer[i], date[i]));
+		 arrData.add(new Community_List_Data(title[i], writer[i], date[i]));
 		 }
 		 		
 		 adapter = new Community_Adapter(this, arrData);

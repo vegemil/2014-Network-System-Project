@@ -12,10 +12,10 @@ import android.widget.TextView;
 public class Community_Adapter extends BaseAdapter {
 
 	private Context context;
-	private ArrayList<Community_Data> arrData;
+	private ArrayList<Community_List_Data> arrData;
 	private LayoutInflater inflater;
 	
-	public Community_Adapter(Context c, ArrayList<Community_Data> arr)
+	public Community_Adapter(Context c, ArrayList<Community_List_Data> arr)
 	{
 		this.context = c;
 		this.arrData = arr;
