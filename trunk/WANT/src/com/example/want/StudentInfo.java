@@ -40,7 +40,7 @@ public class StudentInfo {
 		Log.i("studentInfo", name);
 	}
 
-	public String getName() {
+	public static String getName() {
 		return name;
 	}
 }

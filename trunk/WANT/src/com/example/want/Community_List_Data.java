@@ -1,11 +1,11 @@
 package com.example.want;
 
-public class Community_Data {
+public class Community_List_Data {
 	private String title;
 	private String writer;
 	private String date;
 	
-	public Community_Data(String title, String writer, String date)
+	public Community_List_Data(String title, String writer, String date)
 	{
 		this.title = title;
 		this.writer = writer;
