@@ -20,16 +20,16 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
-	private NfcAdapter nfcAdapter;
-	private PendingIntent pendingIntent;
+	//private NfcAdapter nfcAdapter;
+	//private PendingIntent pendingIntent;
 	static String[] serverMessage = new String[3];
 	static int count = 0;
 
-	private TCPClient myTcpClient;
+//private TCPClient myTcpClient;
 
-	// StudentInfo myStudentInfo;
 
-	public class connectTask extends AsyncTask<String, String, String> {
+/*	public class connectTask extends AsyncTask<String, String, String> {
+
 		public MainActivity delegate = null;
 
 		@Override
@@ -49,17 +49,29 @@ public class MainActivity extends ActionBarActivity {
 					message = serverMessage[0];
 					Log.i("Tag ID", "서버에서 받은 값 : " + message);
 				}
-			}, 7777);
+			}, 3333);
 			myTcpClient.run();
 			return null;
 		}
-	}
+	}*/
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_main);
+
+		
+		 /*nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+	     Intent intent = new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+	     pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
+
+		
+			/*final connectTask connect = new connectTask();
+			connect.execute("");
+			
+			connect.delegate = this;
+			
 
 		//nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 		// Intent intent = new Intent(this,
@@ -70,11 +82,12 @@ public class MainActivity extends ActionBarActivity {
 		// connect.execute("");
 		// connect.delegate = this;
 
+
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
-
+*/
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
@@ -137,6 +150,11 @@ public class MainActivity extends ActionBarActivity {
 			}
 		});
 
+		
+		
+		
+		
+		
 		ImageButton homeButton = (ImageButton) findViewById(R.id.homeButton);
 		homeButton.setOnClickListener(new OnClickListener() {
 
@@ -149,6 +167,9 @@ public class MainActivity extends ActionBarActivity {
 			}
 		});
 
+		
+		
+		
 	}
 
 	@Override
@@ -188,7 +209,9 @@ public class MainActivity extends ActionBarActivity {
 		}
 	}
 
-	protected void onPause() {
+
+/*	protected void onPause() {
+
 		if (nfcAdapter != null) {
 			nfcAdapter.disableForegroundDispatch(this);
 		}
@@ -234,6 +257,9 @@ public class MainActivity extends ActionBarActivity {
 //		}
 	}
 
+	
+	
+	
 	public static final String CHARS = "0123456789ABCDEF";
 
 	public static String toHexString(byte[] data) {
@@ -243,6 +269,6 @@ public class MainActivity extends ActionBarActivity {
 					CHARS.charAt(data[i] & 0x0F));
 		}
 		return sb.toString();
-	}
+	}*/
 
 }
