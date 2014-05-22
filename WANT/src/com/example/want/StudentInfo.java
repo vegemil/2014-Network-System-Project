@@ -3,10 +3,10 @@ package com.example.want;
 import android.util.Log;
 
 public class StudentInfo {
-	private static String id;
-	private static String password;
-	private static String grade;
-	private static String name;
+	private static String id = "";
+	private static String password = "";
+	private static String grade = "";
+	private static String name = "";
 
 	public static void setID(String inputID) {
 		id = inputID;

@@ -79,14 +79,25 @@ public class MainActivity extends ActionBarActivity {
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
 
-		ImageButton logoutButton = (ImageButton) findViewById(R.id.loginoutButton);
-		logoutButton.setOnClickListener(new OnClickListener() {
+		ImageButton loginoutButton = (ImageButton) findViewById(R.id.loginoutButton);
+		loginoutButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(getApplicationContext(), Login.class);
-				startActivity(intent);
+				if(StudentInfo.getID().equals("") || StudentInfo.getGrade().equals("") || StudentInfo.getName().equals("") || StudentInfo.getPassword().equals(""))
+				{
+					Intent intent = new Intent(getApplicationContext(), Login.class);
+					startActivity(intent);
+				}
+				else
+				{
+					Toast.makeText(getApplicationContext(), StudentInfo.getName() + " 로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+					StudentInfo.setGrade("");
+					StudentInfo.setID("");
+					StudentInfo.setName("");
+					StudentInfo.setPassword("");
+				}
 			}
 		});
 
