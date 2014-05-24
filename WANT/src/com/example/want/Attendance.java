@@ -1,11 +1,15 @@
 package com.example.want;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import com.example.want.MainActivity.PlaceholderFragment;
 import com.example.want.Attendance.connectTask;
 
 import android.R.string;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.os.AsyncTask;
@@ -29,12 +33,13 @@ public class Attendance extends ActionBarActivity {
 	static String[] serverMessage = new String[3];
 	static int count = 0;
 	private TCPClient myTcpClient;
-
+	private SharedPreferences sp; //추가한 부분
     
 	
 	
 	public class connectTask extends AsyncTask<String, String, String> {
 		public Attendance delegate = null;
+		
 
 		@Override
 		protected String doInBackground(String... message) {
@@ -52,20 +57,21 @@ public class Attendance extends ActionBarActivity {
 					
 					message = serverMessage[0];
 					Log.i("Tag ID", "서버에서 받은 값 : " + message);
+					
+					
 				}
-			}, 3333);
+			}, 7777);
 			myTcpClient.run();
 			return null;
 		}
 	}
 	    
-	
-	 
-	
+
 	    protected void onPause() {
 			if (nfcAdapter != null) {
 				nfcAdapter.disableForegroundDispatch(this);
 			}
+			myTcpClient.stopClient();
 			super.onPause();
 		}
 
@@ -80,17 +86,25 @@ public class Attendance extends ActionBarActivity {
 		@Override
 		protected void onNewIntent(Intent intent) {
 			super.onNewIntent(intent);
-			
+		
+			Calendar cal=new GregorianCalendar();
 			Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 			if (tag != null) {
 				byte[] tagId = tag.getId();
 				
 				serverMessage[0] = toHexString(tagId); // tagid서버로 전송		 
-				
+				serverMessage[1] = sp.getString("id", "null");
+     			serverMessage[2] = String.format("%d/%d/%d/%d:%d", cal.get(Calendar.YEAR)
+     					, cal.get(Calendar.MONTH)+1
+     					, cal.get(Calendar.DAY_OF_MONTH)
+     					, cal.get(Calendar.HOUR_OF_DAY)
+     					, cal.get(Calendar.MINUTE));	
 				Toast.makeText(getApplicationContext(), "태그되었습니다.", Toast.LENGTH_SHORT).show();
-				
+	
 				if (myTcpClient != null) {
 					myTcpClient.sendMessage(serverMessage[0]);
+					myTcpClient.sendMessage(serverMessage[1]);
+					myTcpClient.sendMessage(serverMessage[2]);
 				}
 				
 				
@@ -104,14 +118,11 @@ public class Attendance extends ActionBarActivity {
 				}
 				
 			}
+			
+			
 		}
 			
-		
-		
-		
-			
-		
-		
+
 		public static final String CHARS = "0123456789ABCDEF";
 		
 		public static String toHexString(byte[] data) {
@@ -123,16 +134,6 @@ public class Attendance extends ActionBarActivity {
 			return sb.toString();
 		}
 	
-	
-		
-		
-		
-		
-		
-		
-		
-		
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -140,6 +141,9 @@ public class Attendance extends ActionBarActivity {
 		nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 		Intent intent = new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+		
+		sp = (SharedPreferences)getSharedPreferences("pref", 0); //1
+		
 		final connectTask connect = new connectTask();
 		connect.execute("");
 		
@@ -149,9 +153,7 @@ public class Attendance extends ActionBarActivity {
 		getSupportFragmentManager().beginTransaction()
 				.add(R.id.container, new PlaceholderFragment()).commit();
 	}*/
-
-
-		
+	
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
@@ -206,6 +208,8 @@ public class Attendance extends ActionBarActivity {
 				subjectText.setText("과목명");
 			}
 		});
+		
+		
 
 	}
 
