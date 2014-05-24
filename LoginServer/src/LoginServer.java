@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class LoginServer implements Runnable {
-	public static final int ServerPort = 6666;
+	public static final int ServerPort = 5555;
 	public static final String ServerIP = "172.30.4.76";
 
 	PrintWriter out = null;
@@ -135,7 +135,7 @@ public class LoginServer implements Runnable {
 		try {
 
 			Statement st = null;
-			ResultSet rs = null;
+			ResultSet rs = null; //select을 통해서 데이터를 가져올 때,
 			st = con.createStatement();
 			rs = st.executeQuery("USE network");
 
