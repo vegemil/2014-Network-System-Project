@@ -1,6 +1,8 @@
 package com.example.want;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -28,7 +30,8 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 	private TCPClient myTcpClient;
 
 	String result;
-
+	SharedPreferences sp;
+	Editor edit;
 	// StudentInfo myStudentInfo;
 
 	public class connectTask extends AsyncTask<String, String, String> {
@@ -50,7 +53,7 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 					count++;
 					Log.i("tag", "서버에서 받은 값 : " + message);
 				}
-			}, 6666);
+			}, 5555);
 			myTcpClient.run();
 
 			return null;
@@ -71,7 +74,9 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.login);
-
+		
+		sp= (SharedPreferences)getSharedPreferences("pref", 0); //pref.xml파일을 불러오기 , 파일이 없으면 생성댐 
+		edit=sp.edit();
 		// 서버접속 요청
 		final connectTask connect = new connectTask();
 		connect.execute("");
@@ -141,6 +146,8 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 					Toast.makeText(getApplicationContext(),
 							StudentInfo.getName() + " 로그인 하였습니다.",
 							Toast.LENGTH_SHORT).show();
+					edit.putString("id", StudentInfo.getID());
+					edit.commit();
 					myTcpClient.stopClient();
 					finish();
 				}
