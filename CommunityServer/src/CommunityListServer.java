@@ -20,6 +20,7 @@ public class CommunityListServer {
 	static String[] title = new String[100];;
 	static String[] context = new String[100];
 	static String[] date = new String[100];
+	static String[] textnum = new String[100];
 
 	static int count = 0;
 
@@ -29,7 +30,7 @@ public class CommunityListServer {
 		PrintWriter out = null;
 		BufferedReader in = null;
 
-		serverSocket = new ServerSocket(7123);
+		serverSocket = new ServerSocket(3547);
 		System.out.println("--------Community Server Start!! -----");
 
 		//getBoardData("2");
@@ -62,9 +63,10 @@ public class CommunityListServer {
 				 out.println(writer[i]);
 				 out.println(title[i]);
 				 out.println(date[i]);
+				 out.println(context[i]);
+				 out.println(textnum[i]);
 				 }
 
-				//out.println("LOAD_FINISH");
 				out.flush();
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -111,12 +113,14 @@ public class CommunityListServer {
 				title[count] = rs.getNString("title");
 				context[count] = rs.getNString("context");
 				date[count] = rs.getTimestamp("date").toString();
-
+				textnum[count] = rs.getNString("textnum");
+				
 				System.out.println("writer : " + writer[count]);
 				System.out.println("id : " + id[count]);
 				System.out.println("title : " + title[count]);
 				System.out.println("context : " + context[count]);
 				System.out.println("date : " + date[count]);
+				System.out.println("textnum : " + textnum[count]);
 				System.out.println("------------------");
 				count++;
 			}
