@@ -20,40 +20,10 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
-	//private NfcAdapter nfcAdapter;
-	//private PendingIntent pendingIntent;
+	// private NfcAdapter nfcAdapter;
+	// private PendingIntent pendingIntent;
 	static String[] serverMessage = new String[3];
 	static int count = 0;
-
-//private TCPClient myTcpClient;
-
-
-/*	public class connectTask extends AsyncTask<String, String, String> {
-
-		public MainActivity delegate = null;
-
-		@Override
-		protected String doInBackground(String... message) {
-
-			// we create a TCPClient object and
-			myTcpClient = new TCPClient(new TCPClient.OnMessageReceived() {
-
-				@Override
-				// here the messageReceived method is implemented
-				public void messageReceived(String message) {
-					// this method calls the onProgressUpdate
-					publishProgress(message);
-					serverMessage[count] = message;
-					count++;
-
-					message = serverMessage[0];
-					Log.i("Tag ID", "서버에서 받은 값 : " + message);
-				}
-			}, 3333);
-			myTcpClient.run();
-			return null;
-		}
-	}*/
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,33 +31,6 @@ public class MainActivity extends ActionBarActivity {
 
 		setContentView(R.layout.activity_main);
 
-		
-		 /*nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-	     Intent intent = new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-	     pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
-
-		
-			/*final connectTask connect = new connectTask();
-			connect.execute("");
-			
-			connect.delegate = this;
-			
-
-		//nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-		// Intent intent = new Intent(this,
-		// getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-		// pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
-		// final connectTask connect = new connectTask();
-		// connect.execute("");
-		// connect.delegate = this;
-
-
-		if (savedInstanceState == null) {
-			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
-*/
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
@@ -98,14 +41,17 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if(StudentInfo.getID().equals("") || StudentInfo.getGrade().equals("") || StudentInfo.getName().equals("") || StudentInfo.getPassword().equals(""))
-				{
-					Intent intent = new Intent(getApplicationContext(), Login.class);
+				if (StudentInfo.getID().equals("")
+						|| StudentInfo.getGrade().equals("")
+						|| StudentInfo.getName().equals("")
+						|| StudentInfo.getPassword().equals("")) {
+					Intent intent = new Intent(getApplicationContext(),
+							Login.class);
 					startActivity(intent);
-				}
-				else
-				{
-					Toast.makeText(getApplicationContext(), StudentInfo.getName() + " 로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+				} else {
+					Toast.makeText(getApplicationContext(),
+							StudentInfo.getName() + " 로그아웃 되었습니다.",
+							Toast.LENGTH_SHORT).show();
 					StudentInfo.setGrade("");
 					StudentInfo.setID("");
 					StudentInfo.setName("");
@@ -150,11 +96,6 @@ public class MainActivity extends ActionBarActivity {
 			}
 		});
 
-		
-		
-		
-		
-		
 		ImageButton homeButton = (ImageButton) findViewById(R.id.homeButton);
 		homeButton.setOnClickListener(new OnClickListener() {
 
@@ -167,9 +108,6 @@ public class MainActivity extends ActionBarActivity {
 			}
 		});
 
-		
-		
-		
 	}
 
 	@Override
@@ -208,67 +146,4 @@ public class MainActivity extends ActionBarActivity {
 			return rootView;
 		}
 	}
-
-
-/*	protected void onPause() {
-
-		if (nfcAdapter != null) {
-			nfcAdapter.disableForegroundDispatch(this);
-		}
-		super.onPause();
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		if (nfcAdapter != null) {
-			nfcAdapter
-					.enableForegroundDispatch(this, pendingIntent, null, null);
-		}
-	}
-
-	@Override
-	protected void onNewIntent(Intent intent) {
-		super.onNewIntent(intent);
-
-//		Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-//		if (tag != null) {
-//			byte[] tagId = tag.getId();
-//
-//			serverMessage[0] = toHexString(tagId); // tagid서버로 전송
-//
-//			Toast.makeText(getApplicationContext(), "태그되었습니다.",
-//					Toast.LENGTH_SHORT).show();
-//
-//			if (myTcpClient != null) {
-//				myTcpClient.sendMessage(serverMessage[0]);
-//			}
-//
-//			while (serverMessage[0] == null || serverMessage[0].isEmpty()) {
-//				try {
-//					Thread.sleep(1000);
-//				} catch (InterruptedException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//			}
-//
-//			myTcpClient.stopClient();
-//		}
-	}
-
-	
-	
-	
-	public static final String CHARS = "0123456789ABCDEF";
-
-	public static String toHexString(byte[] data) {
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < data.length; ++i) {
-			sb.append(CHARS.charAt((data[i] >> 4) & 0x0F)).append(
-					CHARS.charAt(data[i] & 0x0F));
-		}
-		return sb.toString();
-	}*/
-
 }

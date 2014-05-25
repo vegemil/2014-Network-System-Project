@@ -1,6 +1,5 @@
 package com.example.want;
 
-import org.w3c.dom.Text;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,7 +30,7 @@ public class Secondgrader_NoticeBody extends ActionBarActivity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(getApplicationContext(),
-						Firstgrader_comment.class);
+						Secondgrader_comment.class);
 				startActivity(intent);
 			}
 		});
