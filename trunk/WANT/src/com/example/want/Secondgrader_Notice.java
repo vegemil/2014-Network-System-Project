@@ -27,11 +27,10 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 	static String[] textnum = new String[100];
 	static int listCount = 0;
 	static int count = 0;
-	
+
 	ListView list;
 	Community_Adapter adapter;
 	ArrayList<Community_List_Data> arrData;
-	
 
 	private TCPClient myTcpClient;
 
@@ -54,9 +53,10 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 					Log.i("server에서 받은 값", serverMessage[count]);
 					count++;
 				}
-			}, 7123);
+			}, 3547);
 
 			myTcpClient.run();
+			Log.i("onCreate", "스레드 시작");
 			
 			
 
@@ -81,8 +81,7 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 		final connectTask connect = new connectTask();
 		connect.execute("");
 		connect.delegate = this;
-		Log.i("onCreate", "스레드 시작");
-
+		
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
@@ -110,9 +109,8 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 				startActivity(intent);
 			}
 		});
-		
-		while(myTcpClient == null)
-		{
+
+		while (myTcpClient.isRunnable() == false) {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -121,8 +119,16 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 			}
 		}
 		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		myTcpClient.sendMessage("2");
-				
+		Log.i("SecondGrader_Notice", "메세지 던짐");
+
 		while (serverMessage[0] == null || serverMessage[0].isEmpty()) {
 			try {
 				Thread.sleep(1000);
@@ -134,28 +140,28 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 
 		listCount = Integer.parseInt(serverMessage[0]);
 		Log.i("onCreate", "listCount : " + listCount);
-		
-		 
-		 arrData = new ArrayList<Community_List_Data>();
-		 
-		 for (int i = 0; i < listCount; i++) {
-		 writer[i] = serverMessage[5 * i + 1];
-		 title[i] = serverMessage[5 * i + 2];
-		 date[i] = serverMessage[5 * i + 3];
-		 context[i] = serverMessage[5 * i +4];
-		 textnum[i] = serverMessage[5 * (i + 1)];
-		
-		 Log.i("onCreate 결과", i +" : " + writer[i] + ", " + title[i] + ", " + date[i]);
-		 Log.i("onCreate 결과", context[i]);
-		 Log.i("onCreate 결과","" + textnum[i]);
-		 arrData.add(new Community_List_Data(title[i], writer[i], date[i]));
-		 }
-		 		
-		 adapter = new Community_Adapter(this, arrData);
-		 list = (ListView)findViewById(R.id.listView1);
-		 list.setAdapter(adapter);
-		 
-		 list.setOnItemClickListener(new OnItemClickListener() {
+
+		arrData = new ArrayList<Community_List_Data>();
+
+		for (int i = 0; i < listCount; i++) {
+			writer[i] = serverMessage[5 * i + 1];
+			title[i] = serverMessage[5 * i + 2];
+			date[i] = serverMessage[5 * i + 3];
+			context[i] = serverMessage[5 * i + 4];
+			textnum[i] = serverMessage[5 * (i + 1)];
+
+			Log.i("onCreate 결과", i + " : " + writer[i] + ", " + title[i] + ", "
+					+ date[i]);
+			Log.i("onCreate 결과", context[i]);
+			Log.i("onCreate 결과", "" + textnum[i]);
+			arrData.add(new Community_List_Data(title[i], writer[i], date[i]));
+		}
+
+		adapter = new Community_Adapter(this, arrData);
+		list = (ListView) findViewById(R.id.listView1);
+		list.setAdapter(adapter);
+
+		list.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
@@ -166,7 +172,7 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 				Community_Text_Data.setTextNum(textnum[position]);
 				Community_Text_Data.setDate(date[position]);
 				Community_Text_Data.setWriter(writer[position]);
-				
+
 				Log.i("Community text data", Community_Text_Data.getContext());
 				Log.i("Community text data", Community_Text_Data.getDate());
 				Log.i("Community text data", Community_Text_Data.getTextNum());
@@ -177,11 +183,10 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 				startActivity(intent);
 			}
 		});
-		 
-		 myTcpClient.stopClient();
+
+		myTcpClient.stopClient();
 	}
-	
-	
+
 	@Override
 	public void processFinish(String output) {
 		// TODO Auto-generated method stub
@@ -189,5 +194,4 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 		Log.i("tag", "processFinish result : " + serverMessage[0]);
 
 	}
-
 }

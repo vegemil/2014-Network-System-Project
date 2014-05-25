@@ -155,7 +155,6 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 				count = 0;
 				for(int i = 0; i <3; i++)
 					serverMessage[i] = null;
-				
 			}
 		});
 
@@ -185,6 +184,8 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 	public void processFinish(String output) {
 		// TODO Auto-generated method stub
 		serverMessage[0] = output;
-		Log.i("tag", "processFinish result : " + serverMessage[0]);
+		//Log.i("tag", "processFinish result : " + serverMessage[0]);
 	}
+
+
 }

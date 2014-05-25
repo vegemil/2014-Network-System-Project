@@ -1,6 +1,8 @@
 package com.example.want;
 
+import android.support.v7.appcompat.R.bool;
 import android.util.Log;
+
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -107,6 +109,14 @@ public class TCPClient {
 	 */
 	public interface OnMessageReceived {
 		public void messageReceived(String message);
+	}
+	
+	public boolean isRunnable()
+	{
+		if(mRun == true)
+			return true;
+		else
+			return false;
 	}
 
 
