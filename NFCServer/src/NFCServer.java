@@ -69,14 +69,14 @@ public class NFCServer {
           tagid=in.readLine(); //짝수를 맞춰          
           id=in.readLine();
           time=in.readLine();
-          
+           
           System.out.println("id : " + id);
           System.out.println("tagid : " + tagid);
           System.out.println("time : " + time);
           
           out.println(tagid); //클라이언트에 보내는것, 몇시에 어느과목에 정상적으로 출석처리 되었습니다.를 클라이언트에 보내줘야함.
           
-
+ 
           out.flush();
           
           if(tagid.equals(데통)){ //넣을때 구분하던지, 빼고 나서 데이터가공할것인지 우리자유~
@@ -109,7 +109,7 @@ public class NFCServer {
 			result = "FAIL_GETDATA";
 		}
           //쿼리 처리해주는 부분
-          String query ="insert into subject_network(tagid,id,grade,name) values('"+subject+"','"+id+"','"+grade+"','"+name+"')";
+          String query ="insert into subject_network(tagid,id,grade,name,1st) values('"+tagid+"','"+id+"','"+grade+"','"+name+"','"+time+"')";
           //데이터가 있는데 수정하려면 update
           //데이터가 없으면 삽입 insert 위에꺼 해주면 ㄳ
           
