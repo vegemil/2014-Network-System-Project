@@ -1,5 +1,9 @@
 package com.example.want;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.nfc.NfcAdapter;
@@ -34,6 +38,16 @@ public class MainActivity extends ActionBarActivity {
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
+		
+		// 현재 시간을 msec으로 구한다.
+		long now = System.currentTimeMillis();
+		// 현재 시간을 저장 한다.
+		Date date = new Date(now);
+		// 시간 포맷으로 만든다.
+		SimpleDateFormat sdfNow = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.KOREA);
+		String strNow = sdfNow.format(date);
+		
+		Log.i("time", strNow);
 
 		ImageButton loginoutButton = (ImageButton) findViewById(R.id.loginoutButton);
 		loginoutButton.setOnClickListener(new OnClickListener() {
