@@ -1,6 +1,6 @@
 package com.example.want;
 
-import android.support.v7.appcompat.R.bool;
+
 import android.util.Log;
 
 import java.io.*;
@@ -11,7 +11,7 @@ public class TCPClient {
 
 	private String serverMessage;
 	
-	public static final String SERVERIP = "172.30.9.165"; // your computer IP address
+	public static final String SERVERIP = "192.168.63.65"; // your computer IP address
 
 	public static int SERVERPORT ;
 	private OnMessageReceived mMessageListener = null;
