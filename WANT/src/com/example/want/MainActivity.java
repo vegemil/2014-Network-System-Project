@@ -67,7 +67,7 @@ public class MainActivity extends ActionBarActivity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(getApplicationContext(),
-						Attendance.class);
+						Attendance2.class);
 				startActivity(intent);
 			}
 		});
