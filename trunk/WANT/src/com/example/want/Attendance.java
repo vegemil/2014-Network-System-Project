@@ -20,9 +20,11 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -118,8 +120,7 @@ public class Attendance extends ActionBarActivity {
 					}
 				}
 				
-			}
-			
+			}			
 			
 		}
 			
@@ -138,7 +139,7 @@ public class Attendance extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.attendancecheck2);
+		setContentView(R.layout.attendancecheck);
 		nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 		Intent intent = new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
@@ -150,85 +151,22 @@ public class Attendance extends ActionBarActivity {
 		
 		connect.delegate = this;
 		
-	/*if (savedInstanceState == null) {
-		getSupportFragmentManager().beginTransaction()
-				.add(R.id.container, new PlaceholderFragment()).commit();
-	}*/
+		
+		Button check;
+	    check = (Button)findViewById(R.id.att_button1);
+	    check.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent =new Intent(Attendance.this, Attendance2.class);
+				startActivity(intent);			
+			}
+		});	     
 	
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
-/*
-		final TextView subjectText = (TextView) findViewById(R.id.subjectText);
-		final TextView monthText = (TextView) findViewById(R.id.monthText);
-		subjectText.setMinWidth(79);
-		monthText.setMinWidth(50);
-
-		Spinner monthSpinner = (Spinner) findViewById(R.id.monthSpinner);
-		monthSpinner.setPrompt("월 선택");
-		ArrayAdapter adapter1 = ArrayAdapter.createFromResource(this,
-				R.array.mon, android.R.layout.simple_spinner_item);
-		adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		
-		
-		monthSpinner.setAdapter(adapter1);
-		monthSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {
-				// TODO Auto-generated method stub
-				String month = parent.getItemAtPosition(position).toString();
-				monthText.setText(month);
-		
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
-				// TODO Auto-generated method stub
-
-				monthText.setText("월선택");
-			}
-		});*/
-		
-		
-		/*
-		Spinner subjectSpinner = (Spinner) findViewById(R.id.subjectSpinner);
-		ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this,
-				R.array.sub, android.R.layout.simple_spinner_item);
-		adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		subjectSpinner.setAdapter(adapter2);
-		
-		subjectSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {
-				// TODO Auto-generated method stub
-
-				String subject = parent.getItemAtPosition(position).toString();
-				subjectText.setText(subject);
-			
-				switch(position){
-					case 1:
-						Attendance.this.setContentView(R.layout.attendance);
-						
-					case 2:
-						
-						Attendance.this.setContentView(R.layout.attendance2);					
-				}			
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
-				// TODO Auto-generated method stub
-				subjectText.setText("과목명");
-			}
-		});*/
-		
-		
-		
-		
 
 	}
 

@@ -168,7 +168,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="200931002" />
+                android:text="200731029" />
 
             <TextView
                 android:id="@+id/name1"
@@ -176,7 +176,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="강인구" />
+                android:text="이용우" />
 
             <TextView
                 android:id="@+id/firstweek1"
@@ -246,7 +246,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="200931032" />
+                android:text="200831016" />
 
             <TextView
                 android:id="@+id/name2"
@@ -254,7 +254,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="임덕규" />
+                android:text="박송제" />
 
             <TextView
                 android:id="@+id/firstweek2"
@@ -324,7 +324,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="201031013" />
+                android:text="200831028" />
 
             <TextView
                 android:id="@+id/name3"
@@ -332,7 +332,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="박은영" />
+                android:text="윤준" />
 
             <TextView
                 android:id="@+id/firstweek3"
@@ -402,7 +402,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="201131010" />
+                android:text="200931032" />
 
             <TextView
                 android:id="@+id/name4"
@@ -410,7 +410,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="박정은" />
+                android:text="임덕규" />
 
             <TextView
                 android:id="@+id/firstweek4"
@@ -480,7 +480,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="201131025" />
+                android:text="201031006" />
 
             <TextView
                 android:id="@+id/name5"
@@ -488,7 +488,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="이서라" />
+                android:text="김성곤" />
 
             <TextView
                 android:id="@+id/firstweek5"
@@ -558,7 +558,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="201131026" />
+                android:text="201131010" />
 
             <TextView
                 android:id="@+id/name6"
@@ -566,7 +566,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="이윤서" />
+                android:text="박정은" />
 
             <TextView
                 android:id="@+id/firstweek6"
@@ -636,7 +636,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="201131035" />
+                android:text="201131025" />
 
             <TextView
                 android:id="@+id/name7"
@@ -644,7 +644,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="겜프겜프열매" />
+                android:text="이서라" />
 
             <TextView
                 android:id="@+id/firstweek7"
@@ -714,7 +714,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="201131037" />
+                android:text="201131035" />
 
             <TextView
                 android:id="@+id/name8"
@@ -722,7 +722,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="정은아" />
+                android:text="장한샘" />
 
             <TextView
                 android:id="@+id/firstweek8"
