@@ -644,7 +644,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="10pt"
-                android:text="장한샘" />
+                android:text="겜프겜프열매" />
 
             <TextView
                 android:id="@+id/firstweek7"

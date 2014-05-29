@@ -1,6 +1,7 @@
 package com.example.want;
 
 import java.util.Calendar;
+import java.util.Currency;
 import java.util.GregorianCalendar;
 
 import com.example.want.MainActivity.PlaceholderFragment;
@@ -137,7 +138,7 @@ public class Attendance extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.attendance);
+		setContentView(R.layout.attendancecheck2);
 		nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 		Intent intent = new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
@@ -157,16 +158,19 @@ public class Attendance extends ActionBarActivity {
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
-
+/*
 		final TextView subjectText = (TextView) findViewById(R.id.subjectText);
 		final TextView monthText = (TextView) findViewById(R.id.monthText);
 		subjectText.setMinWidth(79);
 		monthText.setMinWidth(50);
 
 		Spinner monthSpinner = (Spinner) findViewById(R.id.monthSpinner);
+		monthSpinner.setPrompt("월 선택");
 		ArrayAdapter adapter1 = ArrayAdapter.createFromResource(this,
 				R.array.mon, android.R.layout.simple_spinner_item);
 		adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		
+		
 		monthSpinner.setAdapter(adapter1);
 		monthSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -176,6 +180,7 @@ public class Attendance extends ActionBarActivity {
 				// TODO Auto-generated method stub
 				String month = parent.getItemAtPosition(position).toString();
 				monthText.setText(month);
+		
 			}
 
 			@Override
@@ -184,13 +189,16 @@ public class Attendance extends ActionBarActivity {
 
 				monthText.setText("월선택");
 			}
-		});
-
+		});*/
+		
+		
+		/*
 		Spinner subjectSpinner = (Spinner) findViewById(R.id.subjectSpinner);
 		ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this,
 				R.array.sub, android.R.layout.simple_spinner_item);
 		adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		subjectSpinner.setAdapter(adapter2);
+		
 		subjectSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
@@ -200,6 +208,15 @@ public class Attendance extends ActionBarActivity {
 
 				String subject = parent.getItemAtPosition(position).toString();
 				subjectText.setText(subject);
+			
+				switch(position){
+					case 1:
+						Attendance.this.setContentView(R.layout.attendance);
+						
+					case 2:
+						
+						Attendance.this.setContentView(R.layout.attendance2);					
+				}			
 			}
 
 			@Override
@@ -207,7 +224,9 @@ public class Attendance extends ActionBarActivity {
 				// TODO Auto-generated method stub
 				subjectText.setText("과목명");
 			}
-		});
+		});*/
+		
+		
 		
 		
 

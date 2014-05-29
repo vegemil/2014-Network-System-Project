@@ -88,6 +88,9 @@
         </activity>
         <activity android:name="majortext" >
         </activity>
+        <activity android:name="Attendance2"></activity>
+        <activity android:name="AttendanceCheck"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
