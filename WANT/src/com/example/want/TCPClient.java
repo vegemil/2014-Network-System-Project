@@ -1,15 +1,20 @@
 package com.example.want;
 
 
-import android.util.Log;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+
+import android.util.Log;
 
 public class TCPClient {
 
 	private String serverMessage;
+	private String serverMessage2;
 	
 	public static final String SERVERIP = "192.168.63.65"; // your computer IP address
 
@@ -75,15 +80,20 @@ public class TCPClient {
 				// server
 				while (mRun) {
 					serverMessage = in.readLine();
+					serverMessage2 = in.readLine();
 					System.out.println(serverMessage);
 					if (serverMessage != null && mMessageListener != null) {
 						// call the method messageReceived from MyActivity class
 						Log.e("RESPONSE FROM SERVER", "S: Received Message: '"
 								+ serverMessage + "'");
+						Log.e("RESPONSE FROM SERVER", "S: Received Message: '"
+								+ serverMessage2 + "'");
 						mMessageListener.messageReceived(serverMessage);
-						
+						mMessageListener.messageReceived(serverMessage2);
+
 					}
 					serverMessage = null;
+					serverMessage2 = null;
 				}
 
 
