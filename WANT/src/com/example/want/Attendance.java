@@ -63,7 +63,7 @@ public class Attendance extends ActionBarActivity {
 					if(serverMessage[0].equals(message)){
 						Log.i("TagIDDDD", message);
 					}
-					else if(serverMessage[1].equals(message)){
+					else if(serverMessage[2].equals(message)){
 						Log.i("Timeeee",message);
 					}			
 					//serverMessage[count+1] = message2;
@@ -111,6 +111,8 @@ public class Attendance extends ActionBarActivity {
 					cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE));
 			Toast.makeText(getApplicationContext(), "태그되었습니다.",
 					Toast.LENGTH_SHORT).show();
+			
+			
 
 			if (myTcpClient != null) {
 				myTcpClient.sendMessage(clientMessage[0]);
@@ -166,8 +168,8 @@ public class Attendance extends ActionBarActivity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(Attendance.this, Attendance2.class);
-				intent.putExtra("id", serverMessage[0]);
-				intent.putExtra("time", serverMessage[1]);
+				intent.putExtra("id", clientMessage[1]);
+				intent.putExtra("time", clientMessage[2]);
 				startActivity(intent);
 			}
 		});
