@@ -109,7 +109,7 @@ public class NFCServer {
 			result = "FAIL_GETDATA";
 		}
           //쿼리 처리해주는 부분
-          String query ="insert into subject_network(tagid,id,grade,name,1st) values('"+tagid+"','"+id+"','"+grade+"','"+name+"','"+time+"')";
+          String query ="insert into subject_network(tagid,id,grade,name,time) values('"+tagid+"','"+id+"','"+grade+"','"+name+"','"+time+"')";
           //데이터가 있는데 수정하려면 update
           //데이터가 없으면 삽입 insert 위에꺼 해주면 ㄳ
           
