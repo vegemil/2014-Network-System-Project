@@ -16,7 +16,7 @@ public class TCPClient {
 	private String serverMessage;
 	private String serverMessage2;
 	
-	public static final String SERVERIP = "192.168.63.65"; // your computer IP address
+	public static final String SERVERIP = "172.30.9.165"; // your computer IP address
 
 	public static int SERVERPORT ;
 	private OnMessageReceived mMessageListener = null;

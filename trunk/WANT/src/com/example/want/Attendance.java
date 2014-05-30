@@ -166,6 +166,8 @@ public class Attendance extends ActionBarActivity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(Attendance.this, Attendance2.class);
+				intent.putExtra("id", serverMessage[0]);
+				intent.putExtra("time", serverMessage[1]);
 				startActivity(intent);
 			}
 		});
