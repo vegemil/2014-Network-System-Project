@@ -38,8 +38,7 @@ public class NFCServer {
       String time=null;
       String grade =null;
       String name=null;
-      
-      String[] serverMessage ;
+
       
       serverSocket = new ServerSocket(7777);
       Connection con = null;
@@ -74,9 +73,10 @@ public class NFCServer {
           System.out.println("tagid : " + tagid);
           System.out.println("time : " + time);
           
-          out.println(tagid); //클라이언트에 보내는것, 몇시에 어느과목에 정상적으로 출석처리 되었습니다.를 클라이언트에 보내줘야함.
-          
- 
+          out.println(id);
+          out.println(time);
+         // out.println(tagid); //클라이언트에 보내는것, 몇시에 어느과목에 정상적으로 출석처리 되었습니다.를 클라이언트에 보내줘야함.
+           
           out.flush();
           
           if(tagid.equals(데통)){ //넣을때 구분하던지, 빼고 나서 데이터가공할것인지 우리자유~
@@ -112,7 +112,7 @@ public class NFCServer {
           String query ="insert into subject_network(tagid,id,grade,name,time) values('"+tagid+"','"+id+"','"+grade+"','"+name+"','"+time+"')";
           //데이터가 있는데 수정하려면 update
           //데이터가 없으면 삽입 insert 위에꺼 해주면 ㄳ
-          
+                   
           
           
           // 조회 select * from table where password='1010';
