@@ -97,7 +97,7 @@ public class Attendance extends ActionBarActivity {
 	@Override
 	protected void onNewIntent(Intent intent) {
 		super.onNewIntent(intent);
-
+		  
 		Calendar cal = new GregorianCalendar();
 		Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 		if (tag != null) {
@@ -111,8 +111,7 @@ public class Attendance extends ActionBarActivity {
 					cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE));
 			Toast.makeText(getApplicationContext(), "태그되었습니다.",
 					Toast.LENGTH_SHORT).show();
-			
-			
+	
 
 			if (myTcpClient != null) {
 				myTcpClient.sendMessage(clientMessage[0]);
