@@ -80,20 +80,14 @@ public class TCPClient {
 				// server
 				while (mRun) {
 					serverMessage = in.readLine();
-					serverMessage2 = in.readLine();
 					System.out.println(serverMessage);
 					if (serverMessage != null && mMessageListener != null) {
 						// call the method messageReceived from MyActivity class
 						Log.e("RESPONSE FROM SERVER", "S: Received Message: '"
 								+ serverMessage + "'");
-						Log.e("RESPONSE FROM SERVER", "S: Received Message: '"
-								+ serverMessage2 + "'");
 						mMessageListener.messageReceived(serverMessage);
-						mMessageListener.messageReceived(serverMessage2);
-
 					}
-					serverMessage = null;
-					serverMessage2 = null;
+					serverMessage = null;		
 				}
 
 

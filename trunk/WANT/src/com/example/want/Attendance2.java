@@ -16,15 +16,19 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 public class Attendance2 extends ActionBarActivity {
+	
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.attendance2);
-
+      
+     
+  	
       // 액션바 숨김
       ActionBar actionBar = getSupportActionBar();
       actionBar.hide();
@@ -34,6 +38,44 @@ public class Attendance2 extends ActionBarActivity {
       String time=intent.getExtras().getString("time").toString();
       Log.i("아이디!!!!!!!!", "받은id: "+id);
       Log.i("시간!!!!!","받은시간: "+ time);
+      
+      
+     // TableLayout tl= (TableLayout)findViewById(R.id.firstweek1);
+      
+
+      if(intent.getExtras().getString("id").toString().equals("200731029")){
+    	  TextView firstweek2 = (TextView)findViewById(R.id.firstweek1);
+          firstweek2.setText(time.toString());  
+      }
+
+      else if(intent.getExtras().getString("id").toString().equals("200831028")){
+    	  TextView firstweek2 = (TextView)findViewById(R.id.firstweek3);
+          firstweek2.setText(time);  
+      }
+      else if(intent.getExtras().getString("id").toString().equals("200931032")){
+    	  TextView firstweek2 = (TextView)findViewById(R.id.firstweek4);
+          firstweek2.setText(time);  
+      }
+      else if(intent.getExtras().getString("id").toString().equals("201031006")){
+    	  TextView firstweek2 = (TextView)findViewById(R.id.firstweek5);
+          firstweek2.setText(time);  
+      }
+      else if(intent.getExtras().getString("id").toString().equals("201131010")){
+    	  TextView firstweek2 = (TextView)findViewById(R.id.firstweek6);
+          firstweek2.setText(time);  
+      }
+      else if(intent.getExtras().getString("id").toString().equals("201131025")){
+    	  TextView firstweek2 = (TextView)findViewById(R.id.firstweek7);
+          firstweek2.setText(time);  
+      }
+      else if(intent.getExtras().getString("id").toString().equals("201131035")){
+    	  TextView firstweek2 = (TextView)findViewById(R.id.firstweek8);
+          firstweek2.setText(time);  
+      }
+      
+    
+      
+      
       final TextView subjectText = (TextView) findViewById(R.id.subjectText);
       final TextView monthText = (TextView) findViewById(R.id.monthText);
       subjectText.setMinWidth(79);
