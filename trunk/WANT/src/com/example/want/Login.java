@@ -53,7 +53,7 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 					count++;
 					Log.i("tag", "서버에서 받은 값 : " + message);
 				}
-			}, 5555);
+			}, 6666);
 			myTcpClient.run();
 
 			return null;
@@ -77,6 +77,7 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 		
 		sp= (SharedPreferences)getSharedPreferences("pref", 0); //pref.xml파일을 불러오기 , 파일이 없으면 생성댐 
 		edit=sp.edit();
+		
 		// 서버접속 요청
 		final connectTask connect = new connectTask();
 		connect.execute("");

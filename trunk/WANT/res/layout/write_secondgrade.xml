@@ -76,7 +76,7 @@
         android:inputType="textMultiLine"
         android:minHeight="400dp"
         android:maxHeight="400dp" 
-        
+        android:gravity="top"
         android:scrollbars="vertical" />
 
     <ImageButton
