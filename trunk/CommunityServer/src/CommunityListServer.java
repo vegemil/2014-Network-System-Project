@@ -30,7 +30,7 @@ public class CommunityListServer {
 		PrintWriter out = null;
 		BufferedReader in = null;
 
-		serverSocket = new ServerSocket(3547);
+		serverSocket = new ServerSocket(9999);
 		System.out.println("--------Community Server Start!! -----");
 
 		//getBoardData("2");
