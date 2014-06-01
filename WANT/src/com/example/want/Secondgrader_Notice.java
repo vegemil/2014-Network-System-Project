@@ -53,7 +53,7 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 					Log.i("server에서 받은 값", serverMessage[count]);
 					count++;
 				}
-			}, 3547);
+			}, 9999);
 
 			myTcpClient.run();
 			Log.i("onCreate", "스레드 시작");
@@ -189,7 +189,6 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 
 	@Override
 	public void processFinish(String output) {
-		// TODO Auto-generated method stub
 		serverMessage[0] = output;
 		Log.i("tag", "processFinish result : " + serverMessage[0]);
 
