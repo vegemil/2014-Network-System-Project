@@ -14,8 +14,9 @@ import android.util.Log;
 public class TCPClient {
 
 	private String serverMessage;
+	private String serverMessage2;
 	
-	public static final String SERVERIP = "192.168.123.158"; // your computer IP address
+	public static final String SERVERIP = "192.168.63.65"; // your computer IP address
 
 	public static int SERVERPORT ;
 	private OnMessageReceived mMessageListener = null;
@@ -79,14 +80,20 @@ public class TCPClient {
 				// server
 				while (mRun) {
 					serverMessage = in.readLine();
+					serverMessage2 = in.readLine();
 					System.out.println(serverMessage);
 					if (serverMessage != null && mMessageListener != null) {
 						// call the method messageReceived from MyActivity class
 						Log.e("RESPONSE FROM SERVER", "S: Received Message: '"
 								+ serverMessage + "'");
+						Log.e("RESPONSE FROM SERVER", "S: Received Message: '"
+								+ serverMessage2 + "'");
 						mMessageListener.messageReceived(serverMessage);
+						mMessageListener.messageReceived(serverMessage2);
+
 					}
-					serverMessage = null;		
+					serverMessage = null;
+					serverMessage2 = null;
 				}
 
 
