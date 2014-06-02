@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class LoginServer implements Runnable {
-	public static final int ServerPort = 5555;
+	public static final int ServerPort = 6666;
 	public static final String ServerIP = "172.30.4.76";
 
 	PrintWriter out = null;
@@ -157,6 +157,8 @@ public class LoginServer implements Runnable {
 		return result;
 	}
 
+	
+	
 	private String getName(Connection con, String id) {
 		// TODO Auto-generated method stub
 		String result = null;
