@@ -1,6 +1,5 @@
 package com.example.want;
 
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
@@ -14,9 +13,10 @@ import android.util.Log;
 public class TCPClient {
 
 	private String serverMessage;
-	public static final String SERVERIP = "192.168.63.65"; // your computer IP address
+	public static final String SERVERIP = "192.168.123.122"; // your computer IP
+															// address
 
-	public static int SERVERPORT ;
+	public static int SERVERPORT;
 	private OnMessageReceived mMessageListener = null;
 	private boolean mRun = false;
 
@@ -52,7 +52,7 @@ public class TCPClient {
 	public void run() {
 		mRun = true;
 
-		try { 
+		try {
 			// here you must put your computer's IP address.
 			InetAddress serverAddr = InetAddress.getByName(SERVERIP);
 
@@ -73,22 +73,21 @@ public class TCPClient {
 				// receive the message which the server sends back
 				in = new BufferedReader(new InputStreamReader(
 						socket.getInputStream(), "UTF-8"));
-       
+
 				// in this while the client listens for the messages send by the
 				// server
 				while (mRun) {
 					serverMessage = in.readLine();
-					System.out.println(serverMessage);
+
 					if (serverMessage != null && mMessageListener != null) {
 						// call the method messageReceived from MyActivity class
-						Log.e("RESPONSE FROM SERVER", "S: Received Message: '"
-								+ serverMessage + "'");
 
 						mMessageListener.messageReceived(serverMessage);
 					}
 					serverMessage = null;
 				}
-
+				Log.i("RESPONSE FROM SERVER", "S: Received Message: '"
+						+ serverMessage + "'");
 
 			} catch (Exception e) {
 
@@ -113,14 +112,12 @@ public class TCPClient {
 	public interface OnMessageReceived {
 		public void messageReceived(String message);
 	}
-	
-	public boolean isRunnable()
-	{
-		if(mRun == true)
+
+	public boolean isRunnable() {
+		if (mRun == true)
 			return true;
 		else
 			return false;
 	}
-
 
 }
