@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
-
-    <Button
-        android:id="@+id/att_button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="65dp"
-        android:text="출석확인" />
+    android:layout_height="fill_parent"
+    android:background="#ffffffff"
+     >
 
     <TextView
         android:id="@+id/attendacne"
@@ -20,5 +13,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="46dp"
         android:text="태깅해야 출석이 될거얌 태깅해 어서어서" />
+
+    <ImageButton
+        android:id="@+id/att_button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="52dp"
+        android:src="@drawable/attendance_ok" />
 
 </RelativeLayout>
