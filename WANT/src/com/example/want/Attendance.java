@@ -26,6 +26,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,23 +55,16 @@ public class Attendance extends ActionBarActivity {
 				// here the messageReceived method is implemented
 				public void messageReceived(String message) {
 					// this method calls the onProgressUpdate
-					publishProgress(message);									
+					publishProgress(message);
 					serverMessage[count] = message;
-					count++;
-					Log.i("ID", "서버에서 받은 값 : " + serverMessage[0]);
-					Log.i("Time", "서버에서 받은 값 : " + serverMessage[1]);
 					
-					if(serverMessage[0].equals(message)){
-						Log.i("TagIDDDD", message);
-					}
-					else if(serverMessage[2].equals(message)){
-						Log.i("Timeeee",message);
-					}			
-					//serverMessage[count+1] = message2;
-					//count++;
-					//message2 = serverMessage2[count+1];		
-					}
-	
+					Log.i("TAG", count + "서버에서 받은 값: " + serverMessage[count]);
+
+					//0번 id
+					//1번 time
+					count++;
+				}
+
 			}, 7777);
 			myTcpClient.run();
 			return null;
@@ -81,7 +75,7 @@ public class Attendance extends ActionBarActivity {
 		if (nfcAdapter != null) {
 			nfcAdapter.disableForegroundDispatch(this);
 		}
-		myTcpClient.stopClient();
+		//myTcpClient.stopClient();
 		super.onPause();
 	}
 
@@ -97,35 +91,27 @@ public class Attendance extends ActionBarActivity {
 	@Override
 	protected void onNewIntent(Intent intent) {
 		super.onNewIntent(intent);
-		  
+
 		Calendar cal = new GregorianCalendar();
 		Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 		if (tag != null) {
 			byte[] tagId = tag.getId();
 
-			clientMessage[0] = toHexString(tagId); // tagid서버로 전송
-			clientMessage[1] = sp.getString("id", "null");
+			clientMessage[0] = toHexString(tagId);
+			clientMessage[1] = StudentInfo.getID();
 			clientMessage[2] = String.format("%d/%d/%d/%d:%d",
 					cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1,
 					cal.get(Calendar.DAY_OF_MONTH),
 					cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE));
-			Toast.makeText(getApplicationContext(), "태그되었습니다.",
-					Toast.LENGTH_SHORT).show();
-	
+			
+			Toast.makeText(getApplicationContext(),
+					clientMessage[2] + "시간에 출석하였습니다.", Toast.LENGTH_SHORT)
+					.show();
 
 			if (myTcpClient != null) {
 				myTcpClient.sendMessage(clientMessage[0]);
 				myTcpClient.sendMessage(clientMessage[1]);
 				myTcpClient.sendMessage(clientMessage[2]);
-			}
-
-			while (serverMessage[0] == null || serverMessage[0].isEmpty()) {
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 			}
 
 		}
@@ -159,8 +145,8 @@ public class Attendance extends ActionBarActivity {
 
 		connect.delegate = this;
 
-		Button check;
-		check = (Button) findViewById(R.id.att_button1);
+		ImageButton check;
+		check = (ImageButton) findViewById(R.id.att_button);
 		check.setOnClickListener(new OnClickListener() {
 
 			@Override
