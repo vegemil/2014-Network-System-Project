@@ -2,6 +2,7 @@ package com.example.want;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -13,7 +14,7 @@ import android.util.Log;
 public class TCPClient {
 
 	private String serverMessage;
-	public static final String SERVERIP = "192.168.63.65"; // your computer IP address
+	public static final String SERVERIP = "192.168.0.13"; // your computer IP address
 
 	public static int SERVERPORT;
 	private OnMessageReceived mMessageListener = null;
@@ -22,10 +23,12 @@ public class TCPClient {
 	PrintWriter out;
 	BufferedReader in;
 
-	/**
-	 * constructor of the class. OnMessageReceived listens for the messages
-	 * received from server
-	 */
+	Socket socket;
+	
+//	/**
+//	 * constructor of the class. OnMessageReceived listens for the messages
+//	 * received from server
+//	 */
 	public TCPClient(OnMessageReceived listener, int serverPort) {
 		mMessageListener = listener;
 		SERVERPORT = serverPort;
@@ -43,9 +46,20 @@ public class TCPClient {
 			out.flush();
 		}
 	}
+	
+	public void setOnMessageReceived (OnMessageReceived listener)
+	{
+		mMessageListener = listener;
+	}
 
-	public void stopClient() {
+	public void stopClient()  {
 		mRun = false;
+		try {
+			socket.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void run() {
@@ -58,7 +72,7 @@ public class TCPClient {
 			Log.e("TCP Client", "C: Connecting...");
 
 			// create a socket to make the connection with the server
-			Socket socket = new Socket(serverAddr, SERVERPORT);
+			socket = new Socket(serverAddr, SERVERPORT);
 
 			try {
 				// send the message to the server
@@ -82,11 +96,12 @@ public class TCPClient {
 						// call the method messageReceived from MyActivity class
 
 						mMessageListener.messageReceived(serverMessage);
+						Log.i("RESPONSE FROM SERVER", "S: Received Message: '"
+								+ serverMessage + "'");
 					}
 					serverMessage = null;
 				}
-				Log.i("RESPONSE FROM SERVER", "S: Received Message: '"
-						+ serverMessage + "'");
+				
 
 			} catch (Exception e) {
 

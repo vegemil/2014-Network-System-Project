@@ -79,7 +79,14 @@ public class Secondgrader_comment extends ActionBarActivity implements
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
 
-		while (myTcpClient.isRunnable() == false) {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		while (myTcpClient.isRunnable() == false && myTcpClient == null) {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -88,18 +95,11 @@ public class Secondgrader_comment extends ActionBarActivity implements
 			}
 		}
 
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		// 皋技瘤 带咙
 		myTcpClient.sendMessage("2");
 		myTcpClient.sendMessage(Community_Text_Data.getTextNum());
 		Log.i("SecondGraderComment", "皋技瘤 带咙");
-
+		
 		while (serverMessage[0] == null || serverMessage[0].isEmpty()) {
 			try {
 				Thread.sleep(1000);
