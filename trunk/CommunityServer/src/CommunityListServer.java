@@ -33,54 +33,62 @@ public class CommunityListServer {
 		serverSocket = new ServerSocket(9999);
 		System.out.println("--------Community Server Start!! -----");
 
-		//getBoardData("2");
+		// getBoardData("2");
 
 		System.out.println("----------------------------------<<");
 
-		try {
-			clientSocket = serverSocket.accept();
-			System.out.println("클라이언트 연결");
-
+		while (true) {
 			try {
-				out = new PrintWriter(new BufferedWriter(
-						new OutputStreamWriter(clientSocket.getOutputStream(),
-								"UTF-8")), true);
-				in = new BufferedReader(new InputStreamReader(
-						clientSocket.getInputStream(), "UTF-8"));
+				clientSocket = serverSocket.accept();
+				System.out.println("클라이언트 연결");
 
-				String grade;
+				try {
+					out = new PrintWriter(new BufferedWriter(
+							new OutputStreamWriter(
+									clientSocket.getOutputStream(), "UTF-8")),
+							true);
+					in = new BufferedReader(new InputStreamReader(
+							clientSocket.getInputStream(), "UTF-8"));
 
-				grade = in.readLine();
+					String grade;
 
-				System.out.println("GRADE : " + grade);
+					grade = in.readLine();
 
-				getBoardData(grade);
+					System.out.println("GRADE : " + grade);
 
-				out.println(count);
-				System.out.println(count);
+					getBoardData(grade);
 
-				 for (int i = 0; i < count; i++) {
-				 out.println(writer[i]);
-				 out.println(title[i]);
-				 out.println(date[i]);
-				 out.println(context[i]);
-				 out.println(textnum[i]);
-				 }
+					out.println(count);
+					System.out.println(count);
 
-				out.flush();
+					for (int i = 0; i < count; i++) {
+						out.println(writer[i]);
+						out.println(title[i]);
+						out.println(date[i]);
+						out.println(context[i]);
+						out.println(textnum[i]);
+					}
+
+					out.flush();
+					count =0;
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				} finally {
+					clientSocket.close();
+					out.close();
+					in.close();
+					System.out.println("client close");
+					System.out.println("Server Continue");
+					System.out.println("");
+				}
+
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-			out.close();
-			in.close();
-			clientSocket.close();
-			serverSocket.close();
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
 		}
+		//serverSocket.close();
 	}
 
 	public static void getBoardData(String grade) {
@@ -114,7 +122,7 @@ public class CommunityListServer {
 				context[count] = rs.getNString("context");
 				date[count] = rs.getTimestamp("date").toString();
 				textnum[count] = rs.getNString("textnum");
-				
+
 				System.out.println("writer : " + writer[count]);
 				System.out.println("id : " + id[count]);
 				System.out.println("title : " + title[count]);
