@@ -29,6 +29,57 @@ public class MainActivity extends ActionBarActivity {
 	static String[] serverMessage = new String[3];
 	static int count = 0;
 
+//	public TCPClient myTcpClient = new TCPClient();
+	
+//	1. 로그인
+//	2. 회원가입
+//	3. 커뮤니티 글쓰기
+//	4.				 글 보여주기
+//	5.				 글 쓰기
+//	6.				 댓글 보여주기
+//	7.				 댓글 쓰기
+//	8.				 Tag ID 전송
+//	9.				 출석 DB받기
+	
+	public TCPClient myTcpClient;
+	
+	public class connectTask extends AsyncTask<String, String, String> {
+		public AsyncResponse delegate = null;
+
+		@Override
+		protected String doInBackground(String... message) {
+
+			// we create a TCPClient object and
+			myTcpClient = new TCPClient(new TCPClient.OnMessageReceived() {
+
+				@Override
+				// here the messageReceived method is implemented
+				public void messageReceived(String message) {
+					// this method calls the onProgressUpdate
+					publishProgress(message);
+					// serverMessage[0] = message;
+					serverMessage[count] = message;
+					count++;
+					Log.i("tag", "서버에서 받은 값 : " + message);
+				}
+			}, 6666);
+			myTcpClient.run();
+
+			
+
+			return null;
+		}
+
+		@Override
+		protected void onProgressUpdate(String... values) {
+			super.onProgressUpdate(values);
+
+			Log.i("tag", "스레드 value : " + values[0]);
+
+		}
+
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -39,22 +90,13 @@ public class MainActivity extends ActionBarActivity {
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
 		
-		// 현재 시간을 msec으로 구한다.
-		long now = System.currentTimeMillis();
-		// 현재 시간을 저장 한다.
-		Date date = new Date(now);
-		// 시간 포맷으로 만든다.
-		SimpleDateFormat sdfNow = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.KOREA);
-		String strNow = sdfNow.format(date);
-		
-		Log.i("time", strNow);
-
 		ImageButton loginoutButton = (ImageButton) findViewById(R.id.loginoutButton);
 		loginoutButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				myTcpClient.sendMessage("1");
 				if (StudentInfo.getID().equals("")
 						|| StudentInfo.getGrade().equals("")
 						|| StudentInfo.getName().equals("")

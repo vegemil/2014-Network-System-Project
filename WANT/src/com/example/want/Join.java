@@ -42,7 +42,7 @@ public class Join extends ActionBarActivity implements AsyncResponse {
 
 					serverMessage = message;
 				}
-			}, 4321);
+			}, 7756);
 			myTcpClient.run();
 
 			return serverMessage;
@@ -55,22 +55,11 @@ public class Join extends ActionBarActivity implements AsyncResponse {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.join);
-		
+
 		// connect to the server
 		final connectTask connect = new connectTask();
 		connect.execute("");
 		connect.delegate = this;
-		
-//		// we create a TCPClient object and
-//		myTcpClient = new TCPClient(new TCPClient.OnMessageReceived() {
-//			@Override
-//			// here the messageReceived method is implemented
-//			public void messageReceived(String message) {
-//				serverMessage = message;
-//			}
-//		}, 4321);
-//		myTcpClient.run();
-		
 
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
@@ -95,13 +84,12 @@ public class Join extends ActionBarActivity implements AsyncResponse {
 
 		ImageButton okButton = (ImageButton) findViewById(R.id.joinokButton);
 
-
 		okButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
+
 				name = nameEdit.getText().toString();
 				grade = gradeEdit.getText().toString();
 				id = idEdit.getText().toString();
@@ -120,7 +108,7 @@ public class Join extends ActionBarActivity implements AsyncResponse {
 					myTcpClient.sendMessage(password);
 				}
 
-				//데이터 값이 넘어올때까지 기다림
+				// 데이터 값이 넘어올때까지 기다림
 				while (serverMessage == null || serverMessage.isEmpty()) {
 					try {
 						Thread.sleep(1000);
@@ -136,14 +124,12 @@ public class Join extends ActionBarActivity implements AsyncResponse {
 
 				if (serverMessage.equals("회원가입 완료")) {
 					finish();
-				} else if(serverMessage.equals("아이디 중복입니다. 다시 가입하세요")){
+				} else if (serverMessage.equals("아이디 중복입니다. 다시 가입하세요")) {
 					nameEdit.setText("");
 					gradeEdit.setText("");
 					idEdit.setText("");
 					passwordEdit.setText("");
-				}
-				else
-				{
+				} else {
 					Log.i("tag", "회원가입 에러");
 				}
 

@@ -30,13 +30,26 @@
         android:layout_alignParentTop="true"
         android:src="@drawable/computerengineering1_mark" />
 
+    <Button
+        android:id="@+id/commentInputButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/homeButton"
+        android:text="댓글 입력" 
+        android:background="@drawable/edittext_shape"
+        android:textColor="#2e8b57"
+         android:textStyle="bold" 
+         android:padding="3dp"
+         android:layout_margin="1dp"/>
+
     <ListView
         android:id="@+id/Secondgrader_comment_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/homeButton" >
-
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/commentInputButton" 
+        >
     </ListView>
-
+    
 </RelativeLayout>

@@ -109,21 +109,21 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 				startActivity(intent);
 			}
 		});
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-		while (myTcpClient.isRunnable() == false) {
+		while (myTcpClient.isRunnable() == false && myTcpClient == null) {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		
 		myTcpClient.sendMessage("2");
@@ -185,6 +185,14 @@ public class Secondgrader_Notice extends ActionBarActivity implements
 		});
 
 		myTcpClient.stopClient();
+	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		//서버 연결, 데이터 읽어오는거 함수로 빼서 넣을것
+		//onCreate안에도 마찬가지
 	}
 
 	@Override
