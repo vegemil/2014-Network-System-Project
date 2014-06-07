@@ -41,44 +41,44 @@ public class MainActivity extends ActionBarActivity {
 //	8.				 Tag ID 전송
 //	9.				 출석 DB받기
 	
-	public TCPClient myTcpClient;
+//	public TCPClient myTcpClient;
 	
-	public class connectTask extends AsyncTask<String, String, String> {
-		public AsyncResponse delegate = null;
-
-		@Override
-		protected String doInBackground(String... message) {
-
-			// we create a TCPClient object and
-			myTcpClient = new TCPClient(new TCPClient.OnMessageReceived() {
-
-				@Override
-				// here the messageReceived method is implemented
-				public void messageReceived(String message) {
-					// this method calls the onProgressUpdate
-					publishProgress(message);
-					// serverMessage[0] = message;
-					serverMessage[count] = message;
-					count++;
-					Log.i("tag", "서버에서 받은 값 : " + message);
-				}
-			}, 6666);
-			myTcpClient.run();
-
-			
-
-			return null;
-		}
-
-		@Override
-		protected void onProgressUpdate(String... values) {
-			super.onProgressUpdate(values);
-
-			Log.i("tag", "스레드 value : " + values[0]);
-
-		}
-
-	}
+//	public class connectTask extends AsyncTask<String, String, String> {
+//		public AsyncResponse delegate = null;
+//
+//		@Override
+//		protected String doInBackground(String... message) {
+//
+//			// we create a TCPClient object and
+//			myTcpClient = new TCPClient(new TCPClient.OnMessageReceived() {
+//
+//				@Override
+//				// here the messageReceived method is implemented
+//				public void messageReceived(String message) {
+//					// this method calls the onProgressUpdate
+//					publishProgress(message);
+//					// serverMessage[0] = message;
+//					serverMessage[count] = message;
+//					count++;
+//					Log.i("tag", "서버에서 받은 값 : " + message);
+//				}
+//			}, 6666);
+//			myTcpClient.run();
+//
+//			
+//
+//			return null;
+//		}
+//
+//		@Override
+//		protected void onProgressUpdate(String... values) {
+//			super.onProgressUpdate(values);
+//
+//			Log.i("tag", "스레드 value : " + values[0]);
+//
+//		}
+//
+//	}
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +96,7 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				myTcpClient.sendMessage("1");
+				//myTcpClient.sendMessage("1");
 				if (StudentInfo.getID().equals("")
 						|| StudentInfo.getGrade().equals("")
 						|| StudentInfo.getName().equals("")

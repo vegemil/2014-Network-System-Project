@@ -32,10 +32,6 @@
         </activity>
         <activity android:name="Community" >
         </activity>
-        <activity android:name="Firstgrader_Notice" >
-        </activity>
-        <activity android:name="Fourthgrader_Notice" >
-        </activity>
         <activity android:name="Join" >
         </activity>
         <activity android:name="Login" >
@@ -50,45 +46,38 @@
         </activity>
         <activity android:name="Professor_Introduction" >
         </activity>
-        <activity android:name="Secondgrader_Notice" >
-        </activity>
-        <activity android:name="Thirdgrader_Notice" >
-        </activity>
         <activity android:name="Timetable" >
         </activity>
         <activity
             android:name="Attendance" >
         </activity>
-        <activity android:name="Write_Firstgrade" >
-        </activity>
-        <activity android:name="Write_Secondgrade" >
-        </activity>
-        <activity android:name="Write_Thirdgrade" >
-        </activity>
-        <activity android:name="Write_Fourthgrade" >
-        </activity>
-        <activity android:name="Firstgrader_comment" >
-        </activity>
-        <activity android:name="Secondgrader_comment" >
-        </activity>
-        <activity android:name="Thirdgrader_comment" >
-        </activity>
-        <activity android:name="Fourthgrader_comment" >
-        </activity>
-        <activity android:name="Firstgrader_NoticeBody" >
-        </activity>
-        <activity android:name="Secondgrader_NoticeBody" >
-        </activity>
-        <activity android:name="Thirdgrader_NoticeBody" >
-        </activity>
-        <activity android:name="Fourthgrader_NoticeBody" >
-        </activity>
+   
         <activity android:name="Major_Notice2" >
         </activity>
         <activity android:name="majortext" >
         </activity>
         <activity android:name="Attendance2"
             android:screenOrientation="landscape"></activity>
+        <activity android:name="Write_comment_firstgrader"></activity><activity android:name="Write_comment_fourthgrade"></activity>
+        
+        <activity android:name="Write_comment_secondgrade"></activity>
+        <activity android:name="Write_comment_thirdgrade"></activity>
+        <activity android:name="Write_notice_firstgrade"></activity>
+        <activity android:name="Write_notice_fourthgrade"></activity>
+        <activity android:name="Write_notice_secondgrade"></activity>
+        <activity android:name="Write_notice_thirdgrade"></activity>
+        <activity android:name="View_comment_firstgrader"></activity>
+        <activity android:name="View_comment_fourthgrader"></activity>
+        <activity android:name="View_comment_secondgrader"></activity>
+        <activity android:name="View_comment_thirdgrader"></activity>
+        <activity android:name="View_noticebody_firstgrader"></activity>
+        <activity android:name="View_noticebody_fourthgrader"></activity>
+        <activity android:name="View_noticebody_secondgrader"></activity>
+        <activity android:name="View_noticebody_thirdgrader"></activity>
+        <activity android:name="View_noticelist_firstgrader"></activity>
+        <activity android:name="View_noticelist_fourthgrader"></activity>
+        <activity android:name="View_noticelist_secondgrader"></activity>
+        <activity android:name="View_noticelist_thirdgrader"></activity>
     </application>
 
 </manifest>
