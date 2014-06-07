@@ -34,30 +34,26 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 	SharedPreferences sp;
 	Editor edit;
 
-	final connectTask connect = new connectTask();
-
 	public class connectTask extends AsyncTask<String, String, String> {
 		public AsyncResponse delegate = null;
 
 		@Override
 		protected String doInBackground(String... message) {
 
-			// we create a TCPClient object and
-//			myTcpClient = new TCPClient(new TCPClient.OnMessageReceived() {
-//
-//				@Override
-//				// here the messageReceived method is implemented
-//				public void messageReceived(String message) {
-//					// this method calls the onProgressUpdate
-//					publishProgress(message);
-//					// serverMessage[0] = message;
-//					serverMessage[count] = message;
-//					count++;
-//					Log.i("tag", "서버에서 받은 값 : " + message);
-//				}
-//			}, 6666);
-//			myTcpClient.run();
-			
+			// create a TCPClient object and
+			myTcpClient = new TCPClient(new TCPClient.OnMessageReceived() {
+
+				@Override
+				// here the messageReceived method is implemented
+				public void messageReceived(String message) {
+					// this method calls the onProgressUpdate
+					publishProgress(message);
+					serverMessage[count] = message;
+					count++;
+					Log.i("tag", "서버에서 받은 값 : " + message);
+				}
+			}, 6666);
+			myTcpClient.run();
 
 			return null;
 		}
@@ -76,7 +72,7 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		myTcpClient.stopClient();
-		//connect.cancel(true);
+		// connect.cancel(true);
 		super.onPause();
 	}
 
@@ -85,8 +81,7 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 		// TODO Auto-generated method stub
 		super.onResume();
 		// 서버접속 요청
-		connect.execute("");
-		connect.delegate = this;
+
 	}
 
 	@Override
@@ -95,6 +90,10 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.login);
+
+		final connectTask connect = new connectTask();
+		connect.execute("");
+		connect.delegate = this;
 
 		sp = (SharedPreferences) getSharedPreferences("pref", 0); // pref.xml파일을
 																	// 불러오기 ,
@@ -138,7 +137,7 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
+
 				id = idEdit.getText().toString();
 				password = passwordEdit.getText().toString();
 

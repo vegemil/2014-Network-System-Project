@@ -38,7 +38,7 @@ public class Community extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(getApplicationContext(), Firstgrader_Notice.class);
+				Intent intent = new Intent(getApplicationContext(), View_noticelist_firstgrader.class);
 				startActivity(intent);
 			}
 		});
@@ -49,7 +49,7 @@ public class Community extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(getApplicationContext(), Secondgrader_Notice.class);
+				Intent intent = new Intent(getApplicationContext(), View_noticelist_secondgrader.class);
 				startActivity(intent);
 			}
 		});
@@ -60,7 +60,7 @@ public class Community extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(getApplicationContext(), Thirdgrader_Notice.class);
+				Intent intent = new Intent(getApplicationContext(), View_noticelist_thirdgrader.class);
 				startActivity(intent);
 			}
 		});
@@ -71,7 +71,7 @@ public class Community extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(getApplicationContext(), Fourthgrader_Notice.class);
+				Intent intent = new Intent(getApplicationContext(), View_noticelist_fourthgrader.class);
 				startActivity(intent);
 			}
 		});
