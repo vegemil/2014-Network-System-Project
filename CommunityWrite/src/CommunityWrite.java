@@ -72,8 +72,8 @@ public class CommunityWrite {
 					if (i == 0)
 						text = body[i];
 					else
-						//text += " \r\n "  + body[i];  줄바꿈 확인 근데 리스트 출력 고쳐야함
-						text += " " + body[i];
+						text += " \r\n "  + body[i];  
+						//text += " " + body[i];
 				}
 
 				System.out.println(title);
