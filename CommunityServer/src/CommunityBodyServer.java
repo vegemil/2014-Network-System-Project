@@ -13,16 +13,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class CommunityListServer {
+public class CommunityBodyServer {
 
-	static String[] writer = new String[100];
-	static String[] id = new String[100];
-	static String[] title = new String[100];;
-	static String[] context = new String[100];
-	static String[] date = new String[100];
-	static String[] textnum = new String[100];
-
-	static int count = 0;
+	static String title ;
+	static String context ;
 
 	public static void main(String[] args) throws IOException {
 		ServerSocket serverSocket = null;
@@ -30,13 +24,12 @@ public class CommunityListServer {
 		PrintWriter out = null;
 		BufferedReader in = null;
 
-		serverSocket = new ServerSocket(9999);
-		System.out.println("--------Community Server Start!! -----");
-
-		// getBoardData("2");
+		serverSocket = new ServerSocket(9998);
+		System.out.println("--------Community Body Server Start!! -----");
 
 		System.out.println("----------------------------------<<");
 
+		
 		while (true) {
 			try {
 				clientSocket = serverSocket.accept();
@@ -51,26 +44,22 @@ public class CommunityListServer {
 							clientSocket.getInputStream(), "UTF-8"));
 
 					String grade;
+					String textNum;
 
 					grade = in.readLine();
+					textNum = in.readLine();
 
 					System.out.println("GRADE : " + grade);
+					System.out.println("TEXTNUM : " + textNum);
 
-					getBoardData(grade);
-
-					out.println(count);
-					System.out.println(count);
-
-					for (int i = 0; i < count; i++) {
-						out.println(writer[i]);
-						out.println(title[i]);
-						out.println(date[i]);
-						out.println(context[i]);
-						out.println(textnum[i]);
-					}
-
+					getBoardData(grade, textNum);
+					String[] body = context.split("\r\n");
+					
+					out.println(title);
+					out.println(body.length);
+					out.println(context);
+					
 					out.flush();
-					count =0;
 				} catch (Exception e) {
 					// TODO: handle exception
 					e.printStackTrace();
@@ -91,7 +80,7 @@ public class CommunityListServer {
 		//serverSocket.close();
 	}
 
-	public static void getBoardData(String grade) {
+	public static void getBoardData(String grade, String textNum) {
 
 		try {
 			Connection con = null;
@@ -106,31 +95,22 @@ public class CommunityListServer {
 			st = con.createStatement();
 			rs = st.executeQuery("USE network");
 
-			System.out.println("SELECT * FROM community" + grade
-					+ " ORDER BY date desc");
+			System.out.println("SELECT title, context FROM community" + grade
+					+ " WHERE textnum=" +textNum);
 
 			// 테이블리스트 출력 쿼리 전송
-			if (st.execute("SELECT * FROM community" + grade
-					+ " ORDER BY date desc")) {
+			if (st.execute("SELECT  title, context FROM community" + grade
+					+ " WHERE textnum=" +textNum)) {
 				rs = st.getResultSet();
 			}
 
 			while (rs.next()) {
-				writer[count] = rs.getNString("name");
-				id[count] = rs.getNString("id");
-				title[count] = rs.getNString("title");
-				context[count] = rs.getNString("context");
-				date[count] = rs.getTimestamp("date").toString();
-				textnum[count] = rs.getNString("textnum");
+				title = rs.getNString("title");
+				context = rs.getNString("context");
 
-				System.out.println("writer : " + writer[count]);
-				System.out.println("id : " + id[count]);
-				System.out.println("title : " + title[count]);
-				System.out.println("context : " + context[count]);
-				System.out.println("date : " + date[count]);
-				System.out.println("textnum : " + textnum[count]);
+				System.out.println("title : " + title);
+				System.out.println("context : " + context);
 				System.out.println("------------------");
-				count++;
 			}
 		} catch (SQLException sqex) {
 			System.out.println("SQLException: " + sqex.getMessage());
