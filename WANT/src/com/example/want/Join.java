@@ -42,7 +42,7 @@ public class Join extends ActionBarActivity implements AsyncResponse {
 
 					serverMessage = message;
 				}
-			}, 7756);
+			}, 4321);
 			myTcpClient.run();
 
 			return serverMessage;
