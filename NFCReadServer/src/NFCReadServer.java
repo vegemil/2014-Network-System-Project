@@ -27,7 +27,7 @@ public class NFCReadServer {
 		PrintWriter out = null;
 		BufferedReader in = null;
 
-		serverSocket = new ServerSocket(9990);
+		serverSocket = new ServerSocket(8888);
 		System.out.println("--------NFCRead Server Start!! -----");
 
 		// getAttendance();
