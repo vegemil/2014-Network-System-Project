@@ -1,168 +1,189 @@
 package com.example.want;
 
-import java.util.Calendar;
-import java.util.Currency;
-import java.util.GregorianCalendar;
+import java.util.HashMap;
 
-import com.example.want.MainActivity.PlaceholderFragment;
-import com.example.want.Attendance.connectTask;
-
-import android.R.string;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.nfc.NfcAdapter;
-import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Message;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class Attendance extends ActionBarActivity {
-
-	private NfcAdapter nfcAdapter;
-	private PendingIntent pendingIntent;
-	static String[] clientMessage = new String[3];
-	static String[] serverMessage = new String[3];
-	static String[] serverMessage2 = new String[3];
-	static int count = 0;
+public class Attendance extends ActionBarActivity implements AsyncResponse {
+	int count = 0;
 	private TCPClient myTcpClient;
-	private SharedPreferences sp; // 추가한 부분
+	
+	static String[] serverMessage = new String[100];
 
 	public class connectTask extends AsyncTask<String, String, String> {
-		public Attendance delegate = null;
-
+		public AsyncResponse delegate = null;
+		
+		
+		
 		@Override
 		protected String doInBackground(String... message) {
-
+			
+			Log.i("Hi", "im doin!!!!!!!!!!!!");
+			 
 			// we create a TCPClient object and
 			myTcpClient = new TCPClient(new TCPClient.OnMessageReceived() {
-
+				
 				@Override
 				// here the messageReceived method is implemented
 				public void messageReceived(String message) {
 					// this method calls the onProgressUpdate
 					publishProgress(message);
+					// serverMessage[0] = message;
+										
 					serverMessage[count] = message;
-					
+					//count++;
 					Log.i("TAG", count + "서버에서 받은 값: " + serverMessage[count]);
-
-					//0번 id
-					//1번 time
+					/*Log.i("TAG", "0번째받은 값: " + serverMessage[0]);
+					Log.i("TAG", "1번째 받은 값: " + serverMessage[1]);*/
 					count++;
 				}
-
-			}, 7777);
+			}, 8888);
 			myTcpClient.run();
+
 			return null;
 		}
-	}
 
-	protected void onPause() {
-		if (nfcAdapter != null) {
-			nfcAdapter.disableForegroundDispatch(this);
-		}
-		//myTcpClient.stopClient();
-		super.onPause();
-	}
+		@Override
+		protected void onProgressUpdate(String... values) {
+			super.onProgressUpdate(values);
 
-	@Override
-	protected void onResume() {
-		super.onResume();
-		if (nfcAdapter != null) {
-			nfcAdapter
-					.enableForegroundDispatch(this, pendingIntent, null, null);
-		}
-	}
-
-	@Override
-	protected void onNewIntent(Intent intent) {
-		super.onNewIntent(intent);
-
-		Calendar cal = new GregorianCalendar();
-		Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-		if (tag != null) {
-			byte[] tagId = tag.getId();
-
-			clientMessage[0] = toHexString(tagId);
-			clientMessage[1] = StudentInfo.getID();
-			clientMessage[2] = String.format("%d/%d/%d/%d:%d",
-					cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1,
-					cal.get(Calendar.DAY_OF_MONTH),
-					cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE));
-			
-			Toast.makeText(getApplicationContext(),
-					clientMessage[2] + "시간에 출석하였습니다.", Toast.LENGTH_SHORT)
-					.show();
-
-			if (myTcpClient != null) {
-				myTcpClient.sendMessage(clientMessage[0]);
-				myTcpClient.sendMessage(clientMessage[1]);
-				myTcpClient.sendMessage(clientMessage[2]);
-			}
+			Log.i("tag", "스레드 value : " + values[0]);
 
 		}
 
-	}
-
-	public static final String CHARS = "0123456789ABCDEF";
-
-	public static String toHexString(byte[] data) {
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < data.length; ++i) {
-			sb.append(CHARS.charAt((data[i] >> 4) & 0x0F)).append(
-					CHARS.charAt(data[i] & 0x0F));
-		}
-		return sb.toString();
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.attendancecheck);
-		nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-		Intent intent = new Intent(this, getClass())
-				.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-		pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+		setContentView(R.layout.attendance1);
 
-		sp = (SharedPreferences) getSharedPreferences("pref", 0); // 1
-
+		// 서버접속 요청
 		final connectTask connect = new connectTask();
-		connect.execute("");
-
+		connect.executeOnExecutor(connectTask.THREAD_POOL_EXECUTOR);
+		//connect.execute("");
 		connect.delegate = this;
-
-		ImageButton check;
-		check = (ImageButton) findViewById(R.id.att_button);
-		check.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(Attendance.this, Attendance2.class);
-				intent.putExtra("id", clientMessage[1]);
-				intent.putExtra("time", clientMessage[2]);
-				startActivity(intent);
-			}
-		});
-
+		Log.i("Hi", "im Att1!!!!!!!!!!!!");
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
 
+		final TextView subjectText = (TextView) findViewById(R.id.subjectText);
+		final TextView monthText = (TextView) findViewById(R.id.monthText);
+		subjectText.setMinWidth(79);
+		monthText.setMinWidth(50);
+
+		Spinner monthSpinner = (Spinner) findViewById(R.id.monthSpinner);
+		ArrayAdapter adapter1 = ArrayAdapter.createFromResource(this,
+				R.array.mon, android.R.layout.simple_spinner_item);
+		adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		monthSpinner.setAdapter(adapter1);
+		monthSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				String month = parent.getItemAtPosition(position).toString();
+				monthText.setText(month);
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+
+				monthText.setText("월선택");
+			}
+		});
+
+		Spinner subjectSpinner = (Spinner) findViewById(R.id.subjectSpinner);
+		ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this,
+				R.array.sub, android.R.layout.simple_spinner_item);
+		adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		subjectSpinner.setAdapter(adapter2);
+		subjectSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+
+				String subject = parent.getItemAtPosition(position).toString();
+				subjectText.setText(subject);
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+				subjectText.setText("과목명");
+			}
+		});
+
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		while (myTcpClient.isRunnable() == false && myTcpClient == null) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		HashMap<String, String> attendance = new HashMap<String, String>();
+
+		for (int i = 0; i < Integer.parseInt(serverMessage[0]); i++) {			
+			attendance.put("id", serverMessage[(2 * i) + 1]);
+			Log.i("TestID", serverMessage[(2 * i) + 1]);
+			attendance.put("time", serverMessage[2 * (i + 1)]);
+			Log.i("Test", serverMessage[2 * (i + 1)]);
+		}
+		
+		Log.i("쉰난다다아아", "넘어왔당");
+		TextView firstweek1 = (TextView) findViewById(R.id.firstweek1);
+		TextView firstweek2 = (TextView) findViewById(R.id.firstweek2);
+		TextView firstweek3 = (TextView) findViewById(R.id.firstweek3);
+		TextView firstweek4 = (TextView) findViewById(R.id.firstweek4);
+		TextView firstweek5 = (TextView) findViewById(R.id.firstweek5);
+		TextView firstweek6 = (TextView) findViewById(R.id.firstweek6);
+		TextView firstweek7 = (TextView) findViewById(R.id.firstweek7);
+		TextView firstweek8 = (TextView) findViewById(R.id.firstweek8);
+
+		TextView id1 = (TextView) findViewById(R.id.gradenumber1);
+		TextView id2 = (TextView) findViewById(R.id.gradenumber2);
+		TextView id3 = (TextView) findViewById(R.id.gradenumber3);
+		TextView id4 = (TextView) findViewById(R.id.gradenumber4);
+		TextView id5 = (TextView) findViewById(R.id.gradenumber5);
+		TextView id6 = (TextView) findViewById(R.id.gradenumber6);
+		TextView id7 = (TextView) findViewById(R.id.gradenumber7);
+		TextView id8 = (TextView) findViewById(R.id.gradenumber8);
+
+		/*firstweek1.setText(attendance.get(id1));
+		firstweek2.setText(attendance.get(id2));
+		firstweek3.setText(attendance.get(id3));
+		firstweek4.setText(attendance.get(id4));
+		firstweek5.setText(attendance.get(id5));
+		firstweek6.setText(attendance.get(id6));
+		firstweek7.setText(attendance.get(id7));
+		firstweek8.setText(attendance.get(id8));*/
+		
+		//myTcpClient.stopClient();
 	}
 
 	@Override
@@ -171,5 +192,11 @@ public class Attendance extends ActionBarActivity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+
+	@Override
+	public void processFinish(String output) {
+		// TODO Auto-generated method stub
+
 	}
 }
