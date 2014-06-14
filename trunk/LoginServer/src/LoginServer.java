@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class LoginServer implements Runnable {
-	public static final int ServerPort = 6666;
+	public static final int ServerPort = 9118;
 	public static final String ServerIP = "172.30.4.76";
 
 	PrintWriter out = null;
