@@ -40,7 +40,7 @@ public class NFCServer {
       String name=null;
 
       
-      serverSocket = new ServerSocket(7777);
+      serverSocket = new ServerSocket(4111);
       Connection con = null;
       ResultSet rs;
 			
