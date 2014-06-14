@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.want"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="19" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.want.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="Community" >
+        </activity>
+        <activity android:name="Join" >
+        </activity>
+        <activity android:name="Login" >
+        </activity>
+        <activity android:name="Major" >
+        </activity>
+        <activity android:name="Major_Information" >
+        </activity>
+        <activity android:name="Major_Introduction" >
+        </activity>
+        <activity android:name="Major_Notice" >
+        </activity>
+        <activity android:name="Professor_Introduction" >
+        </activity>
+        <activity android:name="Timetable" >
+        </activity>
+        <activity
+            android:name="Subject_Network" 
+            android:screenOrientation="landscape" >          
+        </activity>
+        <activity
+            android:name="Subject_Game" 
+            android:screenOrientation="landscape" >   
+        </activity>
+        <activity
+            android:name="Subject_Select" >          
+        </activity>
+        
+   
+        <activity android:name="Major_Notice2" >
+        </activity>
+        <activity android:name="majortext" >
+        </activity>
+        <activity android:name="AttendanceCheck">         
+        </activity>
+        <activity android:name="Write_comment_firstgrader"></activity><activity android:name="Write_comment_fourthgrade"></activity>
+        
+        <activity android:name="Write_comment_secondgrade"></activity>
+        <activity android:name="Write_comment_thirdgrade"></activity>
+        <activity android:name="Write_notice_firstgrade"></activity>
+        <activity android:name="Write_notice_fourthgrade"></activity>
+        <activity android:name="Write_notice_secondgrade"></activity>
+        <activity android:name="Write_notice_thirdgrade"></activity>
+        <activity android:name="View_comment_firstgrader"></activity>
+        <activity android:name="View_comment_fourthgrader"></activity>
+        <activity android:name="View_comment_secondgrader"></activity>
+        <activity android:name="View_comment_thirdgrader"></activity>
+        <activity android:name="View_noticebody_firstgrader"></activity>
+        <activity android:name="View_noticebody_fourthgrader"></activity>
+        <activity android:name="View_noticebody_secondgrader"></activity>
+        <activity android:name="View_noticebody_thirdgrader"></activity>
+        <activity android:name="View_noticelist_firstgrader"></activity>
+        <activity android:name="View_noticelist_fourthgrader"></activity>
+        <activity android:name="View_noticelist_secondgrader"></activity>
+        <activity android:name="View_noticelist_thirdgrader"></activity>
+    </application>
+
+</manifest>
