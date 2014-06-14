@@ -174,7 +174,7 @@ public class Subject_Network extends ActionBarActivity{
 			if (serverMessage[(2 * a) + 1].equals("200931032")) {
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm", java.util.Locale.getDefault());
 				try {
-					Date date1 = dateFormat.parse("2014-06-11 15:29");
+					Date date1 = dateFormat.parse("2014-06-11 15:30");
 					Date date2 = dateFormat.parse(serverMessage[2 * (a + 1)]);
 					if(date1.after(date2)){
 						TextView f1 = (TextView) findViewById(R.id.w200931032);
