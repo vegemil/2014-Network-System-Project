@@ -65,7 +65,7 @@ public class AttendanceCheck extends ActionBarActivity {
 					count++;
 				}
 
-			}, 7777);
+			}, 4111);
 			myTcpClient.run();
 			return null;
 		}
@@ -152,7 +152,7 @@ public class AttendanceCheck extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(AttendanceCheck.this, Attendance.class);
+				Intent intent = new Intent(AttendanceCheck.this, Subject_Select.class);
 				String id =   clientMessage[1];
 				Log.i("id:", id);
 				intent.putExtra("id", id);

@@ -52,7 +52,7 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 					count++;
 					Log.i("tag", "서버에서 받은 값 : " + message);
 				}
-			}, 6666);
+			}, 9118);
 			myTcpClient.run();
 
 			return null;

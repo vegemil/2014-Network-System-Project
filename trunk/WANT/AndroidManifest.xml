@@ -49,9 +49,17 @@
         <activity android:name="Timetable" >
         </activity>
         <activity
-            android:name="Attendance" 
+            android:name="Subject_Network" 
             android:screenOrientation="landscape" >          
         </activity>
+        <activity
+            android:name="Subject_Game" 
+            android:screenOrientation="landscape" >   
+        </activity>
+        <activity
+            android:name="Subject_Select" >          
+        </activity>
+        
    
         <activity android:name="Major_Notice2" >
         </activity>

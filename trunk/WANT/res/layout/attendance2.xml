@@ -10,9 +10,10 @@
         android:id="@+id/subjectSpinner"
         android:layout_width="50dp"
         android:layout_height="25dp"
-        android:textSize="10pt"
-        android:layout_alignBottom="@+id/subjectText"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignBaseline="@+id/monthText"
+        android:layout_alignBottom="@+id/monthText"
+        android:layout_centerHorizontal="true"
+        android:textSize="10pt" />
 
     <Spinner
         android:id="@+id/monthSpinner"
@@ -179,7 +180,7 @@
                 android:text="이용우" />
 
             <TextView
-                android:id="@+id/firstweek1"
+                android:id="@+id/w200931002"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -187,7 +188,7 @@
                  />
 
             <TextView
-                android:id="@+id/secondweek1"
+                android:id="@+id/w2200931002"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -257,7 +258,7 @@
                 android:text="박송제" />
 
             <TextView
-                android:id="@+id/firstweek2"
+                android:id="@+id/w200931032"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -265,7 +266,7 @@
                  />
 
             <TextView
-                android:id="@+id/secondweek2"
+                android:id="@+id/w2200931032"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -335,7 +336,7 @@
                 android:text="윤준" />
 
             <TextView
-                android:id="@+id/firstweek3"
+                android:id="@+id/w201031013"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -343,7 +344,7 @@
                  />
 
             <TextView
-                android:id="@+id/secondweek3"
+                android:id="@+id/w2201031013"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -413,7 +414,7 @@
                 android:text="임덕규" />
 
             <TextView
-                android:id="@+id/firstweek4"
+                android:id="@+id/w201131010"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -421,7 +422,7 @@
                  />
 
             <TextView
-                android:id="@+id/secondweek4"
+                android:id="@+id/w2201131010"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -491,7 +492,7 @@
                 android:text="김성곤" />
 
             <TextView
-                android:id="@+id/firstweek5"
+                android:id="@+id/w201131025"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -499,7 +500,7 @@
                  />
 
             <TextView
-                android:id="@+id/secondweek5"
+                android:id="@+id/w2201131025"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -569,7 +570,7 @@
                 android:text="박정은" />
 
             <TextView
-                android:id="@+id/firstweek6"
+                android:id="@+id/w201131026"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -577,7 +578,7 @@
                  />
 
             <TextView
-                android:id="@+id/secondweek6"
+                android:id="@+id/w2201131026"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -647,7 +648,7 @@
                 android:text="이서라" />
 
             <TextView
-                android:id="@+id/firstweek7"
+                android:id="@+id/w201131035"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -655,7 +656,7 @@
                  />
 
             <TextView
-                android:id="@+id/secondweek7"
+                android:id="@+id/w2201131035"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -725,7 +726,7 @@
                 android:text="장한샘" />
 
             <TextView
-                android:id="@+id/firstweek8"
+                android:id="@+id/w201131037"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -777,18 +778,15 @@
         android:gravity="right"
         android:text="월선택"
         android:textSize="10pt" />
-
+    
     <TextView
-        android:id="@+id/subjectText"
-        android:layout_width="79dp"
+        android:id="@+id/gametextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/monthText"
-        android:layout_alignBottom="@+id/monthText"
+        android:layout_above="@+id/monthSpinner"
         android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/subjectSpinner"
-        android:layout_weight="0.00"
-        android:gravity="right"
-        android:text="과목명"
-        android:textSize="10pt" />
+        android:layout_marginLeft="15dp"
+        android:text="게임프로젝트"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
