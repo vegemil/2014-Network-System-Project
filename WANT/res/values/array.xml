@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <resources>
         <string-array name="sub">
-            <item>네트워크프로젝트 </item>>
+            <item>네트워크시스템프로젝트 </item>>
             <item>게임프로젝트</item>
         </string-array>
         <string-array name="mon">
