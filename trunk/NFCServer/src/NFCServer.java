@@ -19,12 +19,12 @@ public class NFCServer {
 	 public static final String ServerIP = "172.30.4.76"; 
 
    public static void main(String[] args) throws IOException {
-	   final String 데통="053400053E682C";
-	   final String CPP="053400053E682C";
-	   final String COMGOO="053400053E682C";
+	   final String NProject="04729EB2422B80";
+	   final String GProject="046A6F1A8D3280";
+	   /*final String COMGOO="053400053E682C";
 	   final String AND="053400053E682C";
-	   final String SINHO="053400053E682C";
-	   
+	   final String SINHO="053400053EF73D";
+	   */
 	   String subject=null;
       // TODO Auto-generated method stub
       ServerSocket serverSocket = null;
@@ -79,13 +79,14 @@ public class NFCServer {
            
           out.flush();
           
-          if(tagid.equals(데통)){ //넣을때 구분하던지, 빼고 나서 데이터가공할것인지 우리자유~
-        	  subject="데통";
-        	  System.out.println( subject);
-              }else if(tagid.equals(CPP)){
-              	System.out.println(time+":CPP:" + id+"님 출석하셨습니다.");
+          if(tagid.equals(NProject)){ //넣을때 구분하던지, 빼고 나서 데이터가공할것인지 우리자유~
+        	 /* subject="데통";
+        	  System.out.println( subject);*/
+        	  System.out.println(time+"에"+" 네트워크시스템프로젝트 " +id+"님 출석하셨습니다.");
+              }else if(tagid.equals(GProject)){
+              	System.out.println(time+"에"+" 게임프로젝트 " +id+"님 출석하셨습니다.");
             }
-              else if(tagid.equals(COMGOO)){
+              /*else if(tagid.equals(COMGOO)){
               	System.out.println(time+":COMGOO:" + id+"님 출석하셨습니다.");
             }
               else if(tagid.equals(AND)){
@@ -93,7 +94,7 @@ public class NFCServer {
             }
               else if(tagid.equals(SINHO)){
               	System.out.println(time+":SINHO:" + id+"님 출석하셨습니다.");
-            }
+            }*/
           rs=null;
            st.executeQuery("USE network");
       	if (st.execute("SELECT * FROM studentdb WHERE id= " + id)) {
@@ -109,7 +110,15 @@ public class NFCServer {
 			result = "FAIL_GETDATA";
 		}
           //쿼리 처리해주는 부분
-          String query ="insert into subject_network(tagid,id,grade,name,time) values('"+tagid+"','"+id+"','"+grade+"','"+name+"','"+time+"')";
+		if(tagid.equals(NProject)){
+	          String query1 ="insert into subject_network(tagid,id,grade,name,time) values('"+tagid+"','"+id+"','"+grade+"','"+name+"','"+time+"')";
+			 st.execute(query1);
+			 }
+			 else if(tagid.equals(GProject)){
+				 String query2 ="insert into subject_game(tagid,id,grade,name,time) values('"+tagid+"','"+id+"','"+grade+"','"+name+"','"+time+"')";
+		     st.execute(query2);
+			 }
+         // String query ="insert into subject_network(tagid,id,grade,name,time) values('"+tagid+"','"+id+"','"+grade+"','"+name+"','"+time+"')";
           //데이터가 있는데 수정하려면 update
           //데이터가 없으면 삽입 insert 위에꺼 해주면 ㄳ
                    
@@ -121,7 +130,7 @@ public class NFCServer {
           // 수정 update
           
          
-          st.execute(query);
+          
           out.flush();}
     	   catch (Exception e) {
                // TODO: handle exception
