@@ -160,7 +160,7 @@ public class NFCReadServer {
 				rs3 = st3.getResultSet();						
 				while (rs3.next()) {
 					id[count3] = rs3.getNString("id");
-					third_check[count3] = rs3.getTimestamp("time").toString(); // 2주차의시간을계산해
+					third_check[count3] = rs3.getTimestamp("time").toString(); // 3주차의시간을계산해
 																				// time이일주차인것만
 																			// 긁어와야함
 					count3++;				
