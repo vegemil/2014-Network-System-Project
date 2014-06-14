@@ -20,11 +20,10 @@ public class NFCReadServer {
 	static String[] first_check = new String[500];
 	static String[] second_check = new String[500];
 	static String[] third_check = new String[500];
-
+	
 	static int count = 0;
 	static int count2 = 0;
 	static int count3 = 0;
-	
 	
 	
 	static String[] week = new String[3];
@@ -35,7 +34,7 @@ public class NFCReadServer {
 		PrintWriter out = null;
 		BufferedReader in = null;
 
-		serverSocket = new ServerSocket(8888);
+		serverSocket = new ServerSocket(3939);
 		System.out.println("--------NFCRead Server Start!! -----");
 
 		// getAttendance();
@@ -74,8 +73,7 @@ public class NFCReadServer {
 					for (int i = 0; i < count3; i++) {
 						out.println(id[i]);
 						out.println(third_check[i]);
-					}
-							
+					}							
 
 					out.flush();
 
@@ -116,12 +114,14 @@ public class NFCReadServer {
 			
 			Statement st3 = null;
 			ResultSet rs3 = null;
+
 			st = con.createStatement();
 			rs = st.executeQuery("USE network");
 			st2=con.createStatement();
 			rs2 = st2.executeQuery("USE network");
 			st3=con.createStatement();
 			rs3 = st3.executeQuery("USE network");
+			
 			// 테이블리스트출력쿼리전송
 			/*
 			if (st.execute("SELECT id, time FROM subject_network")) {
@@ -168,8 +168,6 @@ public class NFCReadServer {
 			}
 			
 			
-			
-
 			for (int i = 0; i < count; i++) {
 				System.out.println("id : " + id[i]);
 				System.out.println("first_check : " + first_check[i]);				
