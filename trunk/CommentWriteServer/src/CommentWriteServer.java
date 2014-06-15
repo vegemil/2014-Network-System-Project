@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 public class CommentWriteServer {
 
 	public static void main(String[] args) throws IOException {
@@ -36,59 +35,64 @@ public class CommentWriteServer {
 		serverSocket = new ServerSocket(9997);
 		System.out.println("--------Community Write Server Start!! -----");
 
-		try {
-			clientSocket = serverSocket.accept();
-			System.out.println("클라이언트 연결");
+		while (true) {
 
 			try {
-				out = new PrintWriter(new BufferedWriter(
-						new OutputStreamWriter(clientSocket.getOutputStream(),
-								"UTF-8")), true);
-				in = new BufferedReader(new InputStreamReader(
-						clientSocket.getInputStream(), "UTF-8"));
+				clientSocket = serverSocket.accept();
+				System.out.println("클라이언트 연결");
 
-				String communityTextIndex;
-				String id;
-				String comment;
-				String name;
-				String strNow;
-				String grade;
+				try {
+					out = new PrintWriter(new BufferedWriter(
+							new OutputStreamWriter(
+									clientSocket.getOutputStream(), "UTF-8")),
+							true);
+					in = new BufferedReader(new InputStreamReader(
+							clientSocket.getInputStream(), "UTF-8"));
 
-				communityTextIndex = in.readLine();
-				id = in.readLine();
-				comment = in.readLine();
-				name = in.readLine();
-				strNow = in.readLine();
-				grade = in.readLine();
-				
-				System.out.println(communityTextIndex);
-				System.out.println(id);
-				System.out.println(comment);
-				System.out.println(name);
-				System.out.println(strNow);
-				System.out.println(grade);
+					String communityTextIndex;
+					String id;
+					String comment;
+					String name;
+					String strNow;
+					String grade;
 
-				String result;
+					communityTextIndex = in.readLine();
+					id = in.readLine();
+					comment = in.readLine();
+					name = in.readLine();
+					strNow = in.readLine();
+					grade = in.readLine();
 
-				result = writeComment(con, communityTextIndex, id, comment, name, strNow, grade);
+					System.out.println(communityTextIndex);
+					System.out.println(id);
+					System.out.println(comment);
+					System.out.println(name);
+					System.out.println(strNow);
+					System.out.println(grade);
 
-				System.out.println(result);
+					String result;
 
-				out.write(result);
-				out.flush();
+					result = writeComment(con, communityTextIndex, id, comment,
+							name, strNow, grade);
+
+					System.out.println(result);
+
+					out.write(result);
+					out.flush();
+
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+				out.close();
+				in.close();
+				clientSocket.close();
+				//serverSocket.close();
 
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-			out.close();
-			in.close();
-			clientSocket.close();
-			serverSocket.close();
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
 		}
 	}
 
@@ -103,13 +107,13 @@ public class CommentWriteServer {
 			rs = st.executeQuery("USE network");
 
 			System.out.println("INSERT INTO commentdb" + grade + " values("
-					+ communityTextIndex + ", '" + id + "', '" + comment + "', '" + name
-					+ "', '" + strNow + "')");
+					+ communityTextIndex + ", '" + id + "', '" + comment
+					+ "', '" + name + "', '" + strNow + "')");
 
 			// 테이블리스트 출력 쿼리 전송
 			if (st.execute("INSERT INTO commentdb" + grade + " values("
-					+ communityTextIndex + ", '" + id + "', '" + comment + "', '" + name
-					+ "', '" + strNow + "')")) {
+					+ communityTextIndex + ", '" + id + "', '" + comment
+					+ "', '" + name + "', '" + strNow + "')")) {
 				rs = st.getResultSet();
 			}
 
@@ -120,5 +124,5 @@ public class CommentWriteServer {
 			return "FAIL_INSERT";
 		}
 	}
-	
+
 }
