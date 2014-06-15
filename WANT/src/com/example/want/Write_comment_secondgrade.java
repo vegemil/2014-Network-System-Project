@@ -17,11 +17,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class Write_comment_secondgrade extends ActionBarActivity implements AsyncResponse {
+public class Write_comment_secondgrade extends ActionBarActivity implements
+		AsyncResponse {
 	private TCPClient myTcpClient;
 
-	String serverMessage;
-	
+	private String serverMessage;
+
 	public class connectTask extends AsyncTask<String, String, String> {
 		public AsyncResponse delegate = null;
 
@@ -50,7 +51,7 @@ public class Write_comment_secondgrade extends ActionBarActivity implements Asyn
 		protected void onProgressUpdate(String... values) {
 			super.onProgressUpdate(values);
 
-			Log.i("tag", "스레드 value : " + values[0]);		
+			Log.i("tag", "스레드 value : " + values[0]);
 
 		}
 	}
@@ -64,35 +65,35 @@ public class Write_comment_secondgrade extends ActionBarActivity implements Asyn
 		final connectTask connect = new connectTask();
 		connect.execute("");
 		connect.delegate = this;
-		
+
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
 
-		Button okButton = (Button)findViewById(R.id.okButton);
+		Button okButton = (Button) findViewById(R.id.okButton);
 		okButton.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				EditText commentEdit = (EditText)findViewById(R.id.comment);
+				EditText commentEdit = (EditText) findViewById(R.id.comment);
 
 				String communityTextIndex = Community_Text_Data.getTextNum();
 				String id = StudentInfo.getID();
 				String comment = commentEdit.getText().toString();
 				String name = StudentInfo.getName();
 				String grade = StudentInfo.getGrade();
-				
+
 				// 현재 시간을 msec으로 구한다.
 				long now = System.currentTimeMillis();
 				// 현재 시간을 저장 한다.
 				Date date = new Date(now);
 				// 시간 포맷으로 만든다.
-				SimpleDateFormat sdfNow = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.KOREA);
+				SimpleDateFormat sdfNow = new SimpleDateFormat(
+						"yyyy-MM-dd HH:mm:ss", Locale.KOREA);
 				String strNow = sdfNow.format(date);
-				
-				if(myTcpClient !=null)
-				{
+
+				if (myTcpClient != null) {
 					myTcpClient.sendMessage(communityTextIndex);
 					myTcpClient.sendMessage(id);
 					myTcpClient.sendMessage(comment);
@@ -100,7 +101,7 @@ public class Write_comment_secondgrade extends ActionBarActivity implements Asyn
 					myTcpClient.sendMessage(strNow);
 					myTcpClient.sendMessage(grade);
 				}
-				
+
 				while (serverMessage == null || serverMessage.isEmpty()) {
 					try {
 						Thread.sleep(1000);
@@ -109,16 +110,18 @@ public class Write_comment_secondgrade extends ActionBarActivity implements Asyn
 						e.printStackTrace();
 					}
 				}
-				
-				if(serverMessage.equals("SUCESS_INSERT"))
-				{
-					Toast.makeText(getApplicationContext(), "등록되었습니다.", Toast.LENGTH_SHORT).show();
-					
+
+				if (serverMessage.equals("SUCESS_INSERT")) {
+					Toast.makeText(getApplicationContext(), "등록되었습니다.",
+							Toast.LENGTH_SHORT).show();
+
+					myTcpClient.stopClient();
 					finish();
-				}
-				else
-					Toast.makeText(getApplicationContext(), "등록 실패 다시 입력하세요", Toast.LENGTH_SHORT).show();
-				
+				} else
+					Toast.makeText(getApplicationContext(), "등록 실패 다시 입력하세요",
+							Toast.LENGTH_SHORT).show();
+
+				serverMessage = null;
 			}
 		});
 	}
@@ -126,6 +129,6 @@ public class Write_comment_secondgrade extends ActionBarActivity implements Asyn
 	@Override
 	public void processFinish(String output) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

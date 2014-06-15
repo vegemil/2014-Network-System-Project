@@ -1,7 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/firstgrade_comment_list"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
-</ListView>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/firstgrader_notice" />
+
+    <ImageButton
+        android:id="@+id/homeButton"
+        android:layout_width="60dp"
+        android:layout_height="65dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/home1_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/home1_button" />
+
+    <ImageView
+        android:id="@+id/mark"
+        android:layout_width="60dp"
+        android:layout_height="65dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/computerengineering1_mark" />
+
+    <Button
+        android:id="@+id/commentInputButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/homeButton"
+        android:text="댓글 입력" 
+        android:background="@drawable/edittext_shape"
+        android:textColor="#2e8b57"
+         android:textStyle="bold" 
+         android:padding="3dp"
+         android:layout_margin="1dp"/>
+
+    <ListView
+        android:id="@+id/Secondgrader_comment_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/commentInputButton" 
+        >
+    </ListView>
+    
+</RelativeLayout>

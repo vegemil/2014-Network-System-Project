@@ -4,7 +4,6 @@
     android:layout_height="fill_parent" >
 
     <ImageView
-        android:id="@+id/firstgradernotice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -30,22 +29,22 @@
         android:layout_alignParentTop="true"
         android:src="@drawable/computerengineering1_mark" />
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:orientation="vertical" >
+        android:layout_below="@+id/writeButton" >
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="90dp" />
-        <ImageButton
-            android:id="@+id/writeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:background="@drawable/writing_button" />
-    </LinearLayout>
+    </ListView>
+
+    <ImageButton
+        android:id="@+id/writeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/homeButton"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/writing_button" />
 
 </RelativeLayout>
