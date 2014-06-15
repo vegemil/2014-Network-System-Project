@@ -42,7 +42,7 @@ public class Write_notice_secondgrade extends ActionBarActivity implements Async
 
 					Log.i("tag", "서버에서 받은 값 : " + message);
 				}
-			}, 8888);
+			}, 9995); //9995로 바꿀 예정
 			myTcpClient.run();
 
 			return null;
@@ -132,7 +132,8 @@ public class Write_notice_secondgrade extends ActionBarActivity implements Async
 				if(serverMessage.equals("SUCESS_INSERT"))
 				{
 					Toast.makeText(getApplicationContext(), "등록되었습니다.", Toast.LENGTH_SHORT).show();
-					
+					myTcpClient.stopClient();
+					serverMessage = null;
 					finish();
 				}
 				else

@@ -16,10 +16,10 @@ public class View_noticebody_secondgrader extends ActionBarActivity implements
 		AsyncResponse {
 
 	private TCPClient myTcpClient;
-	static String[] serverMessage = new String[100];
-	static String title;
-	static String body;
-	static int count = 0;
+	private String[] serverMessage = new String[100];
+	private String title;
+	private String body;
+	private int count = 0;
 
 	public class connectTask extends AsyncTask<String, String, String> {
 		public AsyncResponse delegate = null;
@@ -62,11 +62,6 @@ public class View_noticebody_secondgrader extends ActionBarActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_noticebody_secondgrader);
 
-		// 서버접속 요청
-		final connectTask connect = new connectTask();
-		connect.execute("");
-		connect.delegate = this;
-
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
@@ -94,6 +89,17 @@ public class View_noticebody_secondgrader extends ActionBarActivity implements
 				startActivity(intent);
 			}
 		});
+	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+
+		// 서버접속 요청
+		final connectTask connect = new connectTask();
+		connect.execute("");
+		connect.delegate = this;
 		
 		try {
 			Thread.sleep(1000);
@@ -101,7 +107,7 @@ public class View_noticebody_secondgrader extends ActionBarActivity implements
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		while (myTcpClient.isRunnable() == false && myTcpClient == null) {
 			try {
 				Thread.sleep(1000);
@@ -110,7 +116,7 @@ public class View_noticebody_secondgrader extends ActionBarActivity implements
 				e.printStackTrace();
 			}
 		}
-		
+
 		myTcpClient.sendMessage("2");
 		myTcpClient.sendMessage(Community_Text_Data.getTextNum());
 		Log.i("SecondGrader_Notice", "메세지 던짐");
@@ -129,18 +135,18 @@ public class View_noticebody_secondgrader extends ActionBarActivity implements
 
 		title.setText(serverMessage[0]);
 		int lineCount = Integer.parseInt(serverMessage[1]);
-		for(int i=0; i<lineCount; i++)
-		{
-			if(i ==0)
-				body = serverMessage[i+2];
+		for (int i = 0; i < lineCount; i++) {
+			if (i == 0)
+				body = serverMessage[i + 2];
 			else
-				body += "\n" + serverMessage[i+2];
-			
+				body += "\n" + serverMessage[i + 2];
+
 		}
-		
+
 		context.setText(body);
-		for(int i=0; i<lineCount +1; i++)
-			serverMessage[i] = "";
+		for (int i = 0; i < lineCount + 1; i++)
+			serverMessage[i] = null;
+		count = 0;
 		myTcpClient.stopClient();
 	}
 

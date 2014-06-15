@@ -19,13 +19,13 @@ import android.widget.Toast;
 public class View_noticelist_secondgrader extends ActionBarActivity implements
 		AsyncResponse {
 
-	static String[] serverMessage = new String[100];
-	static String[] title = new String[100];
-	static String[] date = new String[100];
-	static String[] writer = new String[100];
-	static String[] textnum = new String[100];
-	static int listCount = 0;
-	static int count = 0;
+	private String[] serverMessage = new String[100];
+	private String[] title = new String[100];
+	private String[] date = new String[100];
+	private String[] writer = new String[100];
+	private String[] textnum = new String[100];
+	private int listCount = 0;
+	private int count = 0;
 
 	ListView list;
 	Community_Adapter adapter;
@@ -74,11 +74,6 @@ public class View_noticelist_secondgrader extends ActionBarActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_noticelist_secondgrader);
 
-		// 서버접속 요청
-		final connectTask connect = new connectTask();
-		connect.execute("");
-		connect.delegate = this;
-
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
@@ -90,7 +85,7 @@ public class View_noticelist_secondgrader extends ActionBarActivity implements
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(getApplicationContext(),
-						Write_notice_secondgrade.class); 
+						Write_notice_secondgrade.class);
 				startActivity(intent);
 			}
 		});
@@ -106,6 +101,18 @@ public class View_noticelist_secondgrader extends ActionBarActivity implements
 				startActivity(intent);
 			}
 		});
+
+	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+
+		// 서버접속 요청
+		final connectTask connect = new connectTask();
+		connect.execute("");
+		connect.delegate = this;
 
 		try {
 			Thread.sleep(1000);
@@ -140,17 +147,21 @@ public class View_noticelist_secondgrader extends ActionBarActivity implements
 
 		arrData = new ArrayList<Community_List_Data>();
 
-		for (int i = 0; i < listCount; i++) {
-			writer[i] = serverMessage[4 * i + 1];
-			title[i] = serverMessage[4* i + 2];
-			date[i] = serverMessage[4 * i + 3];
-			textnum[i] = serverMessage[4 * (i + 1)];
+		if (listCount != 0) {
+			for (int i = 0; i < listCount; i++) {
+				writer[i] = serverMessage[4 * i + 1];
+				title[i] = serverMessage[4 * i + 2];
+				date[i] = serverMessage[4 * i + 3];
+				textnum[i] = serverMessage[4 * (i + 1)];
 
-			Log.i("onCreate 결과", i + " : " + writer[i] + ", " + title[i] + ", "
-					+ date[i]);
-			Log.i("onCreate 결과", textnum[i]);
-			arrData.add(new Community_List_Data(title[i], writer[i], date[i]));
-		}
+				Log.i("onCreate 결과", i + " : " + writer[i] + ", " + title[i]
+						+ ", " + date[i]);
+				Log.i("onCreate 결과", textnum[i]);
+				arrData.add(new Community_List_Data(title[i], writer[i],
+						date[i]));
+			}
+		} else
+			arrData.add(new Community_List_Data("데이터가 없습니다. 글을 작성해 주세요", "", ""));
 
 		adapter = new Community_Adapter(this, arrData);
 		list = (ListView) findViewById(R.id.listView1);
@@ -177,15 +188,11 @@ public class View_noticelist_secondgrader extends ActionBarActivity implements
 			}
 		});
 
+		for (int i = 0; i < listCount + 1; i++)
+			serverMessage[i] = null;
+		count = 0;
+		
 		myTcpClient.stopClient();
-	}
-
-	@Override
-	protected void onResume() {
-		// TODO Auto-generated method stub
-		super.onResume();
-		// 서버 연결, 데이터 읽어오는거 함수로 빼서 넣을것
-		// onCreate안에도 마찬가지
 	}
 
 	@Override
