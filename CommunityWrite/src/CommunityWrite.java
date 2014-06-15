@@ -33,77 +33,80 @@ public class CommunityWrite {
 			e1.printStackTrace();
 		}
 
-		serverSocket = new ServerSocket(8888);
+		serverSocket = new ServerSocket(9995);
 		System.out.println("--------Community Write Server Start!! -----");
-
-		try {
-			clientSocket = serverSocket.accept();
-			System.out.println("클라이언트 연결");
-
+		while (true) {
 			try {
-				out = new PrintWriter(new BufferedWriter(
-						new OutputStreamWriter(clientSocket.getOutputStream(),
-								"UTF-8")), true);
-				in = new BufferedReader(new InputStreamReader(
-						clientSocket.getInputStream(), "UTF-8"));
+				clientSocket = serverSocket.accept();
+				System.out.println("클라이언트 연결");
 
-				String title;
-				String writer;
-				String[] body;
-				String id;
-				String date;
-				String grade;
-				String lineCount;
-				String text = null;
+				try {
+					out = new PrintWriter(new BufferedWriter(
+							new OutputStreamWriter(
+									clientSocket.getOutputStream(), "UTF-8")),
+							true);
+					in = new BufferedReader(new InputStreamReader(
+							clientSocket.getInputStream(), "UTF-8"));
 
-				title = in.readLine();
-				writer = in.readLine();
-				id = in.readLine();
-				date = in.readLine();
-				grade = in.readLine();
+					String title;
+					String writer;
+					String[] body;
+					String id;
+					String date;
+					String grade;
+					String lineCount;
+					String text = null;
 
-				lineCount = in.readLine();
+					title = in.readLine();
+					writer = in.readLine();
+					id = in.readLine();
+					date = in.readLine();
+					grade = in.readLine();
 
-				body = new String[Integer.parseInt(lineCount)];
-				for (int i = 0; i < Integer.parseInt(lineCount); i++) {
-					body[i] = in.readLine();
-					// System.out.println(body[i]);
+					lineCount = in.readLine();
 
-					if (i == 0)
-						text = body[i];
-					else
-						text += " \r\n "  + body[i];  
-						//text += " " + body[i];
+					body = new String[Integer.parseInt(lineCount)];
+					for (int i = 0; i < Integer.parseInt(lineCount); i++) {
+						body[i] = in.readLine();
+						// System.out.println(body[i]);
+
+						if (i == 0)
+							text = body[i];
+						else
+							text += " \r\n" + body[i];
+
+					}
+
+					System.out.println(title);
+					System.out.println(writer);
+					System.out.println(id);
+					System.out.println(date);
+					System.out.println(grade);
+					System.out.println(text);
+
+					String result;
+
+					result = writeText(con, title, writer, text, id, date,
+							grade);
+
+					System.out.println(result);
+
+					out.write(result);
+					out.flush();
+
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
 				}
-
-				System.out.println(title);
-				System.out.println(writer);
-				System.out.println(id);
-				System.out.println(date);
-				System.out.println(grade);
-				System.out.println(text);
-
-				String result;
-
-				result = writeText(con, title, writer, text, id, date, grade);
-
-				System.out.println(result);
-
-				out.write(result);
-				out.flush();
+				out.close();
+				in.close();
+				clientSocket.close();
+				//serverSocket.close();
 
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-			out.close();
-			in.close();
-			clientSocket.close();
-			serverSocket.close();
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
 		}
 	}
 
