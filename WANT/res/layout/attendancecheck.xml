@@ -1,18 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#ffffffff"
-     >
+    android:layout_height="fill_parent" >
 
-    <TextView
-        android:id="@+id/attendacne"
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:scaleType="fitXY"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp"
-        android:text="태깅해야 출석이 될거얌 태깅해 어서어서" />
+        android:src="@drawable/attandance_background" 
+        />
+    
+     <ImageButton
+        android:id="@+id/homeButton"
+        android:layout_width="60dp"
+        android:layout_height="65dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/home1_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/home1_button" />
+
+    <ImageView
+        android:id="@+id/mark"
+        android:layout_width="60dp"
+        android:layout_height="65dp"
+        android:layout_alignBottom="@+id/attendanceButton"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="18dp"
+        android:src="@drawable/computerengineering1_mark" />
 
     <ImageButton
         android:id="@+id/att_button"
@@ -22,5 +39,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="52dp"
         android:src="@drawable/attendance_ok" />
+
+    <TextView
+        android:id="@+id/attendacne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mark"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="NFC스티커에태그하세요" />
 
 </RelativeLayout>
