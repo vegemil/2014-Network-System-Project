@@ -37,7 +37,7 @@
         android:layout_height="300dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/mark"
-        android:layout_marginTop="34dp" >
+        android:layout_marginTop="46dp" >
     </ListView>
 
 </RelativeLayout>

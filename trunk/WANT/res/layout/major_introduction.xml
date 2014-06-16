@@ -12,15 +12,6 @@
         android:scaleType="fitXY"
         android:src="@drawable/majorintroduction_background" />
 
-    <ImageView
-        android:id="@+id/mark"
-        android:layout_width="60dp"
-        android:layout_height="65dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="18dp"
-        android:src="@drawable/computerengineering1_mark" />
-
     <ImageButton
         android:id="@+id/homeButton"
         android:layout_width="60dp"
@@ -33,21 +24,30 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="170dp"
+        android:layout_width="160dp"
         android:layout_height="170dp"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/homeButton"
         android:layout_marginTop="18dp"
         android:src="@drawable/image" />
 
+    <ImageView
+        android:id="@+id/mark"
+        android:layout_width="60dp"
+        android:layout_height="65dp"
+        android:layout_above="@+id/imageView1"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/computerengineering1_mark" />
+
     <TextView
         android:id="@+id/majorintro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/mark"
+        android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/imageView1"
-        android:layout_marginTop="24dp"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="41dp"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

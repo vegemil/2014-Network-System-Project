@@ -164,6 +164,17 @@ public class AttendanceCheck extends ActionBarActivity {
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
 
+		ImageButton homeButton = (ImageButton) findViewById(R.id.homeButton);
+		homeButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(getApplicationContext(),
+						MainActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 
 	@Override

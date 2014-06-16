@@ -13,26 +13,6 @@
         android:scaleType="fitXY"
         android:src="@drawable/main_background" />
 
-    <ImageButton
-        android:id="@+id/loginoutButton"
-        android:layout_width="205dp"
-        android:layout_height="265dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/login"
-        android:scaleType="fitXY"
-        android:src="@drawable/login" />
-
-    <ImageButton
-        android:id="@+id/attendanceButton"
-        android:layout_width="205dp"
-        android:layout_height="265dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:background="@drawable/attendance_button"
-        android:scaleType="fitXY"
-        android:src="@drawable/attendance_button" />
-
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="60dp"
@@ -40,27 +20,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/homeButton"
         android:src="@drawable/computerengineering1_mark" />
-
-    <ImageButton
-        android:id="@+id/majorinformationButton"
-        android:layout_width="205dp"
-        android:layout_height="265dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/communityButton"
-        android:background="@drawable/majorinformation_button"
-        android:scaleType="fitXY"
-        android:src="@drawable/majorinformation_button" />
-
-    <ImageButton
-        android:id="@+id/communityButton"
-        android:layout_width="205dp"
-        android:layout_height="265dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/homeButton"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/community_button"
-        android:scaleType="fitXY"
-        android:src="@drawable/community_button" />
 
     <ImageButton
         android:id="@+id/homeButton"
@@ -71,6 +30,47 @@
         android:background="@drawable/home1_button"
         android:scaleType="fitXY"
         android:src="@drawable/home1_button" />
+
+    <ImageButton
+        android:id="@+id/communityButton"
+        android:layout_width="185dp"
+        android:layout_height="265dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/majorinformationButton"
+        android:background="@drawable/community_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/community_button" />
+
+    <ImageButton
+        android:id="@+id/loginoutButton"
+        android:layout_width="185dp"
+        android:layout_height="265dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/login"
+        android:scaleType="fitXY"
+        android:src="@drawable/login" />
+
+    <ImageButton
+        android:id="@+id/attendanceButton"
+        android:layout_width="185dp"
+        android:layout_height="265dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/attendance_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/attendance_button" />
+
+    <ImageButton
+        android:id="@+id/majorinformationButton"
+        android:layout_width="185dp"
+        android:layout_height="265dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/majorinformation_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/majorinformation_button" />
 
 </RelativeLayout>
 

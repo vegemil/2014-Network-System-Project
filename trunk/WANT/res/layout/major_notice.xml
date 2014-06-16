@@ -22,22 +22,23 @@
         android:scaleType="fitXY"
         android:src="@drawable/home1_button" />
 
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/homeButton"
+        android:layout_marginTop="16dp" >
+
+    </ListView>
+
     <ImageView
         android:id="@+id/mark"
         android:layout_width="60dp"
         android:layout_height="65dp"
-        android:layout_alignBottom="@+id/attendanceButton"
+        android:layout_above="@+id/listView1"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="18dp"
         android:src="@drawable/computerengineering1_mark" />
-
-    <ListView
-        android:id="@+id/listView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/homeButton" >
-
-    </ListView>
 
 </RelativeLayout>

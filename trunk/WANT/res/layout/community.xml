@@ -34,7 +34,7 @@
 
     <ImageButton
         android:id="@+id/firstgraderButton"
-        android:layout_width="220dp"
+        android:layout_width="200dp"
         android:layout_height="270dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/mark"
@@ -45,7 +45,7 @@
 
     <ImageButton
         android:id="@+id/secondgraderButton"
-        android:layout_width="220dp"
+        android:layout_width="200dp"
         android:layout_height="270dp"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/firstgraderButton"
@@ -55,7 +55,7 @@
 
     <ImageButton
         android:id="@+id/thirdgraderButton"
-        android:layout_width="220dp"
+        android:layout_width="200dp"
         android:layout_height="270dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -66,7 +66,7 @@
 
     <ImageButton
         android:id="@+id/fourthgraderButton"
-        android:layout_width="220dp"
+        android:layout_width="200dp"
         android:layout_height="270dp"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/thirdgraderButton"

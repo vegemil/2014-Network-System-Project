@@ -39,16 +39,6 @@
         android:src="@drawable/lim" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
-        android:layout_width="145dp"
-        android:layout_height="170dp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/mark"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="26dp"
-        android:src="@drawable/kim" />
-
-    <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="145dp"
         android:layout_height="170dp"
@@ -56,15 +46,6 @@
         android:layout_below="@+id/imageButton1"
         android:layout_marginTop="14dp"
         android:src="@drawable/jung" />
-
-    <TextView
-        android:id="@+id/kim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageButton1"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/imageButton1"
-        android:text="TextView" />
 
     <TextView
         android:id="@+id/jung"
@@ -78,8 +59,27 @@
         android:id="@+id/lim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/jung"
+        android:layout_alignLeft="@+id/jung"
         android:layout_alignTop="@+id/imageButton3"
+        android:text="TextView" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="145dp"
+        android:layout_height="170dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/mark"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="22dp"
+        android:src="@drawable/kim" />
+
+    <TextView
+        android:id="@+id/kim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageButton1"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/imageButton1"
         android:text="TextView" />
 
 </RelativeLayout>

@@ -18,7 +18,7 @@
             android:background="@drawable/computerengineering1_mark" />
 
         <View
-            android:layout_width="260dp"
+            android:layout_width="215dp"
             android:layout_height="70dp" />
 
         <ImageButton

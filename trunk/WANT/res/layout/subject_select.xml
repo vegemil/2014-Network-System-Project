@@ -2,15 +2,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="과목을 선택하세요."
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:scaleType="fitXY"
+        android:src="@drawable/attandancecheck_background" />
 
     <ListView
         android:id="@+id/subjectlist"
@@ -21,4 +20,32 @@
         android:layout_marginTop="126dp" >
     </ListView>
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="77dp"
+        android:text="과목을 선택하세요."
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <ImageButton
+        android:id="@+id/homeButton"
+        android:layout_width="60dp"
+        android:layout_height="65dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/home1_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/home1_button" />
+
+    <ImageView
+        android:id="@+id/mark"
+        android:layout_width="60dp"
+        android:layout_height="65dp"
+        android:layout_alignBottom="@+id/attendanceButton"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="18dp"
+        android:src="@drawable/computerengineering1_mark" />
 </RelativeLayout>
