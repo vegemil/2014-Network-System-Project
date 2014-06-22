@@ -1,6 +1,5 @@
 package com.example.want;
 
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,8 +12,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class View_noticebody_firstgrader extends ActionBarActivity implements
-		AsyncResponse {
+public class View_noticebody_firstgrader extends ActionBarActivity {
 
 	private TCPClient myTcpClient;
 	static String[] serverMessage = new String[100];
@@ -23,7 +21,6 @@ public class View_noticebody_firstgrader extends ActionBarActivity implements
 	static int count = 0;
 
 	public class connectTask extends AsyncTask<String, String, String> {
-		public AsyncResponse delegate = null;
 
 		@Override
 		protected String doInBackground(String... message) {
@@ -41,7 +38,7 @@ public class View_noticebody_firstgrader extends ActionBarActivity implements
 					Log.i("server에서 받은 값", serverMessage[count]);
 					count++;
 				}
-			}, 9998);
+			});
 
 			myTcpClient.run();
 			Log.i("onCreate", "스레드 시작");
@@ -49,14 +46,8 @@ public class View_noticebody_firstgrader extends ActionBarActivity implements
 			return null;
 		}
 
-		@Override
-		protected void onProgressUpdate(String... values) {
-			super.onProgressUpdate(values);
-
-		}
-
 	}
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -91,7 +82,7 @@ public class View_noticebody_firstgrader extends ActionBarActivity implements
 			}
 		});
 	}
-	
+
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
@@ -100,8 +91,7 @@ public class View_noticebody_firstgrader extends ActionBarActivity implements
 		// 서버접속 요청
 		final connectTask connect = new connectTask();
 		connect.execute("");
-		connect.delegate = this;
-		
+
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -118,6 +108,7 @@ public class View_noticebody_firstgrader extends ActionBarActivity implements
 			}
 		}
 
+		myTcpClient.sendMessage("2");
 		myTcpClient.sendMessage("1");
 		myTcpClient.sendMessage(Community_Text_Data.getTextNum());
 		Log.i("SecondGrader_Notice", "메세지 던짐");
@@ -149,12 +140,6 @@ public class View_noticebody_firstgrader extends ActionBarActivity implements
 			serverMessage[i] = null;
 		count = 0;
 		myTcpClient.stopClient();
-	}
-
-	@Override
-	public void processFinish(String output) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

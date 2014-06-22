@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class Join extends ActionBarActivity implements AsyncResponse {
+public class Join extends ActionBarActivity {
 
 	String name;
 	String grade;
@@ -26,7 +26,6 @@ public class Join extends ActionBarActivity implements AsyncResponse {
 	private TCPClient myTcpClient;
 
 	public class connectTask extends AsyncTask<String, String, String> {
-		public AsyncResponse delegate = null;
 
 		@Override
 		protected String doInBackground(String... message) {
@@ -42,7 +41,7 @@ public class Join extends ActionBarActivity implements AsyncResponse {
 
 					serverMessage = message;
 				}
-			}, 4321);
+			});
 			myTcpClient.run();
 
 			return serverMessage;
@@ -59,7 +58,6 @@ public class Join extends ActionBarActivity implements AsyncResponse {
 		// connect to the server
 		final connectTask connect = new connectTask();
 		connect.execute("");
-		connect.delegate = this;
 
 		// ¾×¼Ç¹Ù ¼û±è
 		ActionBar actionBar = getSupportActionBar();
@@ -137,13 +135,6 @@ public class Join extends ActionBarActivity implements AsyncResponse {
 		});
 		serverMessage = null;
 
-	}
-
-	@Override
-	public void processFinish(String output) {
-		// TODO Auto-generated method stub
-		serverMessage = output;
-		Log.i("tag", "processFinish result : " + serverMessage);
 	}
 
 }

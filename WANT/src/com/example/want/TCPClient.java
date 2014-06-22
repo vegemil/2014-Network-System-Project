@@ -14,9 +14,9 @@ import android.util.Log;
 public class TCPClient {
 
 	private String serverMessage;
-	public static final String SERVERIP = "192.168.63.65"; // your computer IP address
+	private final String SERVERIP = "192.168.0.13"; // your computer IP address
 
-	public static int SERVERPORT;
+	private final int SERVERPORT = 65535;
 	private OnMessageReceived mMessageListener = null;
 	private boolean mRun = false;
 
@@ -24,14 +24,14 @@ public class TCPClient {
 	BufferedReader in;
 
 	Socket socket;
-	
-//	/**
-//	 * constructor of the class. OnMessageReceived listens for the messages
-//	 * received from server
-//	 */
-	public TCPClient(OnMessageReceived listener, int serverPort) {
+
+	// /**
+	// * constructor of the class. OnMessageReceived listens for the messages
+	// * received from server
+	// */
+
+	public TCPClient(OnMessageReceived listener) {
 		mMessageListener = listener;
-		SERVERPORT = serverPort;
 	}
 
 	/**
@@ -46,13 +46,12 @@ public class TCPClient {
 			out.flush();
 		}
 	}
-	
-	public void setOnMessageReceived (OnMessageReceived listener)
-	{
+
+	public void setOnMessageReceived(OnMessageReceived listener) {
 		mMessageListener = listener;
 	}
 
-	public void stopClient()  {
+	public void stopClient() {
 		mRun = false;
 		try {
 			socket.close();
@@ -80,8 +79,8 @@ public class TCPClient {
 						new OutputStreamWriter(socket.getOutputStream(),
 								"UTF-8")), true);
 
-				Log.e("TCP Client", "C: Sent.");
-				Log.e("TCP Client", "C: Done.");
+				Log.i("TCP Client", "C: Sent.");
+				Log.i("TCP Client", "C: Done.");
 
 				// receive the message which the server sends back
 				in = new BufferedReader(new InputStreamReader(
@@ -101,7 +100,6 @@ public class TCPClient {
 					}
 					serverMessage = null;
 				}
-				
 
 			} catch (Exception e) {
 

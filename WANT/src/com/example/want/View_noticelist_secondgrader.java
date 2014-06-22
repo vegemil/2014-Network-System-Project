@@ -1,7 +1,6 @@
 package com.example.want;
 
 import java.util.ArrayList;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,10 +13,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
 
-public class View_noticelist_secondgrader extends ActionBarActivity implements
-		AsyncResponse {
+public class View_noticelist_secondgrader extends ActionBarActivity {
 
 	private String[] serverMessage = new String[100];
 	private String[] title = new String[100];
@@ -34,7 +31,6 @@ public class View_noticelist_secondgrader extends ActionBarActivity implements
 	private TCPClient myTcpClient;
 
 	public class connectTask extends AsyncTask<String, String, String> {
-		public AsyncResponse delegate = null;
 
 		@Override
 		protected String doInBackground(String... message) {
@@ -52,7 +48,7 @@ public class View_noticelist_secondgrader extends ActionBarActivity implements
 					Log.i("server에서 받은 값", serverMessage[count]);
 					count++;
 				}
-			}, 9999);
+			});
 
 			myTcpClient.run();
 			Log.i("onCreate", "스레드 시작");
@@ -112,7 +108,6 @@ public class View_noticelist_secondgrader extends ActionBarActivity implements
 		// 서버접속 요청
 		final connectTask connect = new connectTask();
 		connect.execute("");
-		connect.delegate = this;
 
 		try {
 			Thread.sleep(1000);
@@ -130,6 +125,7 @@ public class View_noticelist_secondgrader extends ActionBarActivity implements
 			}
 		}
 
+		myTcpClient.sendMessage("1");
 		myTcpClient.sendMessage("2");
 		Log.i("SecondGrader_Notice", "메세지 던짐");
 
@@ -191,14 +187,8 @@ public class View_noticelist_secondgrader extends ActionBarActivity implements
 		for (int i = 0; i < listCount + 1; i++)
 			serverMessage[i] = null;
 		count = 0;
-		
+
 		myTcpClient.stopClient();
 	}
 
-	@Override
-	public void processFinish(String output) {
-		serverMessage[0] = output;
-		Log.i("tag", "processFinish result : " + serverMessage[0]);
-
-	}
 }

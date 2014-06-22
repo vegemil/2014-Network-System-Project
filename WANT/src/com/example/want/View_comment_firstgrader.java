@@ -14,16 +14,15 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-public class View_comment_firstgrader extends ActionBarActivity  implements
-AsyncResponse {
-	
+public class View_comment_firstgrader extends ActionBarActivity {
+
 	private String[] serverMessage = new String[100];
 	private String[] date = new String[100];
 	private String[] writer = new String[100];
 	private String[] context = new String[100];
 	private int listCount = 0;
 	private int count = 0;
-	
+
 	ListView list;
 	Comment_Adapter adapter;
 	ArrayList<Comment_List_Data> arrData;
@@ -31,7 +30,6 @@ AsyncResponse {
 	private TCPClient myTcpClient;
 
 	public class connectTask extends AsyncTask<String, String, String> {
-		public AsyncResponse delegate = null;
 
 		@Override
 		protected String doInBackground(String... message) {
@@ -49,7 +47,7 @@ AsyncResponse {
 					Log.i("server에서 받은 값", serverMessage[count]);
 					count++;
 				}
-			}, 9996);
+			});
 
 			myTcpClient.run();
 			Log.i("onCreate", "스레드 시작");
@@ -64,7 +62,7 @@ AsyncResponse {
 		}
 
 	}
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -74,7 +72,7 @@ AsyncResponse {
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
-		
+
 		ImageButton homeButton = (ImageButton) findViewById(R.id.homeButton);
 		homeButton.setOnClickListener(new OnClickListener() {
 
@@ -96,8 +94,7 @@ AsyncResponse {
 		// 서버접속 요청
 		final connectTask connect = new connectTask();
 		connect.execute("");
-		connect.delegate = this;
-		
+
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -115,7 +112,8 @@ AsyncResponse {
 		}
 
 		// 메세지 던짐
-		myTcpClient.sendMessage("2");
+		myTcpClient.sendMessage("4");
+		myTcpClient.sendMessage("1");
 		myTcpClient.sendMessage(Community_Text_Data.getTextNum());
 		Log.i("SecondGraderComment", "메세지 던짐");
 
@@ -136,8 +134,8 @@ AsyncResponse {
 		if (listCount != 0) {
 			for (int i = 0; i < listCount; i++) {
 				writer[i] = serverMessage[3 * i + 1];
-				date[i] = serverMessage[3 * i + 2];
-				context[i] = serverMessage[3 * (i + 1)];
+				context[i] = serverMessage[3 * i + 2];
+				date[i] = serverMessage[3 * (i + 1)];
 
 				Log.i("onCreate 결과", i + " : " + writer[i] + ", " + context[i]
 						+ ", " + date[i]);
@@ -158,7 +156,7 @@ AsyncResponse {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(getApplicationContext(),
-						Write_comment_secondgrade.class);
+						Write_comment_firstgrader.class);
 				startActivity(intent);
 			}
 		});
@@ -168,12 +166,6 @@ AsyncResponse {
 		count = 0;
 
 		myTcpClient.stopClient();
-	}
-	
-	@Override
-	public void processFinish(String output) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

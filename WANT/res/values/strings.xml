@@ -5,8 +5,20 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="class_prompt">강의실 선택</string>
+
     <string-array name="class_array">
-        <item >6109</item>
-        <item >6201</item>
+        <item>6109</item>
+        <item>6201</item>
     </string-array>
+
+    <string name="insert_comment">댓글입력</string>
+    <string name="first_notice">1학년 공지사항</string>
+    <string name="second_notice">2학년 공지사항</string>
+    <string name="third_notice">3학년 공지사항</string>
+    <string name="fourth_notice">4학년 공지사항</string>
+    <string name="password">비밀번호</string>
+    <string name="id">ID(학번)</string>
+    <string name="title">제목</string>
+    <string name="comment">댓글</string>
+
 </resources>

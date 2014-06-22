@@ -57,15 +57,15 @@ public class AttendanceCheck extends ActionBarActivity {
 					// this method calls the onProgressUpdate
 					publishProgress(message);
 					serverMessage[count] = message;
-					
+
 					Log.i("TAG", count + "서버에서 받은 값: " + serverMessage[count]);
 
-					//0번 id
-					//1번 time
+					// 0번 id
+					// 1번 time
 					count++;
 				}
 
-			}, 4111);
+			});
 			myTcpClient.run();
 			return null;
 		}
@@ -75,7 +75,7 @@ public class AttendanceCheck extends ActionBarActivity {
 		if (nfcAdapter != null) {
 			nfcAdapter.disableForegroundDispatch(this);
 		}
-		//myTcpClient.stopClient();
+		// myTcpClient.stopClient();
 		super.onPause();
 	}
 
@@ -103,7 +103,7 @@ public class AttendanceCheck extends ActionBarActivity {
 					cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1,
 					cal.get(Calendar.DAY_OF_MONTH),
 					cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE));
-			
+
 			Toast.makeText(getApplicationContext(),
 					clientMessage[2] + "시간에 출석하였습니다.", Toast.LENGTH_SHORT)
 					.show();
@@ -152,8 +152,9 @@ public class AttendanceCheck extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(AttendanceCheck.this, Subject_Select.class);
-				String id =   clientMessage[1];
+				Intent intent = new Intent(AttendanceCheck.this,
+						Subject_Select.class);
+				String id = clientMessage[1];
 				Log.i("id:", id);
 				intent.putExtra("id", id);
 				startActivity(intent);
