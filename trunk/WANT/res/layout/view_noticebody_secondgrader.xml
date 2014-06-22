@@ -3,16 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/secondgrader_notice"
     tools:context=".Secondgrader_NoticeBody" >
-
-    <ImageView
-        android:id="@+id/firstgradernotice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/secondgrader_notice" />
 
     <ImageButton
         android:id="@+id/homeButton"
@@ -49,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:background="@drawable/edittext_shape"
-            android:text="댓글"
+            android:text="@string/comment"
             android:textColor="#2e8b57"
             android:textStyle="bold" />
 
@@ -60,7 +52,6 @@
             android:layout_margin="1dp"
             android:background="@drawable/edittext_shape"
             android:padding="3dp"
-            android:text="titleText"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -71,7 +62,6 @@
             android:background="@drawable/edittext_shape"
             android:padding="3dp"
             android:scrollbars="vertical"
-            android:text="Context"
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 

@@ -22,11 +22,11 @@
             android:layout_height="70dp" />
 
         <ImageButton
+            android:id="@+id/homeButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="right"
-            android:background="@drawable/home1_button" 
-            android:id="@+id/homeButton"/>
+            android:background="@drawable/home1_button" />
     </LinearLayout>
 
     <LinearLayout
@@ -40,22 +40,21 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="제목"
+            android:text="@string/title"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#2e8b57"
-            android:textStyle="bold" 
-            />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/titleEdit"
-            android:layout_width="wrap_content"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/edittext_shape"
             android:ems="10"
             android:minHeight="50dp" 
-            >
+            android:inputType="text">
 
             <requestFocus />
         </EditText>
@@ -73,10 +72,11 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/edittext_shape"
         android:ems="10"
+        android:gravity="top"
         android:inputType="textMultiLine"
-        android:maxHeight="400dp" 
+        android:maxHeight="400dp"
         android:minHeight="400dp"
-        android:scrollbars="vertical"/>
+        android:scrollbars="vertical" />
 
     <ImageButton
         android:id="@+id/okButton"

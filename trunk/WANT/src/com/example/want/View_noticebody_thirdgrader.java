@@ -12,9 +12,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class View_noticebody_thirdgrader extends ActionBarActivity implements
-AsyncResponse{
-	
+public class View_noticebody_thirdgrader extends ActionBarActivity {
+
 	private TCPClient myTcpClient;
 	static String[] serverMessage = new String[100];
 	static String title;
@@ -22,7 +21,6 @@ AsyncResponse{
 	static int count = 0;
 
 	public class connectTask extends AsyncTask<String, String, String> {
-		public AsyncResponse delegate = null;
 
 		@Override
 		protected String doInBackground(String... message) {
@@ -40,7 +38,7 @@ AsyncResponse{
 					Log.i("server에서 받은 값", serverMessage[count]);
 					count++;
 				}
-			}, 9998);
+			});
 
 			myTcpClient.run();
 			Log.i("onCreate", "스레드 시작");
@@ -48,13 +46,8 @@ AsyncResponse{
 			return null;
 		}
 
-		@Override
-		protected void onProgressUpdate(String... values) {
-			super.onProgressUpdate(values);
-
-		}
-
 	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -98,8 +91,7 @@ AsyncResponse{
 		// 서버접속 요청
 		final connectTask connect = new connectTask();
 		connect.execute("");
-		connect.delegate = this;
-		
+
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -116,6 +108,7 @@ AsyncResponse{
 			}
 		}
 
+		myTcpClient.sendMessage("2");
 		myTcpClient.sendMessage("3");
 		myTcpClient.sendMessage(Community_Text_Data.getTextNum());
 		Log.i("SecondGrader_Notice", "메세지 던짐");
@@ -146,13 +139,8 @@ AsyncResponse{
 		for (int i = 0; i < lineCount + 1; i++)
 			serverMessage[i] = null;
 		count = 0;
-		
+
 		myTcpClient.stopClient();
 	}
-	
-	@Override
-	public void processFinish(String output) {
-		// TODO Auto-generated method stub
-		
-	}
+
 }

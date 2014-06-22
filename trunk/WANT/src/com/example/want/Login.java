@@ -1,9 +1,6 @@
 package com.example.want;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -15,7 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class Login extends ActionBarActivity implements AsyncResponse {
+public class Login extends ActionBarActivity {
 
 	String name;
 	String grade;
@@ -26,16 +23,13 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 	static String serverName;
 	static String serverGrade;
 
-	static int count = 0;
+	private int count = 0;
 
 	private TCPClient myTcpClient;
 
 	String result;
-	SharedPreferences sp;
-	Editor edit;
 
 	public class connectTask extends AsyncTask<String, String, String> {
-		public AsyncResponse delegate = null;
 
 		@Override
 		protected String doInBackground(String... message) {
@@ -52,18 +46,10 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 					count++;
 					Log.i("tag", "서버에서 받은 값 : " + message);
 				}
-			}, 9118);
+			});
 			myTcpClient.run();
 
 			return null;
-		}
-
-		@Override
-		protected void onProgressUpdate(String... values) {
-			super.onProgressUpdate(values);
-
-			Log.i("tag", "스레드 value : " + values[0]);
-
 		}
 
 	}
@@ -93,13 +79,6 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 
 		final connectTask connect = new connectTask();
 		connect.execute("");
-		connect.delegate = this;
-
-		sp = (SharedPreferences) getSharedPreferences("pref", 0); // pref.xml파일을
-																	// 불러오기 ,
-																	// 파일이 없으면
-																	// 생성댐
-		edit = sp.edit();
 
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
@@ -138,6 +117,8 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 
+				myTcpClient.sendMessage("6");
+
 				id = idEdit.getText().toString();
 				password = passwordEdit.getText().toString();
 
@@ -167,8 +148,7 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 					Toast.makeText(getApplicationContext(),
 							StudentInfo.getName() + " 로그인 하였습니다.",
 							Toast.LENGTH_SHORT).show();
-					edit.putString("id", StudentInfo.getID());
-					edit.commit();
+
 					myTcpClient.stopClient();
 					finish();
 				}
@@ -200,12 +180,4 @@ public class Login extends ActionBarActivity implements AsyncResponse {
 
 		return serverMessage[0];
 	}
-
-	@Override
-	public void processFinish(String output) {
-		// TODO Auto-generated method stub
-		serverMessage[0] = output;
-		// Log.i("tag", "processFinish result : " + serverMessage[0]);
-	}
-
 }

@@ -14,8 +14,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-public class View_comment_secondgrader extends ActionBarActivity implements
-		AsyncResponse {
+public class View_comment_secondgrader extends ActionBarActivity {
 
 	private String[] serverMessage = new String[100];
 	private String[] date = new String[100];
@@ -31,7 +30,6 @@ public class View_comment_secondgrader extends ActionBarActivity implements
 	private TCPClient myTcpClient;
 
 	public class connectTask extends AsyncTask<String, String, String> {
-		public AsyncResponse delegate = null;
 
 		@Override
 		protected String doInBackground(String... message) {
@@ -49,20 +47,13 @@ public class View_comment_secondgrader extends ActionBarActivity implements
 					Log.i("server에서 받은 값", serverMessage[count]);
 					count++;
 				}
-			}, 9996);
+			});
 
 			myTcpClient.run();
 			Log.i("onCreate", "스레드 시작");
 
 			return null;
 		}
-
-		@Override
-		protected void onProgressUpdate(String... values) {
-			super.onProgressUpdate(values);
-
-		}
-
 	}
 
 	@Override
@@ -74,7 +65,7 @@ public class View_comment_secondgrader extends ActionBarActivity implements
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
-		
+
 		ImageButton homeButton = (ImageButton) findViewById(R.id.homeButton);
 		homeButton.setOnClickListener(new OnClickListener() {
 
@@ -97,8 +88,7 @@ public class View_comment_secondgrader extends ActionBarActivity implements
 		// 서버접속 요청
 		final connectTask connect = new connectTask();
 		connect.execute("");
-		connect.delegate = this;
-		
+
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -116,6 +106,7 @@ public class View_comment_secondgrader extends ActionBarActivity implements
 		}
 
 		// 메세지 던짐
+		myTcpClient.sendMessage("4");
 		myTcpClient.sendMessage("2");
 		myTcpClient.sendMessage(Community_Text_Data.getTextNum());
 		Log.i("SecondGraderComment", "메세지 던짐");
@@ -137,8 +128,8 @@ public class View_comment_secondgrader extends ActionBarActivity implements
 		if (listCount != 0) {
 			for (int i = 0; i < listCount; i++) {
 				writer[i] = serverMessage[3 * i + 1];
-				date[i] = serverMessage[3 * i + 2];
-				context[i] = serverMessage[3 * (i + 1)];
+				context[i] = serverMessage[3 * i + 2];
+				date[i] = serverMessage[3 * (i + 1)];
 
 				Log.i("onCreate 결과", i + " : " + writer[i] + ", " + context[i]
 						+ ", " + date[i]);
@@ -169,12 +160,6 @@ public class View_comment_secondgrader extends ActionBarActivity implements
 		count = 0;
 
 		myTcpClient.stopClient();
-	}
-
-	@Override
-	public void processFinish(String output) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

@@ -72,8 +72,9 @@
         android:background="@drawable/edittext_shape"
         android:ems="10"
         android:inputType="textMultiLine"
-        android:maxHeight="400dp"
         android:minHeight="400dp"
+        android:maxHeight="400dp" 
+        android:gravity="top"
         android:scrollbars="vertical" />
 
     <ImageButton

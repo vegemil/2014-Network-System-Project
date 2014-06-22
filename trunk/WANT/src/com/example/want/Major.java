@@ -1,6 +1,5 @@
 package com.example.want;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -16,18 +15,19 @@ public class Major extends ActionBarActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.major);
-		
+
 		// ¾×¼Ç¹Ù ¼û±è
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
-		
-		ImageButton homeButton = (ImageButton)findViewById(R.id.homeButton);
+
+		ImageButton homeButton = (ImageButton) findViewById(R.id.homeButton);
 		homeButton.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+				Intent intent = new Intent(getApplicationContext(),
+						MainActivity.class);
 				startActivity(intent);
 			}
 		});

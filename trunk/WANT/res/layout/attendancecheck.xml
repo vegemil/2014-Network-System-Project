@@ -1,18 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="@drawable/attandance_background" >
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:scaleType="fitXY"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/attandance_background" 
-        />
-    
-     <ImageButton
+    <ImageButton
         android:id="@+id/homeButton"
         android:layout_width="60dp"
         android:layout_height="65dp"

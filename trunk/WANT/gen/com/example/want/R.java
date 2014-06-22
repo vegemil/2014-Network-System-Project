@@ -1140,7 +1140,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050109;
+        public static final int action_settings=0x7f050107;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int att_button=0x7f0500ad;
@@ -1148,14 +1148,14 @@ containing a value of this type.
         public static final int attendanceButton=0x7f050043;
         public static final int beginning=0x7f050011;
         public static final int blank=0x7f0500e3;
-        public static final int bodyEdit=0x7f050108;
-        public static final int bodyText=0x7f050102;
+        public static final int bodyEdit=0x7f050106;
+        public static final int bodyText=0x7f050100;
         public static final int checkbox=0x7f05002d;
         public static final int classSpinner=0x7f0500e2;
         public static final int classTextView=0x7f0500e1;
         public static final int collapseActionView=0x7f05000d;
-        public static final int comment=0x7f050105;
-        public static final int commentButton=0x7f050100;
+        public static final int comment=0x7f050103;
+        public static final int commentButton=0x7f0500fe;
         public static final int commentInputButton=0x7f0500fc;
         public static final int comment_list_Context=0x7f0500af;
         public static final int comment_list_Date=0x7f0500b1;
@@ -1187,7 +1187,6 @@ containing a value of this type.
         public static final int fifthweek8=0x7f0500a1;
         public static final int first_period=0x7f0500e8;
         public static final int firstgraderButton=0x7f0500b4;
-        public static final int firstgradernotice=0x7f0500ff;
         public static final int firstweek=0x7f05004e;
         public static final int fourth_period =0x7f0500ef;
         public static final int fourthgraderButton=0x7f0500b7;
@@ -1290,7 +1289,7 @@ containing a value of this type.
         public static final int number6=0x7f050085;
         public static final int number7=0x7f05008f;
         public static final int number8=0x7f050099;
-        public static final int okButton=0x7f050106;
+        public static final int okButton=0x7f050104;
         public static final int professorbackground=0x7f0500d8;
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
@@ -1308,7 +1307,6 @@ containing a value of this type.
         public static final int search_voice_btn=0x7f05003b;
         public static final int second_period=0x7f0500e9;
         public static final int secondgraderButton=0x7f0500b5;
-        public static final int secondgradernotice=0x7f0500fe;
         public static final int secondweek=0x7f05004f;
         public static final int secondweek8=0x7f05009e;
         public static final int seventh_period =0x7f0500f6;
@@ -1317,7 +1315,7 @@ containing a value of this type.
         public static final int showHome=0x7f050004;
         public static final int showTitle=0x7f050006;
         public static final int sixth_period =0x7f0500f5;
-        public static final int space=0x7f050104;
+        public static final int space=0x7f050102;
         public static final int split_action_bar=0x7f05001e;
         public static final int subjectSpinner=0x7f050044;
         public static final int subjectlist=0x7f0500df;
@@ -1350,8 +1348,8 @@ containing a value of this type.
         public static final int thursday4=0x7f0500f4;
         public static final int thursday7=0x7f0500fb;
         public static final int title=0x7f05002b;
-        public static final int titleEdit=0x7f050107;
-        public static final int titleText=0x7f050101;
+        public static final int titleEdit=0x7f050105;
+        public static final int titleText=0x7f0500ff;
         public static final int top_action_bar=0x7f050020;
         public static final int tuesday=0x7f0500e5;
         public static final int tuesday1=0x7f0500ec;
@@ -1393,7 +1391,7 @@ containing a value of this type.
         public static final int wednesday4=0x7f0500f3;
         public static final int wednesday7=0x7f0500fa;
         public static final int withText=0x7f05000c;
-        public static final int writeButton=0x7f050103;
+        public static final int writeButton=0x7f050101;
     }
     public static final class integer {
         /**  The maximum number of action buttons that should be permitted within
@@ -1533,7 +1531,16 @@ containing a value of this type.
         public static final int action_settings=0x7f0a000f;
         public static final int app_name=0x7f0a000d;
         public static final int class_prompt=0x7f0a0010;
+        public static final int comment=0x7f0a0019;
+        public static final int first_notice=0x7f0a0012;
+        public static final int fourth_notice=0x7f0a0015;
         public static final int hello_world=0x7f0a000e;
+        public static final int id=0x7f0a0017;
+        public static final int insert_comment=0x7f0a0011;
+        public static final int password=0x7f0a0016;
+        public static final int second_notice=0x7f0a0013;
+        public static final int third_notice=0x7f0a0014;
+        public static final int title=0x7f0a0018;
     }
     public static final class style {
         /** 

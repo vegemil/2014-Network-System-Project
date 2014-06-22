@@ -3,8 +3,6 @@ package com.example.want;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -14,17 +12,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class Write_comment_secondgrade extends ActionBarActivity implements
-		AsyncResponse {
+public class Write_comment_secondgrade extends ActionBarActivity {
 	private TCPClient myTcpClient;
 
 	private String serverMessage;
 
 	public class connectTask extends AsyncTask<String, String, String> {
-		public AsyncResponse delegate = null;
 
 		@Override
 		protected String doInBackground(String... message) {
@@ -41,18 +36,10 @@ public class Write_comment_secondgrade extends ActionBarActivity implements
 
 					Log.i("tag", "서버에서 받은 값 : " + message);
 				}
-			}, 9997);
+			});
 			myTcpClient.run();
 
 			return null;
-		}
-
-		@Override
-		protected void onProgressUpdate(String... values) {
-			super.onProgressUpdate(values);
-
-			Log.i("tag", "스레드 value : " + values[0]);
-
 		}
 	}
 
@@ -64,7 +51,6 @@ public class Write_comment_secondgrade extends ActionBarActivity implements
 
 		final connectTask connect = new connectTask();
 		connect.execute("");
-		connect.delegate = this;
 
 		// 액션바 숨김
 		ActionBar actionBar = getSupportActionBar();
@@ -94,6 +80,7 @@ public class Write_comment_secondgrade extends ActionBarActivity implements
 				String strNow = sdfNow.format(date);
 
 				if (myTcpClient != null) {
+					myTcpClient.sendMessage("5");
 					myTcpClient.sendMessage(communityTextIndex);
 					myTcpClient.sendMessage(id);
 					myTcpClient.sendMessage(comment);
@@ -126,9 +113,4 @@ public class Write_comment_secondgrade extends ActionBarActivity implements
 		});
 	}
 
-	@Override
-	public void processFinish(String output) {
-		// TODO Auto-generated method stub
-
-	}
 }

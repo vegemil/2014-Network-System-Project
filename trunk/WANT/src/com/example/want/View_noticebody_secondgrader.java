@@ -12,17 +12,14 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class View_noticebody_secondgrader extends ActionBarActivity implements
-		AsyncResponse {
+public class View_noticebody_secondgrader extends ActionBarActivity {
 
 	private TCPClient myTcpClient;
 	private String[] serverMessage = new String[100];
-	private String title;
 	private String body;
 	private int count = 0;
 
 	public class connectTask extends AsyncTask<String, String, String> {
-		public AsyncResponse delegate = null;
 
 		@Override
 		protected String doInBackground(String... message) {
@@ -40,18 +37,12 @@ public class View_noticebody_secondgrader extends ActionBarActivity implements
 					Log.i("server에서 받은 값", serverMessage[count]);
 					count++;
 				}
-			}, 9998);
+			});
 
 			myTcpClient.run();
 			Log.i("onCreate", "스레드 시작");
 
 			return null;
-		}
-
-		@Override
-		protected void onProgressUpdate(String... values) {
-			super.onProgressUpdate(values);
-
 		}
 
 	}
@@ -99,8 +90,7 @@ public class View_noticebody_secondgrader extends ActionBarActivity implements
 		// 서버접속 요청
 		final connectTask connect = new connectTask();
 		connect.execute("");
-		connect.delegate = this;
-		
+
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -117,6 +107,7 @@ public class View_noticebody_secondgrader extends ActionBarActivity implements
 			}
 		}
 
+		myTcpClient.sendMessage("2");
 		myTcpClient.sendMessage("2");
 		myTcpClient.sendMessage(Community_Text_Data.getTextNum());
 		Log.i("SecondGrader_Notice", "메세지 던짐");
@@ -150,9 +141,4 @@ public class View_noticebody_secondgrader extends ActionBarActivity implements
 		myTcpClient.stopClient();
 	}
 
-	@Override
-	public void processFinish(String output) {
-		// TODO Auto-generated method stub
-
-	}
 }

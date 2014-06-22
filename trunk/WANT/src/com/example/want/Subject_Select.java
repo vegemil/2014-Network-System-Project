@@ -5,12 +5,11 @@ package com.example.want;
 //import com.example.want.Subject_Select.connectTask;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.os.AsyncTask;
+
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
+
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -29,7 +28,7 @@ public class Subject_Select extends ActionBarActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.subject_select);
-		
+
 		// ¾×¼Ç¹Ù ¼û±è
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.hide();
@@ -45,7 +44,7 @@ public class Subject_Select extends ActionBarActivity {
 				startActivity(intent);
 			}
 		});
-		
+
 		arrayAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, inforlist);
 
@@ -56,14 +55,12 @@ public class Subject_Select extends ActionBarActivity {
 
 	}
 
-	
-
 	private OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener()
 
 	{
 		@Override
-		public void onItemClick(AdapterView<?> parent, View v, int position, long id)
-		{
+		public void onItemClick(AdapterView<?> parent, View v, int position,
+				long id) {
 			if (position == 0) {
 				Intent intent = new Intent(Subject_Select.this,
 						Subject_Network.class);
@@ -74,7 +71,7 @@ public class Subject_Select extends ActionBarActivity {
 						Subject_Game.class);
 				startActivity(intent);
 			}
-						
+
 		}
 
 	};

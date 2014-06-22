@@ -14,14 +14,14 @@ public class Community_Adapter extends BaseAdapter {
 	private Context context;
 	private ArrayList<Community_List_Data> arrData;
 	private LayoutInflater inflater;
-	
-	public Community_Adapter(Context c, ArrayList<Community_List_Data> arr)
-	{
+
+	public Community_Adapter(Context c, ArrayList<Community_List_Data> arr) {
 		this.context = c;
 		this.arrData = arr;
-		inflater = (LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		inflater = (LayoutInflater) c
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
-	
+
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
@@ -43,20 +43,23 @@ public class Community_Adapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-		if(convertView == null)
-		{
-			convertView = inflater.inflate(R.layout.community_list, parent, false);
+		if (convertView == null) {
+			convertView = inflater.inflate(R.layout.community_list, parent,
+					false);
 		}
-		
-		TextView title = (TextView)convertView.findViewById(R.id.community_list_title);
+
+		TextView title = (TextView) convertView
+				.findViewById(R.id.community_list_title);
 		title.setText(arrData.get(position).getTitle());
-		
-		TextView writer = (TextView)convertView.findViewById(R.id.community_list_writer);
+
+		TextView writer = (TextView) convertView
+				.findViewById(R.id.community_list_writer);
 		writer.setText(arrData.get(position).getWriter());
-		
-		TextView date = (TextView)convertView.findViewById(R.id.community_list_date);
+
+		TextView date = (TextView) convertView
+				.findViewById(R.id.community_list_date);
 		date.setText(arrData.get(position).getDate());
-		
+
 		return convertView;
 	}
 

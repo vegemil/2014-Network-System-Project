@@ -1,9 +1,6 @@
 package com.example.want;
 
 import java.util.ArrayList;
-
-import com.example.want.View_noticelist_secondgrader.connectTask;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -17,8 +14,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class View_noticelist_fourthgrader extends ActionBarActivity  implements
-AsyncResponse {
+public class View_noticelist_fourthgrader extends ActionBarActivity {
 
 	private String[] serverMessage = new String[100];
 	private String[] title = new String[100];
@@ -35,7 +31,6 @@ AsyncResponse {
 	private TCPClient myTcpClient;
 
 	public class connectTask extends AsyncTask<String, String, String> {
-		public AsyncResponse delegate = null;
 
 		@Override
 		protected String doInBackground(String... message) {
@@ -53,7 +48,7 @@ AsyncResponse {
 					Log.i("server에서 받은 값", serverMessage[count]);
 					count++;
 				}
-			}, 9999);
+			});
 
 			myTcpClient.run();
 			Log.i("onCreate", "스레드 시작");
@@ -61,14 +56,8 @@ AsyncResponse {
 			return null;
 		}
 
-		@Override
-		protected void onProgressUpdate(String... values) {
-			super.onProgressUpdate(values);
-
-		}
-
 	}
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -85,7 +74,8 @@ AsyncResponse {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(getApplicationContext(), Write_notice_fourthgrade.class);
+				Intent intent = new Intent(getApplicationContext(),
+						Write_notice_fourthgrade.class);
 				startActivity(intent);
 			}
 		});
@@ -110,7 +100,6 @@ AsyncResponse {
 		// 서버접속 요청
 		final connectTask connect = new connectTask();
 		connect.execute("");
-		connect.delegate = this;
 
 		try {
 			Thread.sleep(1000);
@@ -128,6 +117,7 @@ AsyncResponse {
 			}
 		}
 
+		myTcpClient.sendMessage("1");
 		myTcpClient.sendMessage("4");
 		Log.i("SecondGrader_Notice", "메세지 던짐");
 
@@ -181,7 +171,7 @@ AsyncResponse {
 				Log.i("Community text data", Community_Text_Data.getTitle());
 				Log.i("Community text data", Community_Text_Data.getWriter());
 				Intent intent = new Intent(getApplicationContext(),
-						View_noticebody_secondgrader.class);
+						View_noticebody_fourthgrader.class);
 				startActivity(intent);
 			}
 		});
@@ -189,14 +179,8 @@ AsyncResponse {
 		for (int i = 0; i < listCount + 1; i++)
 			serverMessage[i] = null;
 		count = 0;
-		
+
 		myTcpClient.stopClient();
-	}
-	
-	@Override
-	public void processFinish(String output) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
