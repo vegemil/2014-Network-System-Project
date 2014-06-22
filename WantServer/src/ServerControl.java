@@ -18,12 +18,12 @@ public class ServerControl {
 
 		try {
 			server_socket = new ServerSocket(65535);
-			System.out.println("**서버 실행**");
+			System.out.println("**Server Start**");
 			
 			// 다수의 클라이언트와 통신하기 위해 loop
 			while (true) {
 				client_socket = server_socket.accept(); // 클라이언트 접속시 새로운 소켓이 리턴
-				System.out.println(client_socket.getInetAddress() + "님 입장");
+				System.out.println(client_socket.getInetAddress() + " connect");
 				
 				ServerThread st = new ServerThread(client_socket);
 				st.start();
@@ -36,7 +36,7 @@ public class ServerControl {
 				client_socket.close();
 			if (server_socket != null)
 				server_socket.close();
-			System.out.println("**서버 종료**");
+			System.out.println("**Server Finish**");
 		}
 	}
 

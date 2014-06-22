@@ -23,9 +23,10 @@ public class ServerThread extends Thread {
 		try {
 			System.out.println("ServerThread Run!");
 			service();
-			closeAll();
+
 		} catch (IOException e) {
-			System.out.println("**" + userIP + "접속 종료.");
+			System.out.println("**" + userIP + " Connect Finish.");
+			System.out.println("");
 		}
 	}
 
@@ -37,7 +38,8 @@ public class ServerThread extends Thread {
 		while (true) {
 			client_message = in.readLine();
 			if (client_message == null || client_message.equals("")) {
-				System.out.println(userIP + "님이 연결을 종료했습니다.");
+				System.out.println(userIP + " Disconnect");
+				System.out.println("");
 			}
 
 			String grade;
@@ -50,7 +52,7 @@ public class ServerThread extends Thread {
 
 			switch (client_message) {
 			case "1": // 커뮤니티 글 목록 불러오기
-				System.out.println("커뮤니티 글 목록 출력");
+				System.out.println("Community List View");
 
 				grade = in.readLine();
 
@@ -60,7 +62,7 @@ public class ServerThread extends Thread {
 				break;
 
 			case "2": // 커뮤니티 글 보여주기
-				System.out.println("커뮤니티 글 출력");
+				System.out.println("Community Body View");
 
 				grade = in.readLine();
 				textNum = in.readLine();
@@ -70,7 +72,7 @@ public class ServerThread extends Thread {
 				break;
 
 			case "3": // 커뮤니티 글 쓰기
-				System.out.println("커뮤니티 글 쓰기");
+				System.out.println("Community Write");
 
 				String title = in.readLine();
 				name = in.readLine();
@@ -95,7 +97,7 @@ public class ServerThread extends Thread {
 				break;
 
 			case "4": // 커뮤니티 댓글 보여주기
-				System.out.println("커뮤니티 댓글 출력");
+				System.out.println("Comment List View");
 
 				grade = in.readLine();
 				textNum = in.readLine();
@@ -105,7 +107,7 @@ public class ServerThread extends Thread {
 				break;
 
 			case "5": // 커뮤니티 댓글쓰기
-				System.out.println("커뮤니티 댓글 쓰기");
+				System.out.println("Comment Write");
 
 				String index = in.readLine();
 				id = in.readLine();
@@ -120,7 +122,7 @@ public class ServerThread extends Thread {
 				break;
 
 			case "6": // 로그인
-				System.out.println("로그인");
+				System.out.println("Login");
 
 				Login login = new Login();
 
@@ -134,8 +136,8 @@ public class ServerThread extends Thread {
 			default:
 				break;
 			}
+			closeAll();
 
-			System.out.println("");
 		}
 	}
 
