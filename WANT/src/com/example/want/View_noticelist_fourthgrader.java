@@ -1,6 +1,7 @@
 package com.example.want;
 
 import java.util.ArrayList;
+
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -183,4 +184,11 @@ public class View_noticelist_fourthgrader extends ActionBarActivity {
 		myTcpClient.stopClient();
 	}
 
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		myTcpClient.stopClient();
+		// connect.cancel(true);
+		super.onPause();
+	}
 }

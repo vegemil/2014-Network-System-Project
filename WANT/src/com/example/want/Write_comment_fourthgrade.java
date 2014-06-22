@@ -3,6 +3,7 @@ package com.example.want;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -115,4 +116,11 @@ public class Write_comment_fourthgrade extends ActionBarActivity {
 		});
 	}
 
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		myTcpClient.stopClient();
+		// connect.cancel(true);
+		super.onPause();
+	}
 }

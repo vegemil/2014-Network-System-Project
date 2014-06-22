@@ -142,4 +142,11 @@ public class View_noticebody_firstgrader extends ActionBarActivity {
 		myTcpClient.stopClient();
 	}
 
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		myTcpClient.stopClient();
+		// connect.cancel(true);
+		super.onPause();
+	}
 }

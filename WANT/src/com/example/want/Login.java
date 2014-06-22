@@ -58,7 +58,6 @@ public class Login extends ActionBarActivity {
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		myTcpClient.stopClient();
-		// connect.cancel(true);
 		super.onPause();
 	}
 

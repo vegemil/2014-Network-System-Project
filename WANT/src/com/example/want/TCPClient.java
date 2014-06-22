@@ -14,7 +14,7 @@ import android.util.Log;
 public class TCPClient {
 
 	private String serverMessage;
-	private final String SERVERIP = "192.168.0.13"; // your computer IP address
+	private final String SERVERIP = "54.199.254.163"; // your computer IP address
 
 	private final int SERVERPORT = 65535;
 	private OnMessageReceived mMessageListener = null;

@@ -137,4 +137,12 @@ public class Join extends ActionBarActivity {
 
 	}
 
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		myTcpClient.stopClient();
+		// connect.cancel(true);
+		super.onPause();
+	}
+
 }

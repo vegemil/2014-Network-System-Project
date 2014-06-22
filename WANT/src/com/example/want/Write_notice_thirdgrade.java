@@ -3,6 +3,7 @@ package com.example.want;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -137,5 +138,12 @@ public class Write_notice_thirdgrade extends ActionBarActivity {
 
 			}
 		});
+	}
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		myTcpClient.stopClient();
+		// connect.cancel(true);
+		super.onPause();
 	}
 }
